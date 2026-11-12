@@ -1,6 +1,6 @@
 # Hisense VIDAA: eigener Homescreen statt Werbung
 
-[English](README.md) · [Masterprompt für Claude und Codex](MASTERPROMPT.md) · [Einfache Anleitung](START-HERE.md)
+[English](README.md) · [Agent-Einstieg](AGENT-START.md) · [Masterprompt](MASTERPROMPT.md) · [Einfache Anleitung](START-HERE.md) · [Simulation](SIMULATION.md)
 
 Dieses Projekt erklärt Coding Agents, wie sie auf einem **kompatiblen Hisense
 VIDAA-Fernseher** eine eigene native Startseite mit einem App-Dock einrichten.
@@ -15,14 +15,27 @@ lokale TV-App-Icons oder Textkacheln genutzt.
 
 ## Einfach dem Coding Agent geben
 
-Kopiere diesen Text in Claude Code oder Codex mit Terminal-Zugriff auf einen
-Computer im selben Netzwerk wie dein Fernseher:
+Gib Claude Code oder Codex den Repo-Link mit dem Auftrag, es auf deinem eigenen
+TV einzurichten. Der Agent soll zuerst selbst die lokalen Prüfungen starten.
+Falls er den Link nur zusammenfasst, kopiere diesen kurzen Auftrag:
 
-> Lies https://raw.githubusercontent.com/nineodernein/hisense-vidaa-clean-home/main/MASTERPROMPT.md und setze die Anleitung für meinen eigenen Hisense-VIDAA-TV um. Prüfe zuerst Modell, Firmware und Zugriff. Ich möchte den nativen Homescreen mit App-Dock. Sichere Originaldateien privat, ändere keine anderen Geräte und installiere nichts bei unpassendem Firmware-Hash.
+> Richte https://github.com/nineodernein/hisense-vidaa-clean-home für meinen eigenen TV ein. Folge AGENT-START.md und MASTERPROMPT.md und starte jetzt die Offline-Prüfungen. Prüfe Kompatibilität und Rückweg; sichere Originaldateien privat. Frage nur nach fehlenden Angaben oder neuen Berechtigungen. Ändere keine anderen Geräte.
 
 Der Agent bekommt Quellcode und konkrete Prüfschritte. Er muss nicht noch einmal
 das ganze Projekt erfinden. Ein normaler Chat ohne Zugriff auf deinen Computer
 und dein Netzwerk kann den Fernseher trotzdem nicht selbst ändern.
+
+Der ausführbare Start mit vorhandenem Python 3.10+ und Node 18+ lautet:
+
+```sh
+python3 agent.py start --json
+```
+
+Er testet die Quellen und erstellt private, leere Vorlagen. `prepare` prüft später
+die tatsächlichen Geräteangaben und Originaldateien, sichert sie erneut und baut
+ein privates Paket. Diese Befehle nehmen keinen Kontakt zum TV auf. Die passende
+Wartungsverbindung und eine geprüfte Installation bleiben geräteabhängig.
+Eine bestandene Simulation ersetzt keinen Hardwaretest.
 
 ## Was funktioniert?
 

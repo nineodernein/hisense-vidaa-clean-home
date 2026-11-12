@@ -16,11 +16,15 @@ einfach als TV-Firmware einspielen. Keine .bin/.pkg-Datei auf Verdacht flashen.
 
 ## 2. Dem Coding Agent Zugriff auf den Projektordner geben
 
+Du kannst dem Agent auch direkt den Repo-Link mit dem Auftrag zum Einrichten
+geben. [AGENT-START.md](AGENT-START.md) erklärt ihm den automatischen lokalen
+Einstieg; Herunterladen und Befehle ausführen übernimmt er mit seinen Werkzeugen.
+
 Den entpackten Ordner in **Codex** oder **Claude Code** öffnen. Der Computer muss
 den Fernseher im eigenen Netzwerk erreichen können. Ein reiner Web-Chat hat
 diesen Zugriff normalerweise nicht. Danach diesen Auftrag einfügen:
 
-> Lies MASTERPROMPT.md und AGENTS.md. Prüfe meinen eigenen Hisense VIDAA und
+> Lies AGENT-START.md, MASTERPROMPT.md und AGENTS.md. Starte selbst die Offline-Prüfung. Prüfe meinen eigenen Hisense VIDAA und
 > richte den nativen App-Dock-Homescreen ein, wenn die Kompatibilität nachgewiesen
 > ist. Sichere die Originale privat. Zeige mir vor Systemänderungen den konkreten
 > Plan und den Rückweg. Andere Geräte und Routereinstellungen bleiben unverändert.
@@ -42,22 +46,36 @@ Python 3.10+ und Node 18+ müssen auf dem Computer vorhanden sein.
 Der Agent darf fehlende Programme nicht heimlich installieren.
 
 ```sh
-node check.mjs
-python3 check.py
-python3 privacy-check.py
-mkdir -m 700 .private
-cp config.example.json .private/ui.json
+python3 agent.py start --json
 ```
 
-Der Agent sichert Home/Saver vom eigenen TV nach .private/stock und prüft die
-Hashes. Mit passenden Originalen:
+Ohne TV-Kontakt läuft nur die Prüfung und Simulation; anschließend werden leere
+Vorlagen unter .private/ angelegt. Fehlende Programme werden gemeldet, nicht
+automatisch installiert. Für eine reine Simulation ohne Vorlagen:
 
 ```sh
-node build.mjs --config .private/ui.json --out .private/build-first
+python3 agent.py simulate --json
 ```
 
-Das erzeugt ein **privates** TV-Bundle; noch keine Installation.
-Diese Dateien enthalten Hersteller-Code und bleiben bei dir.
+Mit erlaubtem Lesezugriff sichert der Agent Home/Saver nach .private/stock und
+füllt .private/device.json aus echten Beobachtungen. Die Originaldateien,
+Firmware, Dateirechte, freier Speicher, App Store und der Rückweg werden geprüft.
+Danach:
+
+```sh
+python3 agent.py prepare --json
+```
+
+Das erstellt zusätzliche Sicherungskopien, ein **privates** TV-Bundle und einen
+Prüfplan; noch keine Installation. Diese Dateien enthalten Hersteller-Code und
+bleiben bei dir. Der gemeldete Plan lässt sich vor einer Übertragung erneut prüfen:
+
+```sh
+python3 agent.py verify-plan --plan .private/plans/<id>.json
+```
+
+`<id>` durch den tatsächlich ausgegebenen Namen ersetzen. Der Check bestätigt nur
+die lokalen Dateien; der aktuelle TV-Zustand muss separat geprüft werden.
 
 ## 5. Auf dem TV aktivieren
 

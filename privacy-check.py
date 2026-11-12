@@ -10,7 +10,9 @@ ALLOWED={
  'native-platform.js','native-core.js','native-dock.js','native-actions.js','native-media.js',
  'native-video.js','native-saver.js','native-entry.js','build.mjs','prepare-media.py','dns-rules.py',
  'check.mjs','check.py','check-video.cjs','privacy-check.py','config.example.json',
- 'compatibility.json','dns-candidates.json','preview.jpg','metal-icon-atlas.png','metal-tab-atlas.png'
+ 'compatibility.json','dns-candidates.json','preview.jpg','metal-icon-atlas.png','metal-tab-atlas.png',
+ 'agent.py','check-agent.py','check-bundle.mjs','device.example.json','AGENT-START.md',
+ 'SIMULATION.md','.github/workflows/offline-checks.yml'
 }
 def jpeg_private_metadata(data):
     if data[:2]!=b'\xff\xd8':return True
@@ -50,15 +52,23 @@ def issues(path):
     return out
 def main():
     root=Path(__file__).resolve().parent;fail=[]
-    for p in root.iterdir():
-        if p.name in {'.git','.private','__pycache__'}:continue
-        if p.is_symlink() or not p.is_file() or p.name not in ALLOWED:fail.append((p.name,'unexpected file/directory'));continue
-        for issue in issues(p):fail.append((p.name,issue))
+    def walk(directory):
+        for p in directory.iterdir():
+            name=p.relative_to(root).as_posix()
+            if directory==root and name in {'.git','.private','__pycache__'}:continue
+            if p.is_symlink():fail.append((name,'unexpected symlink'));continue
+            if p.is_dir():
+                if any(n.startswith(name+'/') for n in ALLOWED):walk(p)
+                else:fail.append((name,'unexpected directory'))
+                continue
+            if not p.is_file() or name not in ALLOWED:fail.append((name,'unexpected file'));continue
+            for issue in issues(p):fail.append((name,issue))
+    walk(root)
     if (root/'.git').exists():
         tracked=subprocess.run(['git','ls-files'],cwd=root,capture_output=True,text=True,check=True).stdout.splitlines()
         for name in tracked:
             if name not in ALLOWED:fail.append((name,'private/unapproved tracked path'))
-    missing=ALLOWED-{p.name for p in root.iterdir()}
+    missing={n for n in ALLOWED if not (root/n).is_file()}
     for n in sorted(missing):fail.append((n,'missing release file'))
     print(json.dumps({'ok':not fail,'findings':[{'file':f,'type':t} for f,t in fail],'networkUsed':False},indent=2))
     raise SystemExit(1 if fail else 0)

@@ -44,6 +44,10 @@ video saver returning to Home were confirmed by the owner.
 
 ## Not verified
 
+The offline agent workflow and assembled-bundle simulations are described in
+[SIMULATION.md](SIMULATION.md). They exercise synthetic SDK/player/file behavior;
+passing them does not add another supported TV or prove physical recovery.
+
 - This generalized public source build on a physical TV.
 - The packaged shared media chooser on a physical TV.
 - Automatic Home saver after a real ten-minute idle test.

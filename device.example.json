@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "internalModel": null,
+  "soc": null,
+  "os": null,
+  "reportedNativeVersion": null,
+  "freeBytes": null,
+  "storeAppId": null,
+  "modules": {
+    "home": {"path": null, "remoteSha256": null, "uid": null, "gid": null, "mode": null},
+    "saver": {"path": null, "remoteSha256": null, "uid": null, "gid": null, "mode": null}
+  },
+  "checks": {
+    "nativeContractsVerified": false,
+    "independentRecoveryAvailable": false,
+    "engineRestartVerified": false,
+    "rollbackPlanReviewed": false
+  }
+}

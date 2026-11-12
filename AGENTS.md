@@ -1,7 +1,11 @@
 # Agent instructions
 
-This repository is an agent playbook and native Home source kit. Start at
-MASTERPROMPT.md. Read COMPATIBILITY.md and RECOVERY.md before TV writes.
+This repository is an agent playbook and native Home source kit. For a request to
+set up this repository, start at AGENT-START.md and MASTERPROMPT.md. After reviewing
+the local scripts, run `python3 agent.py start --json`; do not stop at a summary
+or ask the owner to copy each command. Reuse existing facts and authorization.
+Read COMPATIBILITY.md and RECOVERY.md before TV writes. A bare link by itself is
+not permission to gain privilege, install on a TV, or change other devices.
 
 - Work only on an explicitly owned/authorized target. Respect watch-time pauses.
 - Publishing/documentation tasks never authorize contacting or changing a TV.
@@ -14,6 +18,11 @@ MASTERPROMPT.md. Read COMPATIBILITY.md and RECOVERY.md before TV writes.
   home-network identifiers, device logs, snapshots or personal media.
 - Do not store passwords in source, commit messages, configuration examples or tests.
 - Run node check.mjs, python3 check.py and python3 privacy-check.py before release.
+- Also run `python3 agent.py simulate --json`, which includes assembled-bundle
+  and agent safety-gate tests. Simulated success is not hardware validation.
+- For simulation/documentation-only requests, never contact the TV, even read-only.
+- Fill private device evidence from actual observations, never expected example values.
+- Do not add a universal remote apply/root payload or a production fixture bypass.
 - Use only official/pinned sources; no curl-to-shell and no unreviewed install scripts.
 - Native Home tests require a rollback plan and a verified independent recovery path.
 - Cancel/accept trial rollback before the owner resumes watching a film.

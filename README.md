@@ -1,7 +1,7 @@
 # Hisense VIDAA Clean Home
 ## Native app dock, custom home screen and animated wallpapers
 
-[Deutsch](README.de.md) · [Start with your coding agent](MASTERPROMPT.md) · [Download & setup](START-HERE.md) · [Compatibility](COMPATIBILITY.md) · [VIDAA brands & models](VIDAA-MODELS.md)
+[Deutsch](README.de.md) · [Start with your coding agent](AGENT-START.md) · [Download & setup](START-HERE.md) · [Compatibility](COMPATIBILITY.md) · [Offline simulation](SIMULATION.md) · [VIDAA brands & models](VIDAA-MODELS.md)
 
 Replace the sponsored Hisense VIDAA home screen with a local, native app dock.
 Keep your real installed apps, HDMI inputs and TV settings. Long-press OK to
@@ -16,12 +16,25 @@ The default build uses the TV's cached icons or text tiles.*
 
 ### Give this to Claude Code or Codex
 
-Paste this into a coding agent with terminal access on a computer in your TV's network:
+Give the repository link to Codex or Claude Code with a request to set it up for
+your own TV. The agent should begin the local checks automatically. If it only
+summarizes the link, paste this explicit instruction:
 
-> Read https://raw.githubusercontent.com/nineodernein/hisense-vidaa-clean-home/main/MASTERPROMPT.md and follow it for my own Hisense VIDAA TV. Verify compatibility first, keep backups private, and give me a native home screen with the dock. Do not touch other devices.
+> Set up https://github.com/nineodernein/hisense-vidaa-clean-home for my own TV. Follow AGENT-START.md and MASTERPROMPT.md, run the offline checks now, verify compatibility and recovery, and keep all backups private. Ask only for genuinely missing information or new permissions. Do not touch other devices.
 
-The [masterprompt](MASTERPROMPT.md) is the main entry point. It links the exact
-source files, commands, checkpoints and recovery procedure. This is an
+The [agent entry point](AGENT-START.md) tells the agent what to execute and how to
+handle each result. The [masterprompt](MASTERPROMPT.md) supplies the detailed
+procedure. With Python 3.10+ and Node 18+ already available, the first command is:
+
+```sh
+python3 agent.py start --json
+```
+
+It checks the project, runs offline simulations and prepares blank private files.
+It does not contact a TV or install software. The agent then collects missing
+device evidence, prepares verified backups and a private build for review.
+Use an agent with terminal access on your own computer; a remote web chat usually
+cannot reach your TV. This is an
 **agent-assisted recipe with source code**, not a universal one-click jailbreak.
 A matching firmware and an authorized maintenance channel are prerequisites for
 the native route. No promise of “a few minutes” on every model.

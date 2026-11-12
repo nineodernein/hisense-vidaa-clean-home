@@ -4,6 +4,12 @@ Prepare recovery before any write. A nice-looking preview is not a recovery plan
 
 ## Private backup
 
+`agent.py prepare` validates supplied device evidence against the fixed profile,
+retains additional private original copies, and produces a local artifact/hash
+plan. `verify-plan` detects changes to those local artifacts. Neither command
+contacts the TV or verifies that a live recovery channel works; check that
+separately. See AGENT-START.md for the automated local handoff.
+
 Use the exact module paths from compatibility.json only after verifying the
 device. Save both original modules on the owner's computer and on an appropriate
 private TV release directory. Verify SHA-256 on both sides and preserve ownership

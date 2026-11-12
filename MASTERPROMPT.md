@@ -2,7 +2,7 @@
 
 You are a coding agent with filesystem and terminal access on the owner's computer.
 Implement the native dock using this repository. Read this entire file, AGENTS.md,
-COMPATIBILITY.md and RECOVERY.md before changing a TV. This document is a procedure,
+AGENT-START.md, COMPATIBILITY.md and RECOVERY.md before changing a TV. This document is a procedure,
 not proof of authorization for a device or a license to bypass platform safety rules.
 
 ## The requested result
@@ -27,21 +27,25 @@ Download a tagged/source ZIP, or clone it. Pin the revision you actually use and
 record it locally. Read files before running them; do not pipe a remote script
 into a shell. Download only from the named project/upstream sources.
 
-Run from the extracted folder:
+For an owner request to set up this repository, begin the executable local
+workflow after inspecting its source. Do not stop at advice or ask the owner to
+run every command. Run from the extracted folder:
 
 ```sh
-node check.mjs
-python3 check.py
-python3 privacy-check.py
+python3 agent.py start --json
 ```
 
-These commands are offline. Do not install missing software automatically.
+This command runs the offline runtime, bundle, simulation and privacy checks,
+then creates blank private device/UI templates and a session manifest. Re-running
+it preserves existing templates. Read its JSON status and follow AGENT-START.md.
+For simulation only, use `python3 agent.py simulate --json` and never contact a TV.
+Do not install missing software automatically.
 Use an existing Python 3.10+ and Node 18+ where available; explain a missing
 prerequisite once and use official vendor/package-manager sources if authorized.
 FFmpeg is optional until a video is requested.
 
-Create a private working folder with restrictive permissions:
-`mkdir -m 700 .private`. Keep configuration, IPs, SSH keys, firmware bundles,
+The startup command creates `.private/` with restrictive permissions. If making
+it manually, use `mkdir -m 700 .private`. Keep configuration, IPs, SSH keys, firmware bundles,
 logs and backups there, never in Git-tracked source. Do not copy the author's
 device data or media; none is required or distributed.
 
@@ -107,14 +111,21 @@ Default icons come from the TV's local inventory. Do not fabricate installed app
 hardcode a private app list, request remote icon CDNs or include paid icon packs.
 The profile's storeAppId must be checked against the TV inventory.
 
-Copy config.example.json to .private/ui.json and add only the owner's chosen
+Use the .private/ui.json created by `start` and add only the owner's chosen
 local icon/video files. Use empty media for the static fallback initially.
-Then build:
+Fill .private/device.json from actual authorized observations, including remote
+hashes, original modes/ownership, free space and recovery checks. Never populate
+it by copying the expected profile. Then prepare:
 
 ```sh
-node build.mjs --config .private/ui.json --out .private/build-first
+python3 agent.py prepare --json
 ```
 
+This retains additional private originals, runs the guarded build and writes a
+review manifest. It does not contact the TV or perform a remote installation.
+Before transfer run `python3 agent.py verify-plan --plan <reported-private-plan>`.
+Live device state and the maintenance deadline must still be checked separately.
+For manual local builds, `node build.mjs` remains available under the same hash guard.
 The build accepts only the exact original module hashes in compatibility.json.
 The output deliberately contains the owner's OEM code and is PRIVATE.
 Do not upload it as a GitHub Release, artifact, issue attachment or pull request.

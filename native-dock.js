@@ -15,7 +15,10 @@
   };
   c.methods.shelf=function(){
    if(this.favorites!==null)return this.favorites.map(function(id){return this.apps.filter(function(a){return String(a.appId)===id;})[0];},this).filter(Boolean);
-   var apps=this.apps;return preferred.map(function(re){return apps.filter(function(a){return re.test(a.appName);})[0];}).filter(Boolean);
+   var apps=this.apps,store=String((root.CleanHomeConfig||{}).storeAppId||'164'),seen={},ordered=[];
+   preferred.map(function(re){return apps.filter(function(a){return re.test(a.appName);})[0];}).concat(apps).forEach(function(app){
+    if(!app)return;var id=String(app.appId);if(id===store||seen[id])return;seen[id]=true;ordered.push(app);
+   });return ordered.slice(0,8);
   };
   c.methods.save=function(){originalSave.call(this);sdk.storage.set('owner.nativeDesign',{motion:this.motion,video:this.videoEnabled});};
   c.methods.tab=function(){return this.view==='inputs'?1:['tv','prefs','about','backgrounds','savers'].indexOf(this.view)>=0?2:0;};

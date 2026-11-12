@@ -33,6 +33,34 @@ export function validateConfig(c){
 export function verifiedStock(home,saver,profile){
  for(const [name,data] of Object.entries({home,saver}))if(sha(data)!==profile.stock[name])throw Error('Unsupported '+name+' hash. Stop; do not change the profile to force installation.');
 }
+// Pure assembly is shared by the production build and synthetic bundle tests.
+// It is not an alternate installer; the CLI always verifies the fixed profile first.
+export function assemble(home,saver,configuration){
+ const config=validateConfig(configuration);
+ const generated='self.CleanHomeConfig='+JSON.stringify(config)+';\nself.OwnerDebug=false;\n';
+ const src=n=>fs.readFileSync(path.join(root,n),'utf8');
+ const license=['LICENSE','LICENSE.alvidaa.txt','LICENSE.free-my-tv.txt','LICENSE.metal-fx.txt'].map(src).join('\n');
+ const common=generated+src('native-media.js')+'\n;\n'+src('native-video.js');
+ const homeParts=['native-platform.js','native-core.js','native-dock.js','native-actions.js','native-entry.js'];
+ const bundles={
+  'home.js':'/*\n'+license+'\n*/\n'+home.toString()+'\n;\n'+common+'\n;\n'+homeParts.map(src).join('\n;\n'),
+  'saver.js':saver.toString()+'\n;\n'+common+'\n;\n'+src('native-saver.js')
+ };
+ for(const [name,data] of Object.entries(bundles))new vm.Script(data,{filename:name});
+ return bundles;
+}
+export function privateOutput(out,privateRoot=path.resolve('.private')){
+ out=path.resolve(out);privateRoot=path.resolve(privateRoot);
+ if(out===privateRoot||!out.startsWith(privateRoot+path.sep))throw Error('Build output must be below .private/ to avoid publishing OEM code');
+ let current=privateRoot;
+ for(const part of ['',...path.relative(privateRoot,out).split(path.sep)]){
+  if(part)current=path.join(current,part);
+  // lstat also catches dangling symlinks, unlike existsSync.
+  try{const info=fs.lstatSync(current);if(info.isSymbolicLink()||!info.isDirectory())throw Error('Private output ancestors must be real directories');}
+  catch(error){if(error.code!=='ENOENT')throw error;}
+ }
+ return out;
+}
 function main(){
  const args=process.argv.slice(2),opt={};
  for(let i=0;i<args.length;i+=2){
@@ -44,9 +72,7 @@ function main(){
  const profile=JSON.parse(fs.readFileSync(path.join(root,'compatibility.json'),'utf8'));
  verifiedStock(home,saver,profile);
  const config=validateConfig(JSON.parse(fs.readFileSync(opt['--config']||path.join(root,'config.example.json'),'utf8')));
- const out=path.resolve(opt['--out']||'.private/build');
- const privateRoot=path.resolve('.private');
- if(out===privateRoot||!out.startsWith(privateRoot+path.sep))throw Error('Build output must be below .private/ to avoid publishing OEM code');
+ const out=privateOutput(opt['--out']||'.private/build');
  if(fs.existsSync(out))throw Error('Output already exists; choose a new .private/build-... directory');
  const assets=new Map(['metal-icon-atlas.png','metal-tab-atlas.png'].map(n=>[n,fs.readFileSync(path.join(root,n))]));
  const mediaDir=path.resolve(opt['--media-dir']||'.private/media');
@@ -56,16 +82,7 @@ function main(){
   if(fs.lstatSync(f).isSymbolicLink()||!fs.statSync(f).isFile()||!fs.realpathSync(f).startsWith(fs.realpathSync(mediaDir)+path.sep))throw Error('Asset must be an ordinary file inside media directory');
   assets.set(n,fs.readFileSync(f));
  }
- const generated='self.CleanHomeConfig='+JSON.stringify(config)+';\nself.OwnerDebug=false;\n';
- const src=n=>fs.readFileSync(path.join(root,n),'utf8');
- const license=['LICENSE','LICENSE.alvidaa.txt','LICENSE.free-my-tv.txt','LICENSE.metal-fx.txt'].map(src).join('\n');
- const common=generated+src('native-media.js')+'\n;\n'+src('native-video.js');
- const homeParts=['native-platform.js','native-core.js','native-dock.js','native-actions.js','native-entry.js'];
- const bundles={
-  'home.js':'/*\n'+license+'\n*/\n'+home.toString()+'\n;\n'+common+'\n;\n'+homeParts.map(src).join('\n;\n'),
-  'saver.js':saver.toString()+'\n;\n'+common+'\n;\n'+src('native-saver.js')
- };
- for(const [name,data] of Object.entries(bundles))new vm.Script(data,{filename:name});
+ const bundles=assemble(home,saver,config);
  fs.mkdirSync(out,{recursive:true,mode:0o700});fs.mkdirSync(path.join(out,'assets'),{mode:0o700});
  const manifest={profile:profile.id,stock:profile.stock,containsPrivateVendorCode:true,publicRelease:false,files:{},assetsBytes:0};
  for(const [name,data] of Object.entries(bundles)){fs.writeFileSync(path.join(out,name),data,{mode:0o600});manifest.files[name]=sha(data);}
