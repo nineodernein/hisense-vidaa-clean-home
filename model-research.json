@@ -134,6 +134,23 @@
       "adapter": null,
       "source": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/research/inventory.json",
       "finding": "Reported web launcher/watcher success with native access blocked. A browser watcher is not a native Home replacement."
+    },
+    {
+      "id": "43a5le-q0707",
+      "models": [
+        "43A5LE",
+        "43A60LEVS_0002"
+      ],
+      "firmwares": [
+        "V0000.09.60A.Q0707"
+      ],
+      "soc": "MTK9603",
+      "region": "EU_A",
+      "access": "upstream_root_not_attempted",
+      "nativeHome": "not_verified",
+      "adapter": null,
+      "source": "https://github.com/carteakey/alvidaa/blob/459bb3f6beb60e0605f867bd6f747abfe8d79fe8/docs/models/43A5LE/V0000.09.60A.Q0707/README.md",
+      "finding": "Upstream information getters and app-registry fileRead worked. Browser fileWrite returned an app-identity gate; the separate Fetcher/root route was not attempted. This is not evidence for V0002.09.60A.Q0707."
     }
   ],
   "unverifiedCommunityRequests": [
@@ -156,6 +173,64 @@
       "model": null,
       "reportedSoc": null,
       "firmware": "V01.09.60G.Q0612"
+    }
+  ],
+  "accessResearch": {
+    "guide": "ACCESS-RESEARCH.md",
+    "upstreamRevision": "459bb3f6beb60e0605f867bd6f747abfe8d79fe8",
+    "scope": "Offline research directions, not executed probes, installation approval or a universal root method.",
+    "sources": {
+      "correctedFalseNegative": "https://github.com/carteakey/alvidaa/blob/459bb3f6beb60e0605f867bd6f747abfe8d79fe8/docs/models/75U8QTUK/V0000.09.60I.Q0813/findings/05-fetcher-recheck.md",
+      "q0707Sibling": "https://github.com/carteakey/alvidaa/blob/459bb3f6beb60e0605f867bd6f747abfe8d79fe8/docs/models/43A5LE/V0000.09.60A.Q0707/README.md",
+      "mtk9603ServiceRoute": "https://github.com/carteakey/alvidaa/blob/459bb3f6beb60e0605f867bd6f747abfe8d79fe8/docs/models/43Q60SEVS/V0000.09.60W.Q0612/README.md",
+      "fetcherImplementation": "https://github.com/carteakey/alvidaa/blob/459bb3f6beb60e0605f867bd6f747abfe8d79fe8/docs/models/100U7Q/V0000.09.60I.Q0813/source/modding/02-write-and-exec.md"
+    },
+    "nextCapabilities": [
+      {
+        "id": "identity",
+        "next": "Reuse supplied facts; collect only missing values through available authorized information getters. Root is not universally required for model/chip queries."
+      },
+      {
+        "id": "bridge_context",
+        "next": "Inspect HiUtils_createRequest and vowOS.service.syncExecute separately. Classify CSP, origin, transport, absent API and argument errors; native-code toString output is not a permission result."
+      },
+      {
+        "id": "read_control",
+        "next": "Prepare the documented fileRead control with path as a one-element array and mode 6. Test only within applicable read scope; control-file success does not prove broader reads or writes."
+      },
+      {
+        "id": "service_source",
+        "next": "Inspect actually readable vendor manifests and Fetcher implementation. HiUtils fileWrite, basic/fetcher, FaaS execution and package privilege are separate boundaries."
+      },
+      {
+        "id": "bounded_access",
+        "next": "For a justified new write/privilege test, prepare exact effects, evidence, failure handling and cleanup before requesting missing scope. Do not run full recon pages or retry ambiguous package writes."
+      },
+      {
+        "id": "native_port",
+        "next": "After access is independently established, verify recovery and use this device's originals/contracts through PORTING.md. Validate static Home before video."
+      }
+    ],
+    "continuation": "Keep a private hypothesis/result/next-step ledger. A missing exact guide or one rejected interface does not end useful authorized research; pivot on source evidence, not blind retries."
+  },
+  "communityObservations": [
+    {
+      "id": "50e6nt-q0707-read-only",
+      "models": [
+        "50E6NT",
+        "50A60LEVS_0002",
+        "50A5LE"
+      ],
+      "firmwares": [
+        "V0002.09.60A.Q0707"
+      ],
+      "soc": "MTK9603",
+      "region": "EU_A",
+      "evidenceLevel": "owner_reported_information_getters",
+      "access": "file_and_root_access_unverified",
+      "nativeHome": "not_verified",
+      "source": "ACCESS-RESEARCH.md#community-case-50e6nt",
+      "finding": "Owner reported successful model, chip, type, region and country getters. Subsequent file/Fetcher diagnostics were proposed, not confirmed. No native installation or root success is established."
     }
   ]
 }

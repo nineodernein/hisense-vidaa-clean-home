@@ -24,21 +24,22 @@ Den entpackten Ordner in **Codex** oder **Claude Code** öffnen. Der Computer mu
 den Fernseher im eigenen Netzwerk erreichen können. Ein reiner Web-Chat hat
 diesen Zugriff normalerweise nicht. Danach diesen Auftrag einfügen:
 
-> Lies AGENT-START.md, MASTERPROMPT.md und AGENTS.md. Starte selbst die Offline-Prüfung. Prüfe meinen eigenen Hisense VIDAA und
-> richte den nativen App-Dock-Homescreen ein, wenn die Kompatibilität nachgewiesen
-> ist. Sichere die Originale privat. Zeige mir vor Systemänderungen den konkreten
-> Plan und den Rückweg. Andere Geräte und Routereinstellungen bleiben unverändert.
+> Lies AGENT-START.md, MASTERPROMPT.md und AGENTS.md. Starte selbst die Offline-Prüfung. Untersuche meinen eigenen Hisense VIDAA nach ACCESS-RESEARCH.md: nutze bekannte Angaben weiter, prüfe konkrete Schnittstellen und verfolge nach einem Fehlversuch den nächsten belegten Ansatz. Richte den nativen Dock ein, sobald Zugang, Kompatibilität und Rückweg geprüft sind. Sichere Originale privat und zeige mir vor Systemänderungen den konkreten Plan. Andere Geräte und Routereinstellungen bleiben unverändert.
 
 ## 3. Die notwendigen Angaben
 
-Der Agent braucht Modell und vollständige Firmwareversion, die IP des TV und
-einen bereits erlaubten Wartungszugang oder einen nachvollziehbaren Weg dafür.
+Der Agent beginnt mit Modell und vollständiger Firmwareversion. Für erlaubte
+Geräteabfragen braucht er die bekannte TV-Adresse. Ein vorhandener
+Wartungszugang hilft; fehlt er, untersucht der Agent die Wege aus
+ACCESS-RESEARCH.md. Bereits bekannte Angaben müssen nicht erneut eingegeben werden.
 Seriennummer, Netflix-Passwort, Router-Passwort und private Kontodaten gehören
 nicht in ein öffentliches Issue. Gib Passwörter nicht als Teil des Masterprompts
 an; lokale Schlüssel und Konfiguration bleiben privat.
 
-Der aktuelle Build unterstützt nur die Originaldateien aus compatibility.json.
-„Hisense“ oder „VIDAA“ allein reicht nicht. Bei einer Abweichung bricht der Build ab.
+Der feste Referenz-Build akzeptiert nur die Originaldateien aus compatibility.json.
+Bei einer Abweichung endet dieser Build-Pfad. Der Agent forscht weiter und
+verwendet PORTING.md für eine getrennte Anpassung mit den eigenen Originaldateien.
+„Hisense“ oder „VIDAA“ allein ist keine Installationsfreigabe.
 
 ## 4. Erst offline prüfen und bauen
 
@@ -86,7 +87,8 @@ neu. Dieser Vorgang kann eine laufende App unterbrechen.
 
 Es gibt absichtlich keinen universellen Download-Knopf „alle Hisense entsperren“.
 Ein passender, begrenzter Wartungszugang ist Voraussetzung. Wenn der fehlt,
-kannst du unabhängig davon den DNS-Weg aus DNS.md verwenden.
+folgt der Agent zunächst ACCESS-RESEARCH.md. Den unabhängigen DNS-Weg aus DNS.md
+kannst du zusätzlich oder als bewusst gewählte Alternative verwenden.
 
 ## 6. Den Dock bedienen
 

@@ -10,6 +10,9 @@ reuse existing device facts and follow through the statuses in AGENT-START.md.
 Read WORKED-EXAMPLE.md for the complete original technical handoff. For a device
 that differs from the reference, read PORTING.md and develop its own reviewed
 integration; do not treat a hash mismatch as the end of the owner's task.
+Read ACCESS-RESEARCH.md before declaring an access route blocked. It contains
+the source-backed investigation loop, bridge call contracts and corrected false
+negatives from other devices.
 
 ## The requested result
 
@@ -25,6 +28,32 @@ Optional and separate: TV-scoped DNS rules for home promotional endpoints.
 
 Do not replace this request with a browser watcher unless the owner knowingly
 accepts that fallback after native compatibility cannot be established.
+
+## Research contract: persist and discriminate
+
+Act as the owner's implementation agent. Carry out useful authorized research
+and local development; do not merely describe what someone else could try.
+Reuse the reference successes and failures, then adapt to actual evidence.
+The absence of an exact-model guide calls for investigation, not stopping all work.
+
+Maintain a private hypothesis/result/next-step ledger as specified in
+ACCESS-RESEARCH.md. Separate identity, transport, HiUtils reads/writes, Fetcher,
+execution, package privilege, native Home and video. A failure at one interface
+must not mark all the others blocked. Check argument shape, caller context,
+service startup and source corrections before drawing a permission conclusion.
+Use the next source-backed route when the current one is actually closed.
+
+Every failed attempt should produce a narrower conclusion and a changed next
+test, not another identical request. Read public/available OEM source and prepare
+concrete diagnostics without repeated permission questions. Reuse live access
+permissions; ask only for a genuinely new scope, with the exact probe and cleanup
+ready to review. A dependency that blocks writes need not block source analysis.
+Stop only the dependent action, and continue other work that can still progress.
+
+Do not manufacture compatibility, permissions or a recovery method. If the
+remaining routes require unavailable evidence or authorization, report the exact
+dependency and the prepared resumption step. Do not claim every update retains
+the same vulnerability or label an untested device permanently impossible.
 
 ## 1. Get the project and run offline checks
 
@@ -73,8 +102,9 @@ SHA-256 values are decisive for the reference build; a similar model name is ins
 The native source expects _V_M_, _V_SDK_, /Launcher and /ScreenSaver/ScreenMode.
 
 If those requirements do not match, stop the reference native write path. Run
-`python3 agent.py research --json` and follow PORTING.md: investigate a documented
-access route, inspect the device's own SDK, create its private port draft, adapt
+`python3 agent.py research --json` and follow ACCESS-RESEARCH.md and PORTING.md:
+investigate source-backed access hypotheses, inspect the device's own SDK,
+create its private port draft, adapt
 the source and test a candidate locally. Only stop dependent live steps when
 their actual prerequisites are unresolved. A browser bridge rejection does not
 rule out every service, and a successful root report does not validate Home.
@@ -84,9 +114,13 @@ route can be established; do not silently substitute that for the native goal.
 
 ## 3. Establish a bounded, authorized maintenance path
 
-Read NATIVE-ACCESS.md. Prefer an existing authorized root shell. If absent, match
-the exact model/firmware against alvidaa's model documentation and explain the
-specific proposed access method before installation or privilege changes.
+Read NATIVE-ACCESS.md and ACCESS-RESEARCH.md. Prefer an existing authorized root
+shell. If absent, search the exact model/firmware and compare relevant service
+implementations from alvidaa's related-device reports. Unknown or different
+firmware calls for bounded investigation; it is neither an installation approval
+nor a requirement to find an already completed guide before doing any research.
+Explain the concrete method, effects and recovery before installation or
+privilege changes. Do not require root merely to prepare a read diagnostic.
 A browser bootstrap used once to establish access is not a browser-based Home UI.
 
 On the reference firmware, the working route was a browser-exposed file/service

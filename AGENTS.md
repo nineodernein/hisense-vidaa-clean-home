@@ -11,10 +11,18 @@ not permission to gain privilege, install on a TV, or change other devices.
 The target is native Home/dock/editing/direct Home return and optional local video.
 Read WORKED-EXAMPLE.md. For a nonmatching device continue research and PORTING.md;
 do not stop at the reference mismatch or invent a universal compatibility claim.
+Read ACCESS-RESEARCH.md for persistent, hypothesis-driven access investigation.
+Keep a private evidence/next-step ledger. Distinguish transport, argument, caller
+permission and missing-path failures, and keep HiUtils and Fetcher results
+separate. A missing exact guide or one rejected bridge must not end useful
+authorized research. Pivot to the next source-backed route; never blindly repeat
+an ambiguous write or treat a related-device report as this device's success.
 
 - Work only on an explicitly owned/authorized target. Respect watch-time pauses.
 - Publishing/documentation tasks never authorize contacting or changing a TV.
 - Preserve existing authorization; ask only for genuinely new access/scope.
+- Finish concrete diagnostics and cleanup plans before asking for a new scope.
+- A pending write/recovery dependency does not block independent source analysis.
 - Match firmware and original-file hashes. Never edit a profile just to force a pass.
 - Keep the existing OEM shell, parental checks, app authentication and updates.
 - No network scanning, default passwords, permanent root listener or bootloader flash.

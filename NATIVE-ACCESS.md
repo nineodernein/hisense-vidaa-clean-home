@@ -11,6 +11,12 @@ video. For a different device use [PORTING.md](PORTING.md) and
 pinned upstream revision and distinguishes blocked browser writes from other
 documented service paths. It does not execute or approve those paths.
 
+[ACCESS-RESEARCH.md](ACCESS-RESEARCH.md) is the next-step playbook when access is
+missing. It gives concrete HiUtils/vowOS read contracts, the separate Fetcher
+route, error classification and an evidence ledger. Keep progressing through
+source-backed hypotheses instead of requiring a completed exact-firmware guide
+before doing any useful investigation. Live writes retain their own review.
+
 ## Known working architecture
 
 1. Use an authorized, model-matched local maintenance channel.

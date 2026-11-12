@@ -34,14 +34,24 @@ def research(device, catalog):
         elif soc and soc == normalized(report['soc']):
             item['match'] = 'chip_only_not_device_compatibility'
             related.append(item)
-    return {'status': 'research_leads' if matches else 'needs_exact_device_research',
+    observations = []
+    for report in catalog.get('communityObservations', []):
+        if models.intersection(normalized(m) for m in report['models']):
+            item = dict(report)
+            item['match'] = ('model_and_reported_firmware' if version in report['firmwares'] else 'model_only')
+            observations.append(item)
+    return {'status': 'research_leads' if matches or observations else 'needs_exact_device_research',
             'exactModelReports': matches, 'relatedChipReports': related,
+            'communityObservations': observations,
+            'accessResearch': catalog['accessResearch'],
             'upstreamRevision': catalog['upstreamRevision'], 'inventory': catalog['inventory'],
             'installationApproved': False, 'hardwareVerifiedByThisProject': False,
-            'next': ['Read PORTING.md and WORKED-EXAMPLE.md; keep the reference profile unchanged.',
+            'next': ['Follow ACCESS-RESEARCH.md, PORTING.md and WORKED-EXAMPLE.md; keep the reference profile unchanged.',
                      'Read the linked primary sources and current upstream reports; pin every source used.',
-                     'Resolve full firmware, internal model and actual native SDK contracts on the authorized device.',
+                     'Reuse known identity and permissions. Keep owner-reported observations separate from upstream results and this project\'s hardware acceptance.',
+                     'Use the accessResearch capability sequence and private hypothesis/result ledger; prepare concrete diagnostics instead of stopping at a missing exact guide.',
                      'Keep access, native Home, video and DNS evidence separate. A blocked browser write is not proof all routes are blocked.',
+                     'Continue authorized source analysis while a live dependency is pending. Request only genuinely new scope with the exact effects and cleanup ready.',
                      'With authorized originals available, run agent.py port; continue local adaptation without forcing reference prepare.']}
 
 

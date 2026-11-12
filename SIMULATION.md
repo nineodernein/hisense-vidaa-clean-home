@@ -20,7 +20,7 @@ no simulation flag that allows them into the production CLI build.
 | `check-bundle.mjs` | The actual production assembly function with synthetic OEM modules: native Home → app → Home lifecycle, favorites menu, input grid, Store, full bundle load, SDK failure fallback and saver integration. |
 | `check-agent.py` | Device identity, original/remote hashes, metadata, free-space and recovery gates; blank evidence and test fixtures rejected; private path traversal/symlinks rejected; overwrite/artifact-corruption checks; redacted compatibility reports distinguish missing facts from mismatches. |
 | `check.py` | Client-scoped DNS rendering and video conversion graph validation. |
-| `check-port.py` | Exact-model versus chip-only research, no false A7GQ/E7NQ/firmware match, private original/review evidence, source/identity/hash changes, actual Node experimental build, unchanged saver and artifact verification. |
+| `check-port.py` | Exact-model versus chip-only research, no false A7GQ/E7NQ/firmware match, unknown devices retain an investigation path, community getter reports never become root/native support, private original/review evidence, source/identity/hash changes, actual Node experimental build, unchanged saver and artifact verification. |
 | `privacy-check.py` | Explicit public-file allowlist, tracked-path checks and known sensitive-data/metadata patterns. |
 
 The Python suite also models a failed trial and atomic restoration of synthetic

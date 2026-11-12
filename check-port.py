@@ -27,7 +27,7 @@ class ResearchTests(unittest.TestCase):
         result = ports.research({'marketingModel': 'A7GQ', 'soc': 'MTK9603'}, self.catalog)
         self.assertFalse(result['exactModelReports'])
         self.assertEqual({r['access'] for r in result['relatedChipReports']},
-                         {'upstream_blocked', 'upstream_root_reported'})
+                         {'upstream_blocked', 'upstream_root_reported', 'upstream_root_not_attempted'})
         self.assertFalse(result['installationApproved'])
         self.assertNotIn('A7GQ', json.dumps(result['exactModelReports']))
 
@@ -50,6 +50,34 @@ class ResearchTests(unittest.TestCase):
     def test_private_extra_fields_not_echoed(self):
         result = ports.research({'credentials': 'private-marker', 'marketingModel': 'private-marker'}, self.catalog)
         self.assertNotIn('private-marker', json.dumps(result))
+
+    def test_unknown_device_still_receives_research_path_without_approval(self):
+        result = ports.research({'internalModel': 'UNLISTED-DEVICE', 'soc': 'UNLISTED-CHIP'}, self.catalog)
+        self.assertEqual(result['status'], 'needs_exact_device_research')
+        self.assertFalse(result['exactModelReports'])
+        self.assertFalse(result['relatedChipReports'])
+        self.assertFalse(result['communityObservations'])
+        self.assertTrue((ROOT / result['accessResearch']['guide']).is_file())
+        self.assertGreater(len(result['accessResearch']['nextCapabilities']), 0)
+        self.assertFalse(result['installationApproved'])
+
+    def test_community_read_success_is_never_promoted_to_root_or_native_support(self):
+        result = ports.research({'marketingModel': '50E6NT', 'soc': 'MTK9603',
+                                'reportedNativeVersion': 'V0002.09.60A.Q0707'}, self.catalog)
+        self.assertEqual(result['status'], 'research_leads')
+        self.assertFalse(result['exactModelReports'])
+        observation = result['communityObservations'][0]
+        self.assertEqual(observation['match'], 'model_and_reported_firmware')
+        self.assertEqual(observation['evidenceLevel'], 'owner_reported_information_getters')
+        self.assertEqual(observation['access'], 'file_and_root_access_unverified')
+        self.assertEqual(observation['nativeHome'], 'not_verified')
+        sibling = next(r for r in result['relatedChipReports'] if r['id'] == '43a5le-q0707')
+        self.assertEqual(sibling['match'], 'chip_only_not_device_compatibility')
+        self.assertFalse(result['hardwareVerifiedByThisProject'])
+        self.assertFalse(result['installationApproved'])
+        changed = ports.research({'internalModel': '50A60LEVS_0002',
+                                 'reportedNativeVersion': 'DIFFERENT-FIRMWARE'}, self.catalog)
+        self.assertEqual(changed['communityObservations'][0]['match'], 'model_only')
 
 
 class PortTests(unittest.TestCase):

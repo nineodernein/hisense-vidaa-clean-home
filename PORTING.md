@@ -35,12 +35,17 @@ record its revision. Firmware letters and region variants matter. In particular:
 
 ## 2. Investigate the maintenance path separately
 
-Read [NATIVE-ACCESS.md](NATIVE-ACCESS.md) and the actual source linked by the
+Read [ACCESS-RESEARCH.md](ACCESS-RESEARCH.md), [NATIVE-ACCESS.md](NATIVE-ACCESS.md)
+and the actual source linked by the
 research result. Inspect capabilities before proposing writes: native file
 bridge, app identity restrictions, service/fetcher behavior, package manager,
 architecture/userland, installation destination and available independent
 recovery. A browser bridge failure is evidence about that bridge, not every
 service. Distinguish a permission error, missing path and unsupported API.
+Use the playbook's read-control calls, separate HiUtils/vowOS/Fetcher findings
+and source-backed pivots. An absent exact guide does not prevent investigation.
+Document why each rejected route is rejected and the next discriminating step;
+do not recycle a generic incompatibility response after collecting new evidence.
 
 Prefer an already authorized maintenance channel. A newly needed privileged
 bootstrap requires a concrete, owner-approved scope, reviewed code and cleanup.

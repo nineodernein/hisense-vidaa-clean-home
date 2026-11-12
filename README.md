@@ -25,12 +25,16 @@ workflow. They include [the successful techniques and failed approaches from
 the original project](WORKED-EXAMPLE.md), plus [per-device porting](PORTING.md)
 when another TV does not match the reference. A mismatch starts research and
 adaptation; it is not automatically the end of the task.
+The [access investigation playbook](ACCESS-RESEARCH.md) supplies concrete read
+contracts, separate HiUtils/Fetcher routes and corrected false negatives. Agents
+must keep an evidence ledger and pursue the next source-backed hypothesis when
+one interface fails. Community observations remain separate from verified ports.
 
 Give the repository link to Codex or Claude Code with a request to set it up for
 your own TV. The agent should begin the local checks automatically. If it only
 summarizes the link, paste this explicit instruction:
 
-> Set up https://github.com/nineodernein/hisense-vidaa-clean-home for my own TV. Follow AGENT-START.md and MASTERPROMPT.md, run the offline checks now, verify compatibility and recovery, and keep all backups private. Ask only for genuinely missing information or new permissions. Do not touch other devices.
+> Set up https://github.com/nineodernein/hisense-vidaa-clean-home for my own TV. Follow AGENT-START.md and MASTERPROMPT.md and run the offline checks now. Use ACCESS-RESEARCH.md to investigate missing access and pursue source-backed alternatives after a failed route. Reuse existing facts and permissions; keep backups private and verify recovery before native changes. Do not touch other devices.
 
 The [agent entry point](AGENT-START.md) tells the agent what to execute and how to
 handle each result. The [masterprompt](MASTERPROMPT.md) supplies the detailed
@@ -46,8 +50,9 @@ device evidence, prepares verified backups and a private build for review.
 Use an agent with terminal access on your own computer; a remote web chat usually
 cannot reach your TV. This is an
 **agent-assisted recipe with source code**, not a universal one-click jailbreak.
-A matching firmware and an authorized maintenance channel are prerequisites for
-the native route. No promise of “a few minutes” on every model.
+An authorized maintenance channel and device-specific compatibility evidence
+are prerequisites for native installation, not for beginning source research.
+No promise of “a few minutes” on every model.
 
 Two explicit native SDK adapters are included. The private port builder uses
 the new device's own original Home and documented contract/recovery evidence;

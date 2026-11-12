@@ -8,6 +8,13 @@ module hashes if appropriate, and separately marked results for Home, App → Ho
 inputs, favorite editing, video, standby and recovery. Do not invent “supported”
 from a matching product name or an emulator test.
 
+Access research is also useful before a native port works. Follow
+ACCESS-RESEARCH.md and report the interface, argument shape, sanitized error,
+pinned comparison source and next unresolved capability. Keep proposed tests,
+owner-reported observations and measured results distinct. A failed HiUtils
+write must not be reported as a failed Fetcher test. Add community findings to
+the separate catalog section; never attach raw private diagnostic artifacts.
+
 Mark each feature as **passed on device**, **failed**, **not tested** or
 **offline only**. Name the exact project revision tested and distinguish a
 manufacturer's VIDAA specification, an upstream access report and this project's

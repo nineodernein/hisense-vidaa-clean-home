@@ -153,7 +153,7 @@ def start():
         'Use existing owner-supplied facts first. Ask once only for missing TV identity/address and access authorization.',
         'With authorized read-only access, fill .private/device.json from actual observations and copy original modules to .private/stock/.',
         'Never fill evidence with example/profile values. A mismatch stops reference writes, not further authorized source research.',
-        'Run python3 agent.py research --json. Read WORKED-EXAMPLE.md for the original successful methods and failed approaches.',
+        'Run python3 agent.py research --json. Follow ACCESS-RESEARCH.md for concrete access hypotheses and WORKED-EXAMPLE.md for original successes and failures.',
         'Exact reference: agent.py prepare. Other devices: PORTING.md, agent.py port, then reviewed agent.py prepare-port.',
         'Read AGENT-START.md for the separate model-specific TV trial. No TV writes are performed by this tool.'
     ])

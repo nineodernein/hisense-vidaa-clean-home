@@ -15,6 +15,7 @@ is a research candidate, not an installation approval.
 | Public package tested offline | Source checks and build behavior pass on a computer | No physical-TV claim |
 | Upstream model/firmware report | Another project reports access or a launcher on a specific device | No: this dock's integration must be checked separately |
 | Manufacturer confirms VIDAA | Official product data identifies the operating system | No: access, native APIs, module layout and video support remain unknown |
+| Community reports information getters | Owner reports model/chip/region queries working | No: file access, root and native Home are separate, unverified stages |
 
 [VIDAA-MODELS.md](VIDAA-MODELS.md) lists sourced Hisense examples and other VIDAA
 brands. It is an OS directory, not a supported-install list. The sole native build
@@ -25,6 +26,9 @@ research router, private original-file draft and experimental static-Home builde
 It includes two explicit SDK adapters. This removes the single-profile dead end
 from the agent workflow; it does **not** add hardware support claims. The
 [research catalog](model-research.json) separates exact-model and chip-only leads.
+It also returns a concrete [access research playbook](ACCESS-RESEARCH.md) even
+when no model matches. Community observations, including the 50E6NT Q0707 getter
+report, are listed separately and never promoted to root or native support.
 
 ## Reference evidence
 

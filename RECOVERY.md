@@ -1,6 +1,10 @@
 # Native Home recovery and acceptance
 
 Prepare recovery before any write. A nice-looking preview is not a recovery plan.
+Match that plan to the action: a bounded diagnostic artifact needs its own
+collision/cleanup and failure review; replacing Home needs the full independent
+recovery contract below. These write requirements do not prevent offline source
+analysis or already authorized read-only diagnostics. See ACCESS-RESEARCH.md.
 
 ## Private backup
 
