@@ -42,7 +42,7 @@ If an agent only summarizes the link, this is the short, explicit request:
 | `needs_device_evidence` | Read MASTERPROMPT.md, COMPATIBILITY.md, NATIVE-ACCESS.md and RECOVERY.md. Collect only genuinely missing facts. |
 | `needs_more_evidence` | Collect the missing model/hash facts through already authorized read-only access; do not treat missing data as an incompatibility finding. |
 | `needs_model_research` | Stop reference writes; follow ACCESS-RESEARCH.md, inspect source and perform permitted bounded diagnostics. Do not stop at a missing catalog entry. |
-| `research_leads` / `needs_exact_device_research` | Follow the returned accessResearch playbook and pinned sources, separate community observations from upstream results, keep a hypothesis/result ledger, and continue PORTING.md. Chip-only results never approve installation. |
+| `research_leads` / `needs_exact_device_research` | Follow the returned accessResearch playbook and pinned sources, separate community observations from upstream results, resume from established same-unit evidence, and continue PORTING.md. Classify result envelopes separately from source text; chip-only results and successful reads never approve installation. |
 | `port_draft_needs_contract_review` | Inspect the owner's private OEM/SDK sources and populate the draft's evidence-backed reviews; do not just set flags to true. |
 | `experimental_candidate_for_review` | A private static Home port was assembled. Prepare its separate live preflight/atomic apply/rollback; no device was tested by this command. |
 | `reference_identity_reported` | The supplied identity/hashes match the reference; local originals, recovery and current live state still require verification. |

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewed": "2026-11-12",
+  "reviewed": "2026-11-13",
   "upstreamRevision": "7f9c9e9f91b5e9982f0af3d515f052b7499b29b4",
   "inventory": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/research/inventory.json",
   "meaning": "Research leads only. No entry approves installation of this dock. Similar chips, firmware suffixes and retail names are not device matches.",
@@ -196,7 +196,7 @@
       },
       {
         "id": "read_control",
-        "next": "Prepare the documented fileRead control with path as a one-element array and mode 6. Test only within applicable read scope; control-file success does not prove broader reads or writes."
+        "next": "Reuse an already successful same-unit read if available. Otherwise prepare the documented bounded fileRead control; a missing control path does not invalidate the bridge. Classify the envelope separately from source text, and keep reads distinct from writes."
       },
       {
         "id": "service_source",
@@ -211,7 +211,13 @@
         "next": "After access is independently established, verify recovery and use this device's originals/contracts through PORTING.md. Validate static Home before video."
       }
     ],
-    "continuation": "Keep a private hypothesis/result/next-step ledger. A missing exact guide or one rejected interface does not end useful authorized research; pivot on source evidence, not blind retries."
+    "continuation": "Keep a private hypothesis/result/next-step ledger. A missing exact guide or one rejected interface does not end useful authorized research; pivot on source evidence, not blind retries.",
+    "resultInterpretation": {
+      "guide": "ACCESS-RESEARCH.md#classify-the-envelope-not-the-returned-files-vocabulary",
+      "rule": "Separate structured response status from returned file text. A permission property in source is not a denial; ENOENT applies to the exact path and context, not every registry or file route.",
+      "priority": "Resume from established evidence on this unit. Prefer its working interface and readable sources; repeat only after a relevant premise changes or a necessary current-state check.",
+      "completeness": "Incomplete source does not establish a complete argument/dispatcher contract. Source availability is not runtime write or privilege evidence."
+    }
   },
   "communityObservations": [
     {
@@ -226,11 +232,63 @@
       ],
       "soc": "MTK9603",
       "region": "EU_A",
-      "evidenceLevel": "owner_reported_information_getters",
-      "access": "file_and_root_access_unverified",
+      "evidenceLevel": "owner_reported_file_reads",
+      "access": "file_reads_reported_write_and_root_unverified",
       "nativeHome": "not_verified",
       "source": "ACCESS-RESEARCH.md#community-case-50e6nt",
-      "finding": "Owner reported successful model, chip, type, region and country getters. Subsequent file/Fetcher diagnostics were proposed, not confirmed. No native installation or root success is established."
+      "finding": "Owner reported successful identity getters and two Fetcher package/function file reads through vowOS/HiUtils. An initial permission denial label was a probe parser error caused by the word permission in returned source. Two other paths returned ENOENT. Full raw captures were not supplied to this project; Fetcher source output was incomplete. No service start, write, package installation, root or native Home success is established.",
+      "interfaces": {
+        "vowOS.service.syncExecute": "present_reported",
+        "HiUtils_createRequest": "present_reported",
+        "WebSDK_createFileRequest": "absent_reported"
+      },
+      "readResults": [
+        {
+          "path": "websdk/Appinfo.json",
+          "ret": false,
+          "code": "ENOENT",
+          "outcome": "path_missing_reported"
+        },
+        {
+          "path": "pkgs/tv.vidaa.jsservice.basic/CHA/package.json",
+          "ret": false,
+          "code": "ENOENT",
+          "outcome": "path_missing_reported"
+        },
+        {
+          "path": "pkgs/tv.vidaa.jsservice.basic/CHA/services/fetcher/package.json",
+          "ret": true,
+          "outcome": "read_reported"
+        },
+        {
+          "path": "pkgs/tv.vidaa.jsservice.basic/CHA/functions/fetch/fetchfile.js",
+          "ret": true,
+          "outcome": "read_reported",
+          "captureCompleteness": "incomplete_reported"
+        }
+      ],
+      "argumentShape": {
+        "hypothesis": "object_at_function_boundary",
+        "basis": "Reported partial source uses args?.url with JSON.parse(args) commented out. Dispatcher conversion is unresolved.",
+        "tested": false
+      },
+      "notEstablished": [
+        "complete_source_capture",
+        "fetcher_start",
+        "fetcher_write",
+        "execution",
+        "process_identity",
+        "root",
+        "opkg_architecture",
+        "marker_deletion",
+        "native_home",
+        "persistence"
+      ],
+      "nextReadPlan": [
+        "On the reporting unit, reuse its existing read scope and working vowOS/HiUtils contract; do not restart identity discovery or repeat unchanged missing paths.",
+        "Capture the complete readable Fetcher function and manifest privately. Record length/hash and check for truncation; no service starts or writing calls.",
+        "Trace imports/exports to the actual dispatcher, argument conversion and cleanup. Derive additional service-list/opkg configuration paths from source; prepare a bounded list before asking only for genuinely new scope."
+      ]
     }
   ]
 }

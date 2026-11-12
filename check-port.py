@@ -68,8 +68,19 @@ class ResearchTests(unittest.TestCase):
         self.assertFalse(result['exactModelReports'])
         observation = result['communityObservations'][0]
         self.assertEqual(observation['match'], 'model_and_reported_firmware')
-        self.assertEqual(observation['evidenceLevel'], 'owner_reported_information_getters')
-        self.assertEqual(observation['access'], 'file_and_root_access_unverified')
+        self.assertEqual(observation['evidenceLevel'], 'owner_reported_file_reads')
+        self.assertEqual(observation['access'], 'file_reads_reported_write_and_root_unverified')
+        reads = {r['path']: r for r in observation['readResults']}
+        self.assertEqual(sum(r['ret'] is True for r in reads.values()), 2)
+        self.assertEqual(reads['websdk/Appinfo.json']['outcome'], 'path_missing_reported')
+        self.assertEqual(reads['websdk/Appinfo.json']['code'], 'ENOENT')
+        fetcher = reads['pkgs/tv.vidaa.jsservice.basic/CHA/functions/fetch/fetchfile.js']
+        self.assertTrue(fetcher['ret'])
+        self.assertEqual(fetcher['captureCompleteness'], 'incomplete_reported')
+        self.assertFalse(observation['argumentShape']['tested'])
+        self.assertIn('fetcher_write', observation['notEstablished'])
+        self.assertIn('root', observation['notEstablished'])
+        self.assertIn('marker_deletion', observation['notEstablished'])
         self.assertEqual(observation['nativeHome'], 'not_verified')
         sibling = next(r for r in result['relatedChipReports'] if r['id'] == '43a5le-q0707')
         self.assertEqual(sibling['match'], 'chip_only_not_device_compatibility')
@@ -78,6 +89,7 @@ class ResearchTests(unittest.TestCase):
         changed = ports.research({'internalModel': '50A60LEVS_0002',
                                  'reportedNativeVersion': 'DIFFERENT-FIRMWARE'}, self.catalog)
         self.assertEqual(changed['communityObservations'][0]['match'], 'model_only')
+        self.assertFalse(changed['installationApproved'])
 
 
 class PortTests(unittest.TestCase):

@@ -16,6 +16,7 @@ is a research candidate, not an installation approval.
 | Upstream model/firmware report | Another project reports access or a launcher on a specific device | No: this dock's integration must be checked separately |
 | Manufacturer confirms VIDAA | Official product data identifies the operating system | No: access, native APIs, module layout and video support remain unknown |
 | Community reports information getters | Owner reports model/chip/region queries working | No: file access, root and native Home are separate, unverified stages |
+| Community reports file reads | Owner reports structured read success at specific paths | No: source visibility, writes, cleanup, privilege and native Home are separate stages |
 
 [VIDAA-MODELS.md](VIDAA-MODELS.md) lists sourced Hisense examples and other VIDAA
 brands. It is an OS directory, not a supported-install list. The sole native build
@@ -28,7 +29,9 @@ from the agent workflow; it does **not** add hardware support claims. The
 [research catalog](model-research.json) separates exact-model and chip-only leads.
 It also returns a concrete [access research playbook](ACCESS-RESEARCH.md) even
 when no model matches. Community observations, including the 50E6NT Q0707 getter
-report, are listed separately and never promoted to root or native support.
+and Fetcher-source read reports, are listed separately and never promoted to
+write, root or native support. That case also records two missing paths, a
+corrected diagnostic parser error and incomplete source capture.
 
 ## Reference evidence
 

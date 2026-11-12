@@ -17,6 +17,10 @@ permission and missing-path failures, and keep HiUtils and Fetcher results
 separate. A missing exact guide or one rejected bridge must not end useful
 authorized research. Pivot to the next source-backed route; never blindly repeat
 an ambiguous write or treat a related-device report as this device's success.
+Resume from established same-unit results. Classify structured response fields
+separately from returned file text; never infer denial from a `permission` word
+inside source. Scope `ENOENT` to the exact path/context, and retain incomplete
+source as incomplete. Use the successful read contract before trying alternatives.
 
 - Work only on an explicitly owned/authorized target. Respect watch-time pauses.
 - Publishing/documentation tasks never authorize contacting or changing a TV.

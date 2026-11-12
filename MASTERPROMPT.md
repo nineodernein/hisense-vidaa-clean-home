@@ -43,6 +43,15 @@ must not mark all the others blocked. Check argument shape, caller context,
 service startup and source corrections before drawing a permission conclusion.
 Use the next source-backed route when the current one is actually closed.
 
+Resume from established results on this unit. Prefer a working bridge and
+readable source over repeating identity checks, absent APIs or unchanged missing
+paths. Apply ACCESS-RESEARCH.md's scoped exclusions. Classify the response
+envelope separately from file contents: a `permission` property in returned
+source is not a denial, and `ENOENT` is not proof all file access or registries
+are absent. Preserve raw evidence and correct parser-induced false negatives.
+Partial source and a sibling's payload do not establish this build's complete
+argument contract, write permission or cleanup.
+
 Every failed attempt should produce a narrower conclusion and a changed next
 test, not another identical request. Read public/available OEM source and prepare
 concrete diagnostics without repeated permission questions. Reuse live access

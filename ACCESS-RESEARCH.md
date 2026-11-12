@@ -44,6 +44,28 @@ permission, an unavailable artifact or recovery method, report that exact
 dependency with the prepared next step. Unsupported is not secretly supported;
 “not found in the searched sources” is not “does not exist.”
 
+## Reuse results before repeating experiments
+
+Prefer a working interface on this exact unit over a sibling's suggested route.
+Advance from the last established capability; do not restart identification or
+retry an unchanged missing path. Recheck only when the device/build, caller
+context, source or diagnostic has changed, or when a current-state check is
+needed for the next operation. A community report is a lead for another owner,
+not proof that their apparently identical TV has already passed a test.
+
+| Lesson | Prioritize | Skip unless new evidence changes the premise |
+| --- | --- | --- |
+| Reference Home watcher bounced through VIDAA | Preserve the OEM engine and investigate its native launcher module | Faster browser polling as a fix for native Home return |
+| Reference reads were blocked by the diagnostic page's CSP | Diagnose the actual page/transport error | Calling the firmware patched from a page failure |
+| 50E6NT getters and two package-file reads were owner-reported successful | Continue through the available vowOS/HiUtils read contract and the actual readable files | Requiring root for those reads, or retrying the absent WebSDK interface |
+| A read response contained `ret: true` and source with a `permission` property | Treat the returned source as data and inspect structured result fields | Searching all response text for permission/error words to decide success |
+| A particular file returned `ENOENT` | Record that exact path/context and derive another path from readable source | Repeating the same path or declaring all registries/file access absent |
+| Reference native video played behind opaque UI layers | Check owned player events, advancing time and transparent ancestors | Repeated codec changes based only on a still/black screen |
+
+These are scoped exclusions, not a global firmware blacklist. Preserve actual
+permission failures at their interface, and keep untested Fetcher writes,
+privilege and recovery separate from successful reads.
+
 ## Choose a route from its mechanism, not just the model name
 
 | Finding | Next investigation | What it does not establish |
@@ -90,6 +112,28 @@ variant. Preserve `ret`, `code`, SDK version, error text and response type. Pars
 JSON strings when appropriate; the string `"false"` is not success. Keep complete
 responses private, and summarize installed-app data rather than publishing it.
 Do not save the registry back or load an entire upstream recon page.
+
+### Classify the envelope, not the returned file's vocabulary
+
+Inspect the actual response schema before writing a classifier. Keep the raw
+envelope separate from the returned file contents; parse only the documented
+envelope layer, not arbitrary nested JSON/source as if it were an error object.
+For a response with a boolean `ret`, `ret: true` with returned file data is a
+successful read even if that file contains `permission`, `error`, `denied` or
+`ret: false` as source text. Do not use substring matching across the response.
+Missing/conflicting result fields remain inconclusive; never coerce the string
+`"false"` to a successful boolean.
+
+`ret: false` with `ENOENT` from `open()` means that exact pathname did not resolve
+in that request context. It is not an authorization error and does not prove
+there is no app registry elsewhere. Confirmed `EACCES`/`EPERM` or a documented
+vendor denial belongs to the error envelope, not the payload text. Keep source
+availability, source completeness, runtime invocation and permission separate.
+
+Before reusing a diagnostic, test its classifier offline with synthetic success
+containing permission/error words, a missing file, a structured denial and an
+ambiguous response. Correct any earlier ledger entries affected by a parser
+bug; do not repeat successful TV reads merely to compensate for that bug.
 
 On the documented 75U8QTUK build, `path: [p]` worked for an outside-base read
 where `path: p` failed; both worked for `websdk/Appinfo.json`. A successful
@@ -168,8 +212,48 @@ Hisense 50E6NT (Germany), `V0002.09.60A.Q0707`, internal `50A60LEVS_0002`,
 `MTK9603`, type `50A5LE`, region `EU_A`, country `DEU`.
 These are nonunique model/type identifiers, not a published device serial.
 The five information getters worked. Root, native Home, file reads and Fetcher
-on that unit have **not** been confirmed by this project. Do not turn the next
-proposed diagnostic into a completed result.
+were initially untested. A later owner-supplied diagnostic report describes
+successful file reads; this project has not independently captured their raw
+responses or the complete device files. Do not turn that report into a verified
+root route or this project's hardware acceptance.
+
+The reported available interfaces are `vowOS.service.syncExecute` and
+`HiUtils_createRequest`; `WebSDK_createFileRequest` was absent. The observed
+HiUtils wrapper delegates to `syncExecute('hiutils', {api: type, args: msg})`.
+
+| Read path relative to `/APPS` | Owner-reported raw result | Bounded conclusion |
+| --- | --- | --- |
+| `websdk/Appinfo.json` | `ret: false`, `ENOENT` | This pathname did not resolve; registry location remains open |
+| `pkgs/tv.vidaa.jsservice.basic/CHA/package.json` | `ret: false`, `ENOENT` | This pathname did not resolve; nested readable files are separate evidence |
+| `pkgs/tv.vidaa.jsservice.basic/CHA/services/fetcher/package.json` | `ret: true`, content returned | File read worked; reported fields include `selfStart: false` and `permission: {}` |
+| `pkgs/tv.vidaa.jsservice.basic/CHA/functions/fetch/fetchfile.js` | `ret: true`, content returned | File read worked; the photographed source output was incomplete |
+
+The original probe mislabeled the two successful reads as permission failures
+because it searched their contents for the word `permission`. That conclusion
+was withdrawn. No permission denial was observed in these four reported reads.
+An empty manifest permission object does not prove effective caller permission;
+`selfStart: false` does not measure whether the service is currently running.
+
+The source excerpt reportedly reads `args?.url` while `JSON.parse(args)` is
+commented out. An object argument is therefore a hypothesis for the function
+boundary, not a tested end-to-end call shape: the bridge/dispatcher may serialize
+or parse arguments at a different layer. Do not automatically copy a sibling's
+JSON-string payload or try both forms against a writing endpoint.
+
+The next useful step is to retain the complete readable Fetcher function and
+manifest privately, with capture length/hash and an explicit truncation check.
+Use their imports/exports to identify the dispatcher, startup policy and actual
+cleanup contract. Derive any service-list/opkg configuration paths from source
+before preparing a bounded read list. Package status, CPU model and opkg package
+architecture are distinct; never infer the latter from the former alone.
+Reuse the owner's existing read scope; bundle only genuinely new paths/scope
+for approval. Do not start Fetcher, write a marker or install a package as part
+of this source collection. The report's local diagnostic server was stopped.
+
+Writes, execution, UID/GID, root, opkg architecture, native Home and persistence
+remain untested. Marker deletion is unresolved: an error-branch `fs.unlink` or
+overwriting a file with zero bytes is not a demonstrated removal procedure.
+Record that cleanup dependency before proposing a separately authorized write.
 
 The useful learning is procedural: collect missing facts before declaring them
 root-only; inspect HiUtils and vowOS separately; distinguish a sibling's blocked

@@ -49,6 +49,7 @@ def research(device, catalog):
             'next': ['Follow ACCESS-RESEARCH.md, PORTING.md and WORKED-EXAMPLE.md; keep the reference profile unchanged.',
                      'Read the linked primary sources and current upstream reports; pin every source used.',
                      'Reuse known identity and permissions. Keep owner-reported observations separate from upstream results and this project\'s hardware acceptance.',
+                     'Resume from established same-unit results. Prefer its working bridge and readable source; classify response envelopes separately from file contents and scope ENOENT to the requested path.',
                      'Use the accessResearch capability sequence and private hypothesis/result ledger; prepare concrete diagnostics instead of stopping at a missing exact guide.',
                      'Keep access, native Home, video and DNS evidence separate. A blocked browser write is not proof all routes are blocked.',
                      'Continue authorized source analysis while a live dependency is pending. Request only genuinely new scope with the exact effects and cleanup ready.',
