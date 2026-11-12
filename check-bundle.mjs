@@ -15,15 +15,22 @@ assert.throws(()=>verifiedStock(Buffer.from(home),Buffer.from(saver),JSON.parse(
 assert.throws(()=>assemble(Buffer.from('broken {{{'),Buffer.from(saver),config));
 assert.throws(()=>assemble(Buffer.from(home),Buffer.from(saver),{...config,icons:{x:'https://invalid.test/icon.png'}}));
 
-function environment(apps=[{appId:'1',appName:'Netflix'},{appId:'2',appName:'YouTube'},{appId:'164',appName:'App Store'}]){
+function environment(apps=[{appId:'1',appName:'Netflix'},{appId:'2',appName:'YouTube'},{appId:'164',appName:'App Store'}],modern=false){
  const listeners=new Map(),messages=new Map(),saved=new Map(),launched=[],opened=[],timers=new Map();let timer=0,current='/Launcher';
  const K={LEFT:37,RIGHT:39,UP:38,DOWN:40,ENTER:13,BACK:8,RETURN:27,SOURCE:1000};
  const sources=Array.from({length:7},(_,i)=>({sourceId:'source-'+i,name:'Input '+i}));
  const sdk={key:{KEYMAP:K},storage:{get:k=>saved.get(k),set:(k,v)=>saved.set(k,v)},
   router:{isCurrentPathEqualTo:p=>current===p,back:()=>{current='/Launcher';}},
   message:{on:(name,fn)=>messages.set(name,fn),off:(name,fn)=>{if(messages.get(name)===fn)messages.delete(name);},emit:()=>{}},
-  apc:{CMDMETHOD:{REMOTECONTROL:1,KEY_INPUT_START:2},start:app=>{launched.push(app);current='/App';}},
-  me:{req:module=>({getData:(key,arg)=>({result:key==='getCurrentShowApps'?apps:key==='getAllInputsData'?sources:apps.find(a=>a.appId===arg.appId)}),
+  apc:{CMDMETHOD:modern?{LAUNCHER_RECOMMEND:52}:{REMOTECONTROL:1,KEY_INPUT_START:2},start:app=>{launched.push(app);current='/App';}},
+  me:{req:module=>({getData:(key,arg)=>{
+   if(key===(modern?'getAppList':'getCurrentShowApps')){
+    if(modern)assert.equal(arg.sceneCode,'launcher');else assert.equal(arg,'Launcher');return {result:apps};
+   }
+   if(key==='getAllInputsData')return {result:sources};
+   assert.equal(key,modern?'getAppInfo':'getAppInfoByAppId');assert.equal(arg.checkRange,1);
+   return {result:apps.find(a=>a.appId===arg.appId)};
+  },
    open:(...args)=>opened.push([module,...args]),invoke:()=>{}})}};
  const root={innerWidth:1920,Image:class{},addEventListener:()=>{},removeEventListener:()=>{},
   _V_SDK_:{vre:{SDK:function(){return sdk;}},biz:{file:{PATH:{UI:1},exists:k=>saved.has(k),readSync:k=>saved.get(k),writeSync:(k,v)=>saved.set(k,v)}}},
@@ -69,6 +76,31 @@ const localComponent=local.root._V_M_.launcher().route[0].component,localUI=inst
 localComponent.mounted.call(localUI);
 assert.deepEqual(Array.from(localUI.shelf(),a=>a.appId),['30','164']);
 localComponent.beforeDestroy.call(localUI);
+
+// A different SDK is an explicit, reviewed port, not a model/chip heuristic.
+const modernConfig={...config,storeAppId:null};
+const modernBundle=assemble(Buffer.from(home),null,modernConfig,
+ {homeOnly:true,adapter:'app-list-v1',assetBase:'file:///native/local/clean-home/',excludedAppIds:[]});
+assert.deepEqual(Object.keys(modernBundle),['home.js'],'First port preserves the original saver');
+assert.throws(()=>assemble(Buffer.from(home),null,modernConfig,{homeOnly:true,adapter:'guessed-chip'}));
+assert.throws(()=>assemble(Buffer.from(home),null,modernConfig,{homeOnly:true,assetBase:'https://invalid.test/'}));
+const modern=environment([{appId:'206',appName:'Local Library',openMode:4,skipCheck:true,skipPin:true}],true);
+vm.runInNewContext(modernBundle['home.js'],modern.context);
+const mc=modern.root._V_M_.launcher().route[0].component,mu=instance(mc);mc.mounted.call(mu);
+assert.equal(mu.view,'home','Missing optional input-launch constant must not redirect ordinary Home');
+assert.deepEqual(Array.from(mu.shelf(),a=>a.appId),['206'],'Do not inherit another owner\'s hidden ID or invent Store');
+mu.select();assert.equal(modern.launched[0].startMethod,52);assert.equal(modern.launched[0].storeType,4);
+assert.equal('skipPin' in modern.launched[0],false);assert.equal('skipCheck' in modern.launched[0],false);
+modern.root.AlvidaaNativePlatform(modern.sdk,()=>{}).openSettings();
+assert.equal(JSON.stringify(modern.opened.at(-1)),JSON.stringify(['setting','settings']));
+assert.equal(modern.root.OwnerAssetBase,'file:///native/local/clean-home/');mc.beforeDestroy.call(mu);
+const wrong=environment();vm.runInNewContext(modernBundle['home.js'],wrong.context);
+assert.equal(wrong.root._V_M_.launcher().route[0].component.name,'StockHome','Missing reviewed SDK keeps OEM Home');
+const mismatch=environment([{appId:'1',appName:'Example'}],true);vm.runInNewContext(modernBundle['home.js'],mismatch.context);
+const platform=mismatch.root.AlvidaaNativePlatform(mismatch.sdk,()=>{});platform.start();
+mismatch.sdk.me.req=()=>({getData:()=>({result:{appId:'different',appName:'Wrong'}})});
+assert.throws(()=>platform.launchApp('1'));assert.throws(()=>platform.launchApp('999'));
+assert.equal(mismatch.launched.length,0);platform.stop();
 
 // Missing/throwing SDK retains the original vendor module rather than replacing it.
 for(const makeBad of [r=>{delete r._V_SDK_;},r=>{r._V_SDK_.vre.SDK=function(){throw Error('unsupported SDK');};}]){

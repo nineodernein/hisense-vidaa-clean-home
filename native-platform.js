@@ -4,7 +4,12 @@
  */
 (function (root) {
   "use strict";
-  function createNativePlatform(sdk, onUpdate) {
+  function createNativePlatform(sdk, onUpdate, adapter) {
+    adapter = adapter || root.CleanHomeAdapter || "current-show-apps-v1";
+    if (["current-show-apps-v1", "app-list-v1"].indexOf(adapter) < 0) throw new Error("Unknown native SDK adapter");
+    // app-list-v1 follows alvidaa's source-reviewed 75U8QTUK contract.
+    // Select it from per-device evidence, never a chip/model-name guess.
+    var modern = adapter === "app-list-v1";
     var events = [
       "o2n://sdk/init-finished",
       "o2n://app-service/all-apps-changed",
@@ -32,7 +37,7 @@
       reading = true;
       // Keep the last good list on a failed read, but accept a successful empty
       // list (e.g. all apps removed). One failed service must not hide the other.
-      try { apps = readList("app-service", "getCurrentShowApps", "Launcher"); }
+      try { apps = readList("app-service", modern ? "getAppList" : "getCurrentShowApps", modern ? {sceneCode:"launcher"} : "Launcher"); }
       catch (error) { errors.push("Apps: " + error.message); }
       try { sources = readList("all-inputs", "getAllInputsData"); }
       catch (error) { errors.push("Inputs: " + error.message); }
@@ -70,15 +75,27 @@
       stop: stop,
       refresh: changed,
       openSettings: function () {
+        if (modern) return sdk.me.req("setting").open("settings");
         return sdk.me.req("setting").open("settings", { vk: "T" });
       },
       launchApp: function (appId) {
         if (!apps.some(function (app) { return app && String(app.appId) === String(appId); })) {
           throw new Error("App is not in the current native app list");
         }
-        var response = sdk.me.req("app-service").getData("getAppInfoByAppId",
+        var response = sdk.me.req("app-service").getData(modern ? "getAppInfo" : "getAppInfoByAppId",
           { appId: String(appId), url: "", checkRange: 1 });
         var app = response && response.result;
+        if (modern) {
+          if (!app || typeof app !== "object" || Array.isArray(app) ||
+              (app.appId != null && String(app.appId) !== String(appId))) throw new Error("App is unavailable or restricted");
+          var item = apps.filter(function (a) { return a && String(a.appId) === String(appId); })[0];
+          function value(key, fallback) { return app[key] != null ? app[key] : item[key] != null ? item[key] : fallback; }
+          var method = sdk.apc.CMDMETHOD && sdk.apc.CMDMETHOD.LAUNCHER_RECOMMEND;
+          if (method == null) throw new Error("Launcher command is not exposed by this SDK");
+          return sdk.apc.start({name:String(value("appName", "")),appId:value("appId", String(appId)),
+            url:String(value("url", "")),storeType:value("storeType", value("openMode", 0)),
+            startMethod:method,typeCode:String(value("typeCode", "600002")),rateInfo:""});
+        }
         if (!app || String(app.appId) !== String(appId)) throw new Error("App is unavailable or restricted");
         // APC owns parental PIN, EULA and hotel-mode checks. Never propagate
         // bypass flags from a UI record or invoke the lower-level app service.

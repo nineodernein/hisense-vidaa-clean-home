@@ -20,6 +20,7 @@ no simulation flag that allows them into the production CLI build.
 | `check-bundle.mjs` | The actual production assembly function with synthetic OEM modules: native Home → app → Home lifecycle, favorites menu, input grid, Store, full bundle load, SDK failure fallback and saver integration. |
 | `check-agent.py` | Device identity, original/remote hashes, metadata, free-space and recovery gates; blank evidence and test fixtures rejected; private path traversal/symlinks rejected; overwrite/artifact-corruption checks; redacted compatibility reports distinguish missing facts from mismatches. |
 | `check.py` | Client-scoped DNS rendering and video conversion graph validation. |
+| `check-port.py` | Exact-model versus chip-only research, no false A7GQ/E7NQ/firmware match, private original/review evidence, source/identity/hash changes, actual Node experimental build, unchanged saver and artifact verification. |
 | `privacy-check.py` | Explicit public-file allowlist, tracked-path checks and known sensitive-data/metadata patterns. |
 
 The Python suite also models a failed trial and atomic restoration of synthetic
@@ -30,6 +31,13 @@ The GitHub workflow runs the same offline entry point on pushes and pull request
 The fixture SDK returns invented app/input inventories. No Netflix, YouTube or
 other streaming app is actually run. No physical remote key, video frame rate,
 visual sharpness, power transition or real hardware playback is verified here.
+
+The assembled-bundle tests exercise both `current-show-apps-v1` and `app-list-v1`
+against distinct synthetic SDK method shapes. They check actual adapter selection,
+APC command use without bypass flags, absent Store handling, app-detail mismatch
+rejection, per-device asset mapping and stock Home fallback on missing contracts.
+The experimental port path is separate from the fixed reference builder; it
+does not grant any new model a tested hardware status.
 
 ## Local preparation is a separate step
 

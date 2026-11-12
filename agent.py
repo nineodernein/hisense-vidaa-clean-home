@@ -112,6 +112,7 @@ def offline_checks():
                     [shutil.which('node'), 'check-bundle.mjs'],
                     [sys.executable, 'check.py'],
                     [sys.executable, 'check-agent.py'],
+                    [sys.executable, 'check-port.py'],
                     [sys.executable, 'privacy-check.py']):
         try:
             result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True,
@@ -151,8 +152,9 @@ def start():
         'Read MASTERPROMPT.md, COMPATIBILITY.md, NATIVE-ACCESS.md and RECOVERY.md.',
         'Use existing owner-supplied facts first. Ask once only for missing TV identity/address and access authorization.',
         'With authorized read-only access, fill .private/device.json from actual observations and copy original modules to .private/stock/.',
-        'Never fill evidence with example/profile values. Stop on a mismatch or unavailable recovery.',
-        'Run python3 agent.py prepare --json. This only creates local backups, a bundle and a review plan.',
+        'Never fill evidence with example/profile values. A mismatch stops reference writes, not further authorized source research.',
+        'Run python3 agent.py research --json. Read WORKED-EXAMPLE.md for the original successful methods and failed approaches.',
+        'Exact reference: agent.py prepare. Other devices: PORTING.md, agent.py port, then reviewed agent.py prepare-port.',
         'Read AGENT-START.md for the separate model-specific TV trial. No TV writes are performed by this tool.'
     ])
     return result
@@ -299,11 +301,13 @@ def verify_plan(filename):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command')
-    for name in ('doctor', 'start', 'simulate', 'compatibility', 'prepare', 'verify-plan'):
+    for name in ('doctor', 'start', 'simulate', 'compatibility', 'research', 'port', 'prepare-port', 'prepare', 'verify-plan'):
         child = commands.add_parser(name)
         child.add_argument('--json', action='store_true', help='Machine-readable output (also the default)')
-        if name in ('prepare', 'compatibility'):
+        if name in ('prepare', 'compatibility', 'research', 'port', 'prepare-port'):
             child.add_argument('--device', default='.private/device.json')
+        if name == 'prepare-port':
+            child.add_argument('--port', required=True)
         if name == 'verify-plan':
             child.add_argument('--plan', required=True)
     args = parser.parse_args()
@@ -320,6 +324,14 @@ def main():
             result = prepare(args.device)
         elif command == 'compatibility':
             result = compatibility_report(load_json(private_path(args.device)), load_json(ROOT / 'compatibility.json'))
+        elif command in ('research', 'port', 'prepare-port'):
+            import model_tools
+            if command == 'research':
+                result = model_tools.research(load_json(private_path(args.device)), load_json(ROOT / 'model-research.json'))
+            elif command == 'port':
+                result = model_tools.draft(sys.modules[__name__], args.device)
+            else:
+                result = model_tools.prepare(sys.modules[__name__], args.port, args.device)
         else:
             result = verify_plan(args.plan)
         result.update(tvContacted=False, networkUsed=False)

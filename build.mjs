@@ -10,7 +10,7 @@ export const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const fileName=/^[a-z0-9][a-z0-9._-]{0,100}\.(?:mp4|png|jpg|jpeg|webp)$/i;
 export function validateConfig(c){
  if(!c||c.version!==1||!Array.isArray(c.media)||typeof c.icons!=='object'||!c.icons)throw Error('Invalid config schema');
- if(!/^[0-9]{1,8}$/.test(c.storeAppId))throw Error('Invalid storeAppId');
+ if(c.storeAppId!==null&&!/^[0-9]{1,8}$/.test(c.storeAppId))throw Error('Invalid storeAppId');
  const result={version:1,storeAppId:c.storeAppId,icons:{},media:[],defaults:{home:null,saver:null}};
  const ids=new Set();
  for(const [id,name] of Object.entries(c.icons)){
@@ -35,17 +35,25 @@ export function verifiedStock(home,saver,profile){
 }
 // Pure assembly is shared by the production build and synthetic bundle tests.
 // It is not an alternate installer; the CLI always verifies the fixed profile first.
-export function assemble(home,saver,configuration){
+export function assemble(home,saver,configuration,options={}){
  const config=validateConfig(configuration);
- const generated='self.CleanHomeConfig='+JSON.stringify(config)+';\nself.OwnerDebug=false;\n';
+ const adapter=options.adapter||'current-show-apps-v1';
+ if(!['current-show-apps-v1','app-list-v1'].includes(adapter))throw Error('Unknown SDK adapter');
+ const base=options.assetBase||'file:///hisenseUI/static/vidaa-clean-home/';
+ if(!/^file:\/\/\/[A-Za-z0-9_/-]+\/$/.test(base))throw Error('Invalid local asset base');
+ const excluded=options.excludedAppIds||['206'];
+ if(!Array.isArray(excluded)||excluded.some(id=>typeof id!=='string'||!/^[A-Za-z0-9_-]{1,80}$/.test(id)))throw Error('Invalid excluded app IDs');
+ const generated='self.CleanHomeConfig='+JSON.stringify(config)+';\nself.OwnerDebug=false;\n'+
+  'self.CleanHomeAdapter='+JSON.stringify(adapter)+';\nself.OwnerAssetBase='+JSON.stringify(base)+';\n'+
+  'self.CleanHomeExcludedAppIds='+JSON.stringify(excluded)+';\n';
  const src=n=>fs.readFileSync(path.join(root,n),'utf8');
- const license=['LICENSE','LICENSE.alvidaa.txt','LICENSE.free-my-tv.txt','LICENSE.metal-fx.txt'].map(src).join('\n');
+ const license=['LICENSE-SCOPE.md','LICENSE','LICENSE.alvidaa.txt','LICENSE.free-my-tv.txt','LICENSE.metal-fx.txt'].map(src).join('\n');
  const common=generated+src('native-media.js')+'\n;\n'+src('native-video.js');
  const homeParts=['native-platform.js','native-core.js','native-dock.js','native-actions.js','native-entry.js'];
  const bundles={
   'home.js':'/*\n'+license+'\n*/\n'+home.toString()+'\n;\n'+common+'\n;\n'+homeParts.map(src).join('\n;\n'),
-  'saver.js':saver.toString()+'\n;\n'+common+'\n;\n'+src('native-saver.js')
  };
+ if(!options.homeOnly)bundles['saver.js']=saver.toString()+'\n;\n'+common+'\n;\n'+src('native-saver.js');
  for(const [name,data] of Object.entries(bundles))new vm.Script(data,{filename:name});
  return bundles;
 }

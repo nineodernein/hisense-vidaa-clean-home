@@ -15,6 +15,17 @@ lokale TV-App-Icons oder Textkacheln genutzt.
 
 ## Einfach dem Coding Agent geben
 
+```text
+Use this: https://github.com/nineodernein/hisense-vidaa-clean-home
+```
+
+Der Einstieg enthält ein konkretes Ziel und einen ausführbaren Ablauf.
+[Unsere funktionierenden Wege und die damaligen Fehler](WORKED-EXAMPLE.md)
+sind dokumentiert. Bei anderen Geräten folgt der Agent dem
+[Portierungsablauf](PORTING.md): eigene Originaldateien, passende SDK-Schnittstelle,
+private Sicherung und separater Test. Ein anderes Modell beendet nicht einfach
+die Recherche. Eine universelle Freigabe für jede Firmware ist das weiterhin nicht.
+
 Gib Claude Code oder Codex den Repo-Link mit dem Auftrag, es auf deinem eigenen
 TV einzurichten. Der Agent soll zuerst selbst die lokalen Prüfungen starten.
 Falls er den Link nur zusammenfasst, kopiere diesen kurzen Auftrag:
@@ -93,3 +104,11 @@ Menü-Werte übernehmen.
 Design-Quelle: **[Libraries.dev](https://libraries.dev/)**, insbesondere Liquid
 Metal / metal-fx. Auf dem TV wird der Effekt mit kleinen vorberechneten Bildern
 dargestellt. [Weitere Credits und Lizenzen](CREDITS.md).
+
+## Nichtkommerzielle Nutzung
+
+Neue eigene Beiträge des Maintainers stehen unter
+[PolyForm Noncommercial 1.0.0](LICENSE). Privat nutzen und als Hobby anpassen ist
+erlaubt; kommerzielle Nutzung dieser Beiträge braucht eine separate Erlaubnis.
+Fremder MIT-Code und bereits unter MIT veröffentlichte Versionen behalten ihre
+bisherigen Rechte. Die [Lizenzabgrenzung](LICENSE-SCOPE.md) erklärt die Details.

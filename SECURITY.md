@@ -1,7 +1,9 @@
 # Security scope
 
 Use only on a TV you own or have explicit permission to modify.
-Unknown model, firmware hash, module path or recovery mechanism means stop.
+An unknown model/hash stops the fixed reference write path. Continue authorized
+source research through PORTING.md; do not force the reference profile. Unknown
+module paths or unavailable independent recovery stop dependent TV writes.
 
 The project does not ship root keys, prebuilt privileged packages, firmware images,
 network scanners, bootloader flashes or automatic Netflix interception.

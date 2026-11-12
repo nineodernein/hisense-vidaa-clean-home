@@ -4,6 +4,13 @@ The successful route replaced the /Launcher Vue component inside the existing
 VIDAA home engine. It did not flash another OS or set a browser page as the default.
 The original module registry, settings, app-control and input services remained.
 
+Read [WORKED-EXAMPLE.md](WORKED-EXAMPLE.md) for the full sanitized development
+handoff: access, native Home, cache/recovery mistakes, dock rendering and native
+video. For a different device use [PORTING.md](PORTING.md) and
+`python3 agent.py research --json`. The curated research catalog includes a newer
+pinned upstream revision and distinguishes blocked browser writes from other
+documented service paths. It does not execute or approve those paths.
+
 ## Known working architecture
 
 1. Use an authorized, model-matched local maintenance channel.

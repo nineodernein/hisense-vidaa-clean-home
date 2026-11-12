@@ -10,6 +10,11 @@ plan. `verify-plan` detects changes to those local artifacts. Neither command
 contacts the TV or verifies that a live recovery channel works; check that
 separately. See AGENT-START.md for the automated local handoff.
 
+For another device, `port` retains its own original Home and `prepare-port`
+validates the separate private reviews before creating a static candidate.
+The same live recovery contract applies; those local commands do not verify
+recovery on real hardware. First ports preserve the OEM saver. See PORTING.md.
+
 Use the exact module paths from compatibility.json only after verifying the
 device. Save both original modules on the owner's computer and on an appropriate
 private TV release directory. Verify SHA-256 on both sides and preserve ownership

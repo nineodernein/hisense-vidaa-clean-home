@@ -18,7 +18,13 @@ is a research candidate, not an installation approval.
 
 [VIDAA-MODELS.md](VIDAA-MODELS.md) lists sourced Hisense examples and other VIDAA
 brands. It is an OS directory, not a supported-install list. The sole native build
-profile remains [compatibility.json](compatibility.json).
+reference profile remains [compatibility.json](compatibility.json).
+
+Other devices now have a separate [porting workflow](PORTING.md), with an offline
+research router, private original-file draft and experimental static-Home builder.
+It includes two explicit SDK adapters. This removes the single-profile dead end
+from the agent workflow; it does **not** add hardware support claims. The
+[research catalog](model-research.json) separates exact-model and chip-only leads.
 
 ## Reference evidence
 
@@ -56,7 +62,9 @@ passing them does not add another supported TV or prove physical recovery.
 - Other model/firmware families.
 
 A same-family TV still needs original hashes, app/service contracts and recovery
-checks. Unknown hash means stop, not “update the expected hash and try”.
+checks. Unknown hash means stop the reference write path, not “update the
+expected hash and try”. Continue authorized port research with that device's
+originals and separate evidence rather than forcing the fixed build.
 
 For other devices consult the [alvidaa model catalog](https://github.com/carteakey/alvidaa/tree/main/docs/models)
 and [native implementations](https://github.com/carteakey/alvidaa/tree/main/tools/launcher-host).

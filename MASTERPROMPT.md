@@ -5,6 +5,12 @@ Implement the native dock using this repository. Read this entire file, AGENTS.m
 AGENT-START.md, COMPATIBILITY.md and RECOVERY.md before changing a TV. This document is a procedure,
 not proof of authorization for a device or a license to bypass platform safety rules.
 
+"Use this" plus the repository link is the entry request. Begin the local work,
+reuse existing device facts and follow through the statuses in AGENT-START.md.
+Read WORKED-EXAMPLE.md for the complete original technical handoff. For a device
+that differs from the reference, read PORTING.md and develop its own reviewed
+integration; do not treat a hash mismatch as the end of the owner's task.
+
 ## The requested result
 
 A native replacement for the stock /Launcher component, with the floating
@@ -63,13 +69,18 @@ this dock's exact integration has separate device evidence. Keep the reference
 profile and its hash guard unchanged during a documentation-only update.
 
 The reference family is in compatibility.json. Exact original launcher/saver
-SHA-256 values are decisive for this build; a similar model name is insufficient.
+SHA-256 values are decisive for the reference build; a similar model name is insufficient.
 The native source expects _V_M_, _V_SDK_, /Launcher and /ScreenSaver/ScreenMode.
 
-If those requirements do not match, stop native writes. Report exactly which
-comparison failed, consult the model-specific upstream documentation, and offer
-DNS filtering or a clearly labeled browser alternative. Do not weaken the hash
-check or paste another model's memory offsets, ownership IDs or boot hooks.
+If those requirements do not match, stop the reference native write path. Run
+`python3 agent.py research --json` and follow PORTING.md: investigate a documented
+access route, inspect the device's own SDK, create its private port draft, adapt
+the source and test a candidate locally. Only stop dependent live steps when
+their actual prerequisites are unresolved. A browser bridge rejection does not
+rule out every service, and a successful root report does not validate Home.
+Do not weaken the fixed hash check or paste another model's memory offsets,
+ownership IDs or boot hooks. Offer DNS or an agreed browser fallback if no native
+route can be established; do not silently substitute that for the native goal.
 
 ## 3. Establish a bounded, authorized maintenance path
 
@@ -126,7 +137,9 @@ review manifest. It does not contact the TV or perform a remote installation.
 Before transfer run `python3 agent.py verify-plan --plan <reported-private-plan>`.
 Live device state and the maintenance deadline must still be checked separately.
 For manual local builds, `node build.mjs` remains available under the same hash guard.
-The build accepts only the exact original module hashes in compatibility.json.
+The reference build accepts only the exact original module hashes in compatibility.json.
+Other devices use the separate reviewed `prepare-port` path in PORTING.md, starting
+with a static Home and preserving the OEM saver. Do not force reference `prepare`.
 The output deliberately contains the owner's OEM code and is PRIVATE.
 Do not upload it as a GitHub Release, artifact, issue attachment or pull request.
 

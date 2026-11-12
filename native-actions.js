@@ -4,9 +4,9 @@
  root.AlvidaaFreeMyTV=function(sdk){
   var c=factory(sdk),data=c.data,start=c.methods.start,stop=c.methods.stop,shelf=c.methods.shelf,list=c.methods.list,select=c.methods.select,key=c.methods.handleKey,render=c.render,announce=c.methods.announce,K=sdk.key.KEYMAP;
   c.data=function(){var d=data.call(this);d.actionApp=null;d.actionIndex=0;return d;};
-  c.methods.favoriteApps=function(){return shelf.call(this).filter(function(a){return String(a.appId)!==String((root.CleanHomeConfig||{}).storeAppId||'164');});};
-  c.methods.shelf=function(){var result=this.favoriteApps(),store=this.apps.filter(function(a){return String(a.appId)===String((root.CleanHomeConfig||{}).storeAppId||'164');})[0];if(store)result.push(store);return result;};
-  c.methods.list=function(){if(this.view==='reorder')return this.favoriteApps();if(this.view==='edit')return this.apps.filter(function(a){return String(a.appId)!==String((root.CleanHomeConfig||{}).storeAppId||'164');});return list.call(this);};
+  c.methods.favoriteApps=function(){return shelf.call(this).filter(function(a){return String(a.appId)!==String((root.CleanHomeConfig||{}).storeAppId||'');});};
+  c.methods.shelf=function(){var result=this.favoriteApps(),store=this.apps.filter(function(a){return String(a.appId)===String((root.CleanHomeConfig||{}).storeAppId||'');})[0];if(store)result.push(store);return result;};
+  c.methods.list=function(){if(this.view==='reorder')return this.favoriteApps();if(this.view==='edit')return this.apps.filter(function(a){return String(a.appId)!==String((root.CleanHomeConfig||{}).storeAppId||'');});return list.call(this);};
   c.methods.cancelHold=function(){clearTimeout(this._holdTimer);this._holdTimer=null;this._held=false;this._longHeld=false;};
   c.methods.beginMove=function(){this._beforeMove=this.favoriteApps().map(function(a){return String(a.appId);});this.moving=true;};
   c.methods.select=function(){
@@ -29,7 +29,7 @@
     if(code===K.ENTER&&vm._held){event.stopPropagation();return;}
     if(code===K.ENTER&&vm.view==='home'&&vm.zone==='shelf'&&!vm.actionApp&&!vm.moving){
      event.stopPropagation();vm.armSaver();vm._held=true;vm._longHeld=false;vm._holdIndex=vm.index;
-     vm._holdTimer=setTimeout(function(){vm._holdTimer=null;if(!vm._held||vm.index!==vm._holdIndex)return;var app=vm.shelf()[vm.index];if(app&&String(app.appId)!==String((root.CleanHomeConfig||{}).storeAppId||'164')){vm._longHeld=true;vm.actionApp=app;vm.actionIndex=0;vm.announce();}},650);return;
+     vm._holdTimer=setTimeout(function(){vm._holdTimer=null;if(!vm._held||vm.index!==vm._holdIndex)return;var app=vm.shelf()[vm.index];if(app&&String(app.appId)!==String((root.CleanHomeConfig||{}).storeAppId||'')){vm._longHeld=true;vm.actionApp=app;vm.actionIndex=0;vm.announce();}},650);return;
     }
     if(code!==K.ENTER)vm.cancelHold();
     if(event.repeat&&code===K.ENTER){event.stopPropagation();return;}

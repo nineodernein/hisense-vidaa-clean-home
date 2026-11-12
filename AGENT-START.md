@@ -1,5 +1,18 @@
 # Start from one link: Codex or Claude Code
 
+Paste this into your local Codex or Claude Code:
+
+> Use this: https://github.com/nineodernein/hisense-vidaa-clean-home
+
+**Agent instruction:** treat "Use this" with this repository as a request to
+begin this workflow for the owner's TV, not just summarize the README. Your
+target is the native floating dock, editable favorites and direct physical Home
+return, then optional animated wallpaper/manual saver. If the device differs,
+research and adapt it through PORTING.md. Do not stop merely at a reference
+profile mismatch or replace the target with a browser watcher without agreement.
+Establish the specific authorized target before contacting a TV. Respect any
+explicit repo-only/simulation-only scope in the conversation.
+
 Give your local coding agent this repository link with the request to set it up
 for your own TV. The agent should begin the local checks, not merely describe a
 plan or ask you to copy every command. A cloud-only chat cannot reach your home
@@ -28,6 +41,9 @@ If an agent only summarizes the link, this is the short, explicit request:
 | `needs_device_evidence` | Read MASTERPROMPT.md, COMPATIBILITY.md, NATIVE-ACCESS.md and RECOVERY.md. Collect only genuinely missing facts. |
 | `needs_more_evidence` | Collect the missing model/hash facts through already authorized read-only access; do not treat missing data as an incompatibility finding. |
 | `needs_model_research` | Stop native writes; continue exact-model documentation research and produce a redacted report. Do not claim the TV is technically impossible to customize. |
+| `research_leads` / `needs_exact_device_research` | Follow the pinned primary sources, record actual capabilities, and continue PORTING.md. Chip-only results never approve installation. |
+| `port_draft_needs_contract_review` | Inspect the owner's private OEM/SDK sources and populate the draft's evidence-backed reviews; do not just set flags to true. |
+| `experimental_candidate_for_review` | A private static Home port was assembled. Prepare its separate live preflight/atomic apply/rollback; no device was tested by this command. |
 | `reference_identity_reported` | The supplied identity/hashes match the reference; local originals, recovery and current live state still require verification. |
 | `ready_for_local_review` | Review the prepared private artifacts and model-specific apply/rollback plan. This is not TV installation approval. |
 | `local_artifacts_unchanged` | The local files still match; recheck live TV state before any separately authorized trial. |
@@ -50,6 +66,10 @@ If an agent only summarizes the link, this is the short, explicit request:
    insufficient space or incomplete recovery evidence stop preparation. On a
    match it retains another set of private original copies, invokes the real
    guarded build and emits a private review manifest. No connection is made.
+   For a mismatch, run `python3 agent.py research --json`, read PORTING.md and
+   WORKED-EXAMPLE.md, then use `agent.py port` and `agent.py prepare-port` once
+   device-specific original files and contract/recovery evidence are available.
+   Do not stop all useful work simply because reference `prepare` cannot pass.
 7. Before a TV trial run `python3 agent.py verify-plan --plan .private/plans/<id>.json`.
    This checks source/artifact integrity only; evidence fields are observations
    supplied by the agent, not remote measurements made by this tool. Recheck the
@@ -89,6 +109,11 @@ SDK/module/recovery contracts still need investigation. Do not scan a subnet,
 install a diagnostic payload, patch offsets or modify native files as part of
 this research. A new privileged access method requires its own reviewed scope.
 
-A new profile is a separate development task with its own original hashes,
-implementation, recovery plan and hardware acceptance. Simulation cannot create
-that evidence. Keep the current guarded build stopped until it exists.
+A new device is a separate development path with its own original hashes,
+implementation, recovery plan and hardware acceptance. The agent should do that
+work within the owner's authorized scope; the owner need not invent it.
+[PORTING.md](PORTING.md) supplies the executable private draft/build procedure,
+two explicit SDK adapters, review criteria and the trial sequence.
+[WORKED-EXAMPLE.md](WORKED-EXAMPLE.md) records the successful original techniques
+and failed approaches. Keep the reference build stopped; continue the port.
+Simulation cannot create hardware evidence or open a firmware with no known path.

@@ -20,3 +20,9 @@ Do not widen a compatibility profile merely to bypass a build error.
 
 Run node check.mjs, python3 check.py and python3 privacy-check.py.
 Keep upstream licenses and explain any behavior or compatibility changes.
+
+New original contributions are submitted under PolyForm Noncommercial 1.0.0;
+see LICENSE-SCOPE.md. Identify and preserve the licenses of any third-party code.
+Do not label the new restricted contributions as MIT or OSI open source.
+Use PORTING.md for device-specific development and include actual feature
+acceptance separately from upstream reports or simulated success.

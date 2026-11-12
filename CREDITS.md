@@ -28,12 +28,14 @@ frame. Only the selected app/tab has a focus outline.
 - [Zfinix/vidaa-launcher](https://github.com/Zfinix/vidaa-launcher)
   for the earlier browser-launcher approach and performance lessons.
 
-## What the MIT license covers
+## License scope
 
-Original source and documentation in this repo are MIT, with upstream notices
-retained for derived parts. TV firmware, vendor bundles, service branding,
+New original maintainer contributions are PolyForm Noncommercial 1.0.0;
+see [LICENSE-SCOPE.md](LICENSE-SCOPE.md) and [LICENSE](LICENSE). Prior MIT grants
+and the upstream MIT portions remain valid, with their notices retained.
+TV firmware, vendor bundles, service branding,
 app logos, the preview's third-party artwork and privately licensed media do not
-become MIT merely by appearing in an illustration.
+become covered by the project's license merely by appearing in an illustration.
 The approved preview is included as documentation; no source wallpaper/icon pack
 is distributed. Bring your own media or assets you are entitled to use.
 
@@ -47,5 +49,13 @@ is implied.
 
 Linked for users who want to find the reference clips. No original MP4, converted
 copy or private icon pack is bundled. The links do not grant redistribution
-rights or make third-party media MIT. See [the media guide](ANIMATED-WALLPAPERS.md)
+rights or relicense third-party media. See [the media guide](ANIMATED-WALLPAPERS.md)
 for downloading to a private folder and preparing your own clips.
+
+## Additional native SDK research
+
+The `app-list-v1` adapter follows alvidaa's
+[75U8QTUK native adapter](https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/tools/launcher-host/native-platform-75u8qtuk.js),
+reviewed at revision `7f9c9e9f91b5e9982f0af3d515f052b7499b29b4`.
+The model research catalog cites that same revision. These are upstream results,
+not additional hardware validations of this repository's dock.

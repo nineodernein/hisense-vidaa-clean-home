@@ -38,7 +38,8 @@
           this._platform = root.AlvidaaNativePlatform(sdk, function (data) {
             vm.apps = data.apps.filter(function (app) {
               return app && app.appId != null && typeof app.appName === "string" &&
-                app.appName.trim() && id(app) !== "vidaa-home" && id(app) !== "206";
+                app.appName.trim() && id(app) !== "vidaa-home" &&
+                (root.CleanHomeExcludedAppIds || ["206"]).indexOf(id(app)) < 0;
             });
             vm.sources = data.sources.filter(function (input) { return input && input.sourceId != null; });
             vm.status = data.errors.length ? data.errors.join("; ") :
@@ -78,7 +79,7 @@
         routeFocus: function () {
           var q = this.$route && this.$route.query || {};
           if (q.focusArea === "input" || Number(q.value) === keys.SOURCE || Number(q.value) === keys.KEYPAD_INPUT ||
-              q.startLauncherFrom === sdk.apc.CMDMETHOD.KEY_INPUT_START) this.show("inputs");
+              (sdk.apc.CMDMETHOD.KEY_INPUT_START != null && q.startLauncherFrom === sdk.apc.CMDMETHOD.KEY_INPUT_START)) this.show("inputs");
           else { this.view = "home"; this.zone = "shelf"; this.index = 0; this.moving = false; }
         },
         save: function () {

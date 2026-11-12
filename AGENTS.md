@@ -7,6 +7,11 @@ or ask the owner to copy each command. Reuse existing facts and authorization.
 Read COMPATIBILITY.md and RECOVERY.md before TV writes. A bare link by itself is
 not permission to gain privilege, install on a TV, or change other devices.
 
+"Use this" with the repo link means begin the local onboarding, not only summarize.
+The target is native Home/dock/editing/direct Home return and optional local video.
+Read WORKED-EXAMPLE.md. For a nonmatching device continue research and PORTING.md;
+do not stop at the reference mismatch or invent a universal compatibility claim.
+
 - Work only on an explicitly owned/authorized target. Respect watch-time pauses.
 - Publishing/documentation tasks never authorize contacting or changing a TV.
 - Preserve existing authorization; ask only for genuinely new access/scope.
@@ -30,3 +35,5 @@ not permission to gain privilege, install on a TV, or change other devices.
   automatic saver and real Home idle timeout unverified.
 - No claims of universal compatibility, complete privacy or removal of streaming ads.
 - Credit Libraries.dev/metal-fx, alvidaa and Free My TV; retain their licenses.
+- Follow LICENSE-SCOPE.md: new original contributions are noncommercial;
+  upstream and earlier MIT grants remain intact. Do not relicense third-party work.

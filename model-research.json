@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "reviewed": "2026-11-12",
+  "upstreamRevision": "7f9c9e9f91b5e9982f0af3d515f052b7499b29b4",
+  "inventory": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/research/inventory.json",
+  "meaning": "Research leads only. No entry approves installation of this dock. Similar chips, firmware suffixes and retail names are not device matches.",
+  "adapters": {
+    "current-show-apps-v1": {
+      "source": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/tools/launcher-host/native-platform.js",
+      "appList": "getCurrentShowApps",
+      "appDetail": "getAppInfoByAppId"
+    },
+    "app-list-v1": {
+      "source": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/tools/launcher-host/native-platform-75u8qtuk.js",
+      "appList": "getAppList",
+      "appDetail": "getAppInfo"
+    }
+  },
+  "reports": [
+    {
+      "id": "43q60sevs-q0612",
+      "models": [
+        "43E7DS",
+        "43Q60SEVS_02",
+        "43E7SE"
+      ],
+      "firmwares": [
+        "V0000.09.60W.Q0612"
+      ],
+      "soc": "MTK9603",
+      "region": "EU_A",
+      "access": "upstream_root_reported",
+      "nativeHome": "not_verified",
+      "adapter": null,
+      "source": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/models/43Q60SEVS/V0000.09.60W.Q0612/README.md",
+      "finding": "Browser fileWrite is gated; a separate FaaS fetcher and package postinst route worked upstream. A web launcher was verified, not this native dock."
+    },
+    {
+      "id": "55a60levs-q0612",
+      "models": [
+        "55A60LEVS"
+      ],
+      "firmwares": [
+        "09.60V.Q0612"
+      ],
+      "soc": "MTK9603",
+      "region": "EU_A",
+      "access": "upstream_blocked",
+      "nativeHome": "not_verified",
+      "adapter": null,
+      "source": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/research/inventory.json",
+      "finding": "Reported browser identity/write gate blocked the tested access route. This does not establish the result on a different firmware letter or model. Inventory has a shortened version; compare the full observed version separately."
+    },
+    {
+      "id": "75u8qtuk-q0813",
+      "models": [
+        "75U8QTUK"
+      ],
+      "firmwares": [
+        "V0000.09.60I.Q0813"
+      ],
+      "soc": "MTK9655",
+      "region": "UK",
+      "access": "upstream_root_reported",
+      "nativeHome": "upstream_other_launcher_verified",
+      "adapter": "app-list-v1",
+      "source": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/models/75U8QTUK/V0000.09.60I.Q0813/findings/09-native-home.md",
+      "finding": "Upstream native /Launcher integration and app/input/settings actions verified. Adapter source is a porting reference; our dock still requires its own local review and hardware trial."
+    },
+    {
+      "id": "50u7dse-q0923",
+      "models": [
+        "50U7DSE",
+        "50U73SEVS_01",
+        "50U7SE"
+      ],
+      "firmwares": [
+        "V0000.09.62N.Q0923"
+      ],
+      "soc": "MTK9618",
+      "region": "EU_A",
+      "access": "upstream_root_reported",
+      "nativeHome": "upstream_other_launcher_verified",
+      "adapter": "app-list-v1",
+      "source": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/models/50U7DSE/V0000.09.62N.Q0923/README.md",
+      "finding": "Upstream reused the 75U8QTUK adapter with native actions verified. Do not copy its persistent access or update-disabling settings."
+    },
+    {
+      "id": "50a51huv-p0813",
+      "models": [
+        "50A51HUV"
+      ],
+      "firmwares": [
+        "09.01O.P0813"
+      ],
+      "soc": "MTK9602",
+      "region": null,
+      "access": "upstream_root_reported",
+      "nativeHome": "upstream_other_launcher_verified",
+      "adapter": "current-show-apps-v1",
+      "source": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/models/50A51HUV/09.01O.P0813/findings/13-native-home.md",
+      "finding": "Upstream native integration is a source reference. Shortened inventory firmware needs full on-device verification."
+    },
+    {
+      "id": "55e7nq-pro-q0704",
+      "models": [
+        "55E7NQ PRO",
+        "55E75LEVS"
+      ],
+      "firmwares": [
+        "V0000.09.61B.Q0704"
+      ],
+      "soc": "MTK9618",
+      "region": "EU_A",
+      "access": "upstream_root_reported",
+      "nativeHome": "upstream_other_launcher_verified",
+      "adapter": null,
+      "source": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/research/inventory.json",
+      "finding": "The upstream native report is for 55E7NQ PRO, not 58E7NQ or an entire E7NQ series."
+    },
+    {
+      "id": "65u8hau-p0813",
+      "models": [
+        "65U8HAU",
+        "65E83GAVT"
+      ],
+      "firmwares": [
+        "V0000.06.29X.P0813"
+      ],
+      "soc": "MTK9900",
+      "region": "AU",
+      "access": "upstream_blocked",
+      "nativeHome": "not_verified",
+      "adapter": null,
+      "source": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/research/inventory.json",
+      "finding": "Reported web launcher/watcher success with native access blocked. A browser watcher is not a native Home replacement."
+    }
+  ],
+  "unverifiedCommunityRequests": [
+    {
+      "model": "A7GQ",
+      "reportedSoc": "MTK9603",
+      "firmware": null
+    },
+    {
+      "model": "58E7NQ",
+      "reportedSoc": null,
+      "firmware": null
+    },
+    {
+      "model": "65U87GQ",
+      "reportedSoc": null,
+      "firmware": null
+    },
+    {
+      "model": null,
+      "reportedSoc": null,
+      "firmware": "V01.09.60G.Q0612"
+    }
+  ]
+}

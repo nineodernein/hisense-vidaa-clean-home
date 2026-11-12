@@ -10,7 +10,7 @@ Do not use the README preview as a wallpaper source; it is only a screenshot.
 ## Get the example backgrounds or use your own
 
 The reference design used these two clips. These are links to the source pages,
-not files redistributed under this repository's MIT license:
+not files redistributed under this repository's license:
 
 | Example | Reference use | Source |
 | --- | --- | --- |

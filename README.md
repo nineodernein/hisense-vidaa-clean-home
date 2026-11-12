@@ -16,6 +16,16 @@ The default build uses the TV's cached icons or text tiles.*
 
 ### Give this to Claude Code or Codex
 
+```text
+Use this: https://github.com/nineodernein/hisense-vidaa-clean-home
+```
+
+The [agent instructions](AGENT-START.md) give a concrete goal and executable
+workflow. They include [the successful techniques and failed approaches from
+the original project](WORKED-EXAMPLE.md), plus [per-device porting](PORTING.md)
+when another TV does not match the reference. A mismatch starts research and
+adaptation; it is not automatically the end of the task.
+
 Give the repository link to Codex or Claude Code with a request to set it up for
 your own TV. The agent should begin the local checks automatically. If it only
 summarizes the link, paste this explicit instruction:
@@ -38,6 +48,12 @@ cannot reach your TV. This is an
 **agent-assisted recipe with source code**, not a universal one-click jailbreak.
 A matching firmware and an authorized maintenance channel are prerequisites for
 the native route. No promise of “a few minutes” on every model.
+
+Two explicit native SDK adapters are included. The private port builder uses
+the new device's own original Home and documented contract/recovery evidence;
+it does not relax the reference hash guard. Neither adapter selection nor a
+passing offline test establishes hardware support. Animated media on a new
+firmware follows a successful static-Home trial and its own native-player review.
 
 ### What you get
 
@@ -98,6 +114,15 @@ OEM bundles and device backups stay in `.private/` and must never be published.
 Read [recovery](RECOVERY.md), [privacy](PRIVACY.md), [security](SECURITY.md) and
 [credits/licenses](CREDITS.md) before a native trial.
 For supported-model reports, use [CONTRIBUTING.md](CONTRIBUTING.md).
+
+### Noncommercial use
+
+New original maintainer contributions are available under
+[PolyForm Noncommercial 1.0.0](LICENSE). Personal use and noncommercial hobby
+customization are allowed; commercial use of those contributions requires
+separate permission. [License scope](LICENSE-SCOPE.md) explains the retained
+upstream MIT rights and earlier MIT releases. This is source-available for
+noncommercial use, not a retroactive restriction on previously licensed code.
 
 ### Why this exists
 

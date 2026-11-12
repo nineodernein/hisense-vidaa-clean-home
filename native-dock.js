@@ -3,7 +3,7 @@
  var make=root.AlvidaaFreeMyTV;
  var asset=root.OwnerAssetBase||'file:///hisenseUI/static/vidaa-clean-home/';
  var preferred=[/netflix/i,/magenta/i,/prime|amazon/i,/disney/i,/youtube/i,/rtl|tvnow/i,/ard|das erste/i,/^zdf/i];
- function name(app){var n=app.appName||'';if(String(app.appId)===String((root.CleanHomeConfig||{}).storeAppId||'164'))return 'App Store';if(/rtl|tvnow/i.test(n))return 'RTL+';if(/ard|das erste/i.test(n))return 'ARD';if(/prime|amazon/i.test(n))return 'Prime Video';return n;}
+ function name(app){var n=app.appName||'';if(String(app.appId)===String((root.CleanHomeConfig||{}).storeAppId||''))return 'App Store';if(/rtl|tvnow/i.test(n))return 'RTL+';if(/ard|das erste/i.test(n))return 'ARD';if(/prime|amazon/i.test(n))return 'Prime Video';return n;}
  function icon(app){return (root.CleanHomeConfig&&root.CleanHomeConfig.icons||{})[String(app.appId)]||null;}
  function appColor(n){return /magenta/i.test(n)?'#dd007f':/zdf/i.test(n)?'#f16b00':/ard/i.test(n)?'#0646bf':'#191c22';}
  root.AlvidaaFreeMyTV=function(sdk){
@@ -15,7 +15,7 @@
   };
   c.methods.shelf=function(){
    if(this.favorites!==null)return this.favorites.map(function(id){return this.apps.filter(function(a){return String(a.appId)===id;})[0];},this).filter(Boolean);
-   var apps=this.apps,store=String((root.CleanHomeConfig||{}).storeAppId||'164'),seen={},ordered=[];
+   var apps=this.apps,store=String((root.CleanHomeConfig||{}).storeAppId||''),seen={},ordered=[];
    preferred.map(function(re){return apps.filter(function(a){return re.test(a.appName);})[0];}).concat(apps).forEach(function(app){
     if(!app)return;var id=String(app.appId);if(id===store||seen[id])return;seen[id]=true;ordered.push(app);
    });return ordered.slice(0,8);
@@ -37,7 +37,7 @@
   };
   c.methods.routeFocus=function(){
    var q=this.$route&&this.$route.query||{};
-   if(q.focusArea==='input'||Number(q.value)===k.SOURCE||q.startLauncherFrom===sdk.apc.CMDMETHOD.KEY_INPUT_START)this.show('inputs');
+   if(q.focusArea==='input'||Number(q.value)===k.SOURCE||(sdk.apc.CMDMETHOD.KEY_INPUT_START!=null&&q.startLauncherFrom===sdk.apc.CMDMETHOD.KEY_INPUT_START))this.show('inputs');
    else{this.view='home';this.zone='shelf';this.index=this.appIndex||0;this.moving=false;this.clamp();}
   };
   c.methods.clamp=function(){this.index=Math.max(0,Math.min(this.index,(this.zone==='top'?3:this.list().length)-1));};
