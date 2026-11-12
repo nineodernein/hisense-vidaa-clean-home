@@ -1,0 +1,16 @@
+# Never publish a device backup, generated firmware bundle or local credentials.
+.private/
+.local/
+dist/
+backups/
+*.ipk
+*.tar
+*.tar.gz
+*.zip
+*.mp4
+*.pem
+*.key
+*.env
+__pycache__/
+.DS_Store
+._*

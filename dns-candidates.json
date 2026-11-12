@@ -1,0 +1,40 @@
+{
+  "notice": "Proposed TV-scoped rules; no automatic deployment. DNS names do not prove payload contents.",
+  "sources": [
+    "https://github.com/ipanalytics/Hisense-VIDAA-DNS-Clean-TV-Blocklist"
+  ],
+  "groups": {
+    "home": [
+      {
+        "domain": "layout-ui-eu.vidaahub.com",
+        "provider": "VIDAA",
+        "purpose": "Home layout/promotional content; broader purpose inferred",
+        "evidence": "One reference device: blocking plus cold start removed the large promotional banner; user confirmed apps remained available.",
+        "risk": "Recommendations/layout may disappear; do not assume all firmware or apps work."
+      },
+      {
+        "domain": "crtv-mntz.vidaahub.com",
+        "provider": "VIDAA",
+        "purpose": "Promotional creative delivery; name-based role inference",
+        "evidence": "Observed targeted trial, retained after user feedback for intermediate promotional strips.",
+        "risk": "Promotional images and related store surfaces may disappear."
+      }
+    ],
+    "optional": [
+      {
+        "domain": "rsc-mntz.vidaahub.com",
+        "provider": "VIDAA",
+        "purpose": "Monetization resources (inferred)",
+        "evidence": "DNS request observed on reference device; role inferred, not decrypted content.",
+        "risk": "Optional UI resources may be missing; test separately."
+      },
+      {
+        "domain": "rpt-mntz-azure.vidaahub.com",
+        "provider": "VIDAA",
+        "purpose": "Monetization reporting (inferred)",
+        "evidence": "DNS request observed on reference device; role inferred, not decrypted content.",
+        "risk": "Reporting and related vendor features may fail; test separately."
+      }
+    ]
+  }
+}

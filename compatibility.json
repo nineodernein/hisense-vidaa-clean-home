@@ -1,0 +1,31 @@
+{
+  "id": "mtk9602-vidaa-u9-p0930",
+  "support": "one tested reference unit; no universal compatibility claim",
+  "internalModel": "43A53FEVS_0004",
+  "soc": "MTK9602",
+  "os": "VIDAA U9",
+  "reportedNativeVersion": "V0000.09.09F.P0930",
+  "marketingModelVerified": false,
+  "stock": {
+    "home": "42ff3268aa9a0e65b1713439c9dad26e6f48c4d7ce1475da1e4364b71c44d9d1",
+    "saver": "88e131af5e279e89fb48b9d392cad7b59eb765c8fb9c47577606d7e99e97c470"
+  },
+  "paths": {
+    "home": "/APPS/channelA/operation-ui/apps/launcher/js/app.js",
+    "saver": "/APPS/channelA/operation-ui/apps/screen-saver/js/app.js",
+    "assets": "/APPS/channelA/hisenseUI/static/vidaa-clean-home",
+    "cache": "/var/local/hisenseUI/cobalt_home/.cache/cobalt",
+    "engine": "/opt/hisenseUI/bin/hisenseUI"
+  },
+  "tested": {
+    "nativeDock": true,
+    "appToHome": true,
+    "favoritesLongPress": true,
+    "inputGrid": true,
+    "localLoopVideo": true,
+    "manualSaverAndBackFromHome": true,
+    "automaticHomeIdle": false,
+    "pausedNetflixSaver": false,
+    "publicPackagingOnTV": false
+  }
+}
