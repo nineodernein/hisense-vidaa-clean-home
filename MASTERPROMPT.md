@@ -52,6 +52,12 @@ Record marketing model, internal model, SoC, full firmware string and OS.
 Verify VIDAA rather than inferring it from the Hisense brand. Distinguish the TV's
 browser from the native Cobalt home renderer.
 
+Use VIDAA-MODELS.md only to identify documented OS families. Manufacturer VIDAA
+listings and upstream access reports are not this project's support matrix.
+Do not label a Toshiba, Loewe, MEDION or another Hisense model supported until
+this dock's exact integration has separate device evidence. Keep the reference
+profile and its hash guard unchanged during a documentation-only update.
+
 The reference family is in compatibility.json. Exact original launcher/saver
 SHA-256 values are decisive for this build; a similar model name is insufficient.
 The native source expects _V_M_, _V_SDK_, /Launcher and /ScreenSaver/ScreenMode.
@@ -154,6 +160,8 @@ a concise private change log and hash manifest when done.
 ## 7. Animated backgrounds and manual video saver
 
 Read ANIMATED-WALLPAPERS.md. Use only owner-supplied/licensed media.
+The guide links the example videos' source pages. Do not auto-download media,
+install those sites' desktop wallpaper apps, or redistribute the paid icon pack.
 Prepare a silent H.264 MP4, 1080p24, JPG poster, known cycle length and two-second
 cyclic continuation. Avoid GIFs and 4K canvas decoding on the TV.
 

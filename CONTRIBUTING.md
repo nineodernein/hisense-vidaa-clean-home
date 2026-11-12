@@ -8,6 +8,12 @@ module hashes if appropriate, and separately marked results for Home, App → Ho
 inputs, favorite editing, video, standby and recovery. Do not invent “supported”
 from a matching product name or an emulator test.
 
+Mark each feature as **passed on device**, **failed**, **not tested** or
+**offline only**. Name the exact project revision tested and distinguish a
+manufacturer's VIDAA specification, an upstream access report and this project's
+native dock running on hardware. Only the last can establish a new dock test
+result. Report firmware changes as new observations, not a whole-series promise.
+
 Never submit keys, tokens, email, IP/MAC addresses, serials, Wi-Fi details, OEM
 bundles, diagnostics, screenshots of accounts or personal media.
 Do not widen a compatibility profile merely to bypass a build error.

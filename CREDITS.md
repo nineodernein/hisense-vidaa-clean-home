@@ -39,3 +39,13 @@ is distributed. Bring your own media or assets you are entitled to use.
 
 No affiliation or endorsement by Hisense, VIDAA, Libraries.dev or app providers
 is implied.
+
+## Example video source pages
+
+- [Midnight Fuel Stop — MotionBGS](https://motionbgs.com/midnight-fuel-stop)
+- [Rainy Night City View — MotionBGS](https://motionbgs.com/rainy-night-city-view)
+
+Linked for users who want to find the reference clips. No original MP4, converted
+copy or private icon pack is bundled. The links do not grant redistribution
+rights or make third-party media MIT. See [the media guide](ANIMATED-WALLPAPERS.md)
+for downloading to a private folder and preparing your own clips.

@@ -1,7 +1,7 @@
 # Hisense VIDAA Clean Home
 ## Native app dock, custom home screen and animated wallpapers
 
-[Deutsch](README.de.md) · [Start with your coding agent](MASTERPROMPT.md) · [Download & setup](START-HERE.md) · [Compatibility](COMPATIBILITY.md)
+[Deutsch](README.de.md) · [Start with your coding agent](MASTERPROMPT.md) · [Download & setup](START-HERE.md) · [Compatibility](COMPATIBILITY.md) · [VIDAA brands & models](VIDAA-MODELS.md)
 
 Replace the sponsored Hisense VIDAA home screen with a local, native app dock.
 Keep your real installed apps, HDMI inputs and TV settings. Long-press OK to
@@ -49,6 +49,12 @@ the native route. No promise of “a few minutes” on every model.
 | Understand a browser alternative | [Compatibility](COMPATIBILITY.md) | Broader availability, but Home may bounce through stock VIDAA |
 
 ### Tested honestly
+
+**Does this work on every VIDAA TV? No.** VIDAA is also used on selected Toshiba,
+Loewe/We. by Loewe, MEDION and other TVs, but using the same OS is not proof that
+this native modification works. [Check the sourced brand/model directory](VIDAA-MODELS.md)
+and the [project's actual test status](COMPATIBILITY.md) separately. Other Hisense
+sets can run Google TV, Roku TV or Fire TV instead.
 
 The original integration was verified on **one MTK9602 / VIDAA U9 / P0930 device**.
 Native Home → app → Home, favorite editing, input navigation, a looping local

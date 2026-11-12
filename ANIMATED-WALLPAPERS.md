@@ -7,6 +7,35 @@ silent 1080p24 H.264 MP4. Native text remains separate from video.
 No private video or paid icon pack is included. Use media you own or may use.
 Do not use the README preview as a wallpaper source; it is only a screenshot.
 
+## Get the example backgrounds or use your own
+
+The reference design used these two clips. These are links to the source pages,
+not files redistributed under this repository's MIT license:
+
+| Example | Reference use | Source |
+| --- | --- | --- |
+| Midnight Fuel Stop | Animated Home background | [MotionBGS source/download page](https://motionbgs.com/midnight-fuel-stop) |
+| Rainy Night City View | Manual video screensaver | [MotionBGS source/download page](https://motionbgs.com/rainy-night-city-view) |
+
+1. Open the source page and check its current usage terms, or choose your own clip.
+2. Download the MP4 to your computer using the page's HD/4K wallpaper download.
+   No desktop wallpaper application, browser extension or TV APK is needed.
+3. Prepare a local playback copy with the command below. The download is optional
+   and manual; this project does not fetch third-party media automatically.
+4. Add the exporter's catalog entry to `.private/ui.json`, then choose its id for
+   Home, saver or both. A clip is not restricted to its reference role.
+5. Deploy only through the existing model-matched, authorized native workflow.
+   Opening a download page or preparing a clip does not modify a TV.
+
+The source pages offer MP4 downloads; this is not verification of a license to
+redistribute them. Keep downloaded and converted media private unless you have
+that right. The original TV loop was locally adjusted, so an unprocessed download
+will not necessarily have the same speed, black levels or loop transition.
+
+The preview's custom app icon pack is not included. The dock can use the TV's
+cached icons or text tiles. Optional owner-supplied PNG icons belong in private
+configuration and must not be copied from the preview screenshot.
+
 ## Prepare a clip on your computer
 
 Use an existing FFmpeg/ffprobe installation from a trusted source. Nothing in

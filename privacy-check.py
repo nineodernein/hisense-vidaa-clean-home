@@ -4,7 +4,7 @@ from pathlib import Path
 import re,ipaddress,subprocess,json
 ALLOWED={
  '.gitignore','README.md','README.de.md','MASTERPROMPT.md','AGENTS.md','CLAUDE.md',
- 'START-HERE.md','COMPATIBILITY.md','NATIVE-ACCESS.md','RECOVERY.md','ANIMATED-WALLPAPERS.md',
+ 'START-HERE.md','COMPATIBILITY.md','VIDAA-MODELS.md','NATIVE-ACCESS.md','RECOVERY.md','ANIMATED-WALLPAPERS.md',
  'DNS.md','PRIVACY.md','SECURITY.md','CREDITS.md','CONTRIBUTING.md','DISCOVERABILITY.md',
  'LICENSE','LICENSE.alvidaa.txt','LICENSE.free-my-tv.txt','LICENSE.metal-fx.txt',
  'native-platform.js','native-core.js','native-dock.js','native-actions.js','native-media.js',

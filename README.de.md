@@ -57,6 +57,12 @@ Getestet wurde eine interne Modellkennung 43A53FEVS_0004 mit MTK9602,
 VIDAA U9 und P0930. Die Verkaufsbezeichnung allein reicht nicht.
 [Kompatibilität prüfen](COMPATIBILITY.md).
 
+VIDAA wird auch bei ausgewählten Fernsehern von Toshiba, Loewe/We. by Loewe,
+MEDION und weiteren Marken verwendet. Das bestätigt nur das Betriebssystem,
+nicht unseren nativen Umbau. Die [Modell- und Markenübersicht mit Herstellerquellen](VIDAA-MODELS.md)
+trennt diese Geräte von der tatsächlich getesteten Referenz. Für andere Modelle
+ist die Funktion dieses Docks bislang nicht bestätigt.
+
 ## Herunterladen und aktivieren
 
 1. Oben auf GitHub **Code → Download ZIP** wählen.
