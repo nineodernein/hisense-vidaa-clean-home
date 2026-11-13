@@ -207,63 +207,64 @@ record. Offer a browser/DNS alternative only as a separate owner choice.
 
 ## Community case: 50E6NT
 
-Owner-reported, read-only findings received during community support:
-Hisense 50E6NT (Germany), `V0002.09.60A.Q0707`, internal `50A60LEVS_0002`,
-`MTK9603`, type `50A5LE`, region `EU_A`, country `DEU`.
-These are nonunique model/type identifiers, not a published device serial.
-The five information getters worked. Root, native Home, file reads and Fetcher
-were initially untested. A later owner-supplied diagnostic report describes
-successful file reads; this project has not independently captured their raw
-responses or the complete device files. Do not turn that report into a verified
-root route or this project's hardware acceptance.
+Owner-reported findings updated 2026-11-13: Hisense 50E6NT (Germany),
+`V0002.09.60A.Q0707`, internal `50A60LEVS_0002`, `MTK9603`, type `50A5LE`,
+region `EU_A`. These are model/type identifiers, not a device serial.
+This project has not independently inspected the raw device evidence. Keep this
+report separate from upstream verification and project hardware acceptance.
 
-The reported available interfaces are `vowOS.service.syncExecute` and
-`HiUtils_createRequest`; `WebSDK_createFileRequest` was absent. The observed
-HiUtils wrapper delegates to `syncExecute('hiutils', {api: type, args: msg})`.
+### Established in the owner's report
 
-| Read path relative to `/APPS` | Owner-reported raw result | Bounded conclusion |
-| --- | --- | --- |
-| `websdk/Appinfo.json` | `ret: false`, `ENOENT` | This pathname did not resolve; registry location remains open |
-| `pkgs/tv.vidaa.jsservice.basic/CHA/package.json` | `ret: false`, `ENOENT` | This pathname did not resolve; nested readable files are separate evidence |
-| `pkgs/tv.vidaa.jsservice.basic/CHA/services/fetcher/package.json` | `ret: true`, content returned | File read worked; reported fields include `selfStart: false` and `permission: {}` |
-| `pkgs/tv.vidaa.jsservice.basic/CHA/functions/fetch/fetchfile.js` | `ret: true`, content returned | File read worked; the photographed source output was incomplete |
+- Identity getters and file reads through vowOS/HiUtils worked; the WebSDK file
+  wrapper was absent. Successful source containing `permission` was initially
+  mislabeled by the probe; classify the result envelope instead of file text.
+- `websdk/Appinfo.json` and the parent `CHA/package.json` returned ENOENT.
+  Nested Fetcher files were readable; missing individual paths are not a global denial.
+- The owner replaced photographic transcription with directly transferred,
+  length/hash-checked copies of the Fetcher dispatcher, function and manifest.
+  The dispatcher reportedly normalizes string or object arguments to an object.
+  Only the object form is reported tested by the marker write.
+- Source tracing reportedly established nonpersistent service registration and
+  dispatch. Both successful marker runs needed **no explicit service start**.
+  The flags `autoStart: false` and `isKeepAlive: false` alone would not prove this;
+  the conclusion includes the reported call-path analysis and observed runs.
+- The owner reports Axios 1.6.2 default non-2xx rejection with no relevant override.
+  Error cleanup is asynchronous; a return status alone does not prove removal.
 
-The original probe mislabeled the two successful reads as permission failures
-because it searched their contents for the word `permission`. That conclusion
-was withdrawn. No permission denial was observed in these four reported reads.
-An empty manifest permission object does not prove effective caller permission;
-`selfStart: false` does not measure whether the service is currently running.
+### Two bounded marker tests reported successful
 
-The source excerpt reportedly reads `args?.url` while `JSON.parse(args)` is
-commented out. An object argument is therefore a hypothesis for the function
-boundary, not a tested end-to-end call shape: the bridge/dispatcher may serialize
-or parse arguments at a different layer. Do not automatically copy a sibling's
-JSON-string payload or try both forms against a writing endpoint.
+Each run used a new inert marker under `/APPS`: preflight read returned ENOENT,
+write returned success, readback matched the expected text, and error-path cleanup
+was followed by ENOENT. The latest removal was reported after 52 ms. This timing
+is an observation, not a universal waiting period or timeout recommendation.
+The temporary server was stopped. No executable package, root or native Home
+installation was reported in these tests.
 
-The next useful step is to retain the complete readable Fetcher function and
-manifest privately, with capture length/hash and an explicit truncation check.
-Use their imports/exports to identify the dispatcher, startup policy and actual
-cleanup contract. Derive any service-list/opkg configuration paths from source
-before preparing a bounded read list. Package status, CPU model and opkg package
-architecture are distinct; never infer the latter from the former alone.
-Reuse the owner's existing read scope; bundle only genuinely new paths/scope
-for approval. Do not start Fetcher, write a marker or install a package as part
-of this source collection. The report's local diagnostic server was stopped.
+An earlier HTTP 501 `Unsupported method ('POST')` came from the PC receiver.
+It does not establish TV read denial or contradict the later marker tests.
+Never label a failed upload as a verified transfer; use the independently
+matched local copies and subsequent evidence.
 
-Writes, execution, UID/GID, root, opkg architecture, native Home and persistence
-remain untested. Marker deletion is unresolved: an error-branch `fs.unlink` or
-overwriting a file with zero bytes is not a demonstrated removal procedure.
-Record that cleanup dependency before proposing a separately authorized write.
+### Resume here, without repeating resolved steps
 
-The useful learning is procedural: collect missing facts before declaring them
-root-only; inspect HiUtils and vowOS separately; distinguish a sibling's blocked
-browser write from an untested service path. The 43A5LE Q0707 report is a lead,
-not a match for a V0002 firmware. The 43Q60SEVS report establishes a mechanism on
-another MTK9603 build, not compatibility for this one.
+On the same unit with unchanged firmware and valid private evidence, retain the
+working read/write/readback/removal findings. Do not repeat identity discovery,
+photo transcription, object/string guessing or explicit-start experiments.
+Another owner's matching model/firmware is still a separate device: this report
+is a lead, not permission or automatic acceptance for that device.
 
-Keep later observations separate from upstream verified reports in
-`model-research.json`. Add only anonymized, scoped results with their evidence
-level. Do not publish support screenshots, handles, network details or OEM files.
+The report shows two requests per test step despite one visible click. The cause
+is unresolved. Investigate event handlers, request correlation and retry layers
+locally before further mutating tests; do not assume duplicate actions harmless.
+Keep unknowns explicit: execution, process identity/root, package architecture,
+original-file backups, independent recovery, native Home and persistence.
+Prepare the next source-backed investigation as a batch within existing scope.
+A reported marker write is not evidence of root or a native installation route.
+No real-device package generation or execution is authorized by this record.
+
+Keep exact test paths, LAN addresses, handles, screenshots, full logs and OEM
+source private. The machine-readable anonymized report is in
+`model-research.json`; it never sets installation approval or hardware verification.
 
 ## Primary sources and reference lessons
 

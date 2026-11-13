@@ -120,3 +120,5 @@ two explicit SDK adapters, review criteria and the trial sequence.
 [WORKED-EXAMPLE.md](WORKED-EXAMPLE.md) records the successful original techniques
 and failed approaches. Keep the reference build stopped; continue the port.
 Simulation cannot create hardware evidence or open a firmware with no known path.
+
+Use LAB.md and the persistent offline lab: `python3 agent.py lab --matrix --json` and `python3 agent.py lab-memory --json`. Read the saved report and apply MASTERPROMPT.md's concrete learning table. Matching simulated successes guide the next hypothesis; they never become actual device evidence.

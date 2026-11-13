@@ -29,6 +29,33 @@ Optional and separate: TV-scoped DNS rules for home promotional endpoints.
 Do not replace this request with a browser watcher unless the owner knowingly
 accepts that fallback after native compatibility cannot be established.
 
+
+## Act on retained learning
+
+Read LAB.md. Run `python3 agent.py lab --matrix --json` and `python3 agent.py lab-memory --json`, then inspect the returned private report. Reuse matching successful simulated routes and scoped failures. Changed conditions require a new evaluation. Keep simulation results separate from actual device observations and production compatibility fields.
+
+Apply these lessons directly:
+
+| Established finding | Prioritize | Skip unless the premise changes |
+| --- | --- | --- |
+| Identity and reads already work | Continue through that interface | Repeating identity discovery or demanding root for proven reads |
+| WebSDK absent, vowOS available | Existing vowOS/HiUtils contract | Treating one absent wrapper as total denial |
+| ENOENT at one path | Source-derived alternative path | Repeated unchanged requests or declaring every registry absent |
+| Permission words in successful file content | Structured envelope classification | Substring-based denial labels |
+| Photographic source transcription | Direct private transfer with matching byte/hash methods | Treating a mismatched transcript as authoritative |
+| Dispatcher normalizes object/string arguments | Inspect the next unresolved boundary | Reopening the resolved format question |
+| HiUtils write denied | Separate Fetcher lifecycle and permissions | Assuming all service routes are denied |
+| Same-unit Fetcher write/readback/removal already recorded | Resume at remaining execution/recovery evidence; retain exact scope | Repeating successful marker tests or demanding an explicit service start without new evidence |
+| Duplicate requests despite one click | Inspect local handlers, retries and request correlation | Further mutating trials before duplicate side effects are understood |
+| PC receiver returns HTTP 501 for POST | Fix the receiver contract and verify transferred copies | Treating a receiver error as TV permission denial |
+| Async cleanup returns | Bounded readback until confirmed absence | Treating return status or fixed delay as deletion proof |
+| Axios version known | Actual validateStatus defaults and overrides | Treating package.json alone as runtime behavior |
+| Installer returns an error | Independent session-bound UID evidence and artifacts | Blindly repeating installation |
+| Native Home return required | Preserve vendor engine and adapt its launcher | Faster browser polling as a native replacement |
+| PLAYING with still/black display | Owned session, advancing time and transparent ancestors | Blind format changes without checking the video plane |
+
+Bundle related source questions. Give each test variant one changed assumption, record its result and reuse existing scope. Prepare genuinely new live scope as a concrete batch. For simulation-only requests run and retain modeled variants locally without TV contact.
+
 ## Research contract: persist and discriminate
 
 Act as the owner's implementation agent. Carry out useful authorized research

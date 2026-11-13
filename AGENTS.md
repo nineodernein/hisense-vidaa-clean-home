@@ -49,3 +49,5 @@ source as incomplete. Use the successful read contract before trying alternative
 - Credit Libraries.dev/metal-fx, alvidaa and Free My TV; retain their licenses.
 - Follow LICENSE-SCOPE.md: new original contributions are noncommercial;
   upstream and earlier MIT grants remain intact. Do not relicense third-party work.
+
+Use LAB.md and the persistent offline lab: `python3 agent.py lab --matrix --json` and `python3 agent.py lab-memory --json`. Read the saved report and apply MASTERPROMPT.md's concrete learning table. Matching simulated successes guide the next hypothesis; they never become actual device evidence.

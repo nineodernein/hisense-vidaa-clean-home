@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "revision": "2026-11-13.1",
+  "meaning": "Behavioral models for offline experiments. Every parameter is a modeled condition, not a hardware measurement. Enumerated worlds have no probability weights.",
+  "profiles": [
+    {
+      "id": "reference-package-error",
+      "kind": "reported-mechanism-model",
+      "description": "Models the reference lesson that package update errors and postinst UID evidence are independent. This is not a firmware emulator.",
+      "basis": "WORKED-EXAMPLE.md#2-how-temporary-maintenance-access-was-established",
+      "parameters": {
+        "hiutilsWriteAllowed": true,
+        "cleanupMethod": "owned-helper",
+        "installerError": true
+      }
+    },
+    {
+      "id": "fetcher-pivot",
+      "kind": "reported-mechanism-model",
+      "description": "Models a separate Fetcher route after a denied HiUtils write; all runtime results here are invented.",
+      "basis": "ACCESS-RESEARCH.md#keep-the-separate-service-route-separate",
+      "parameters": {
+        "hiutilsWriteAllowed": false,
+        "fetcherWriteAllowed": true
+      }
+    },
+    {
+      "id": "community-50e6nt",
+      "kind": "unverified-hypothesis-worlds",
+      "description": "Historical pre-marker hypothetical branches, retained as regression cases. A later owner report establishes bounded write/readback/removal on that unit; these synthetic worlds are not new hardware evidence and must not reopen resolved same-unit tests. Execution and root remain unverified.",
+      "basis": "ACCESS-RESEARCH.md#community-case-50e6nt",
+      "parameters": {
+        "hiutils": true,
+        "vowOS": true,
+        "contextReady": true,
+        "fileReadAllowed": true,
+        "controlExists": false,
+        "sourceComplete": true,
+        "dispatcherArgs": "both"
+      },
+      "hypotheses": {
+        "hiutilsWriteAllowed": [
+          false,
+          true
+        ],
+        "fetcherWriteAllowed": [
+          false,
+          true
+        ],
+        "serviceStartAllowed": [
+          false,
+          true
+        ],
+        "cleanupAllowed": [
+          false,
+          true
+        ],
+        "httpReject404": [
+          false,
+          true
+        ],
+        "executeAllowed": [
+          false,
+          true
+        ],
+        "installAllowed": [
+          false,
+          true
+        ],
+        "postinstUid": [
+          null,
+          314,
+          0
+        ],
+        "architectureKnown": [
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "id": "page-context-failure",
+      "kind": "synthetic",
+      "description": "A diagnostic page failure can be resolved without changing firmware permissions.",
+      "parameters": {
+        "contextReady": false
+      }
+    },
+    {
+      "id": "vowos-without-wrapper",
+      "kind": "synthetic",
+      "description": "An absent HiUtils wrapper leaves a separately available service bridge.",
+      "parameters": {
+        "hiutils": false,
+        "vowOS": true
+      }
+    },
+    {
+      "id": "no-read-interface",
+      "kind": "synthetic",
+      "description": "No available modeled bridge; no write experiments follow.",
+      "parameters": {
+        "hiutils": false,
+        "vowOS": false
+      }
+    },
+    {
+      "id": "actual-read-denial",
+      "kind": "synthetic",
+      "description": "A structured denial is preserved, unlike permission words in returned file content.",
+      "parameters": {
+        "fileReadAllowed": false
+      }
+    },
+    {
+      "id": "string-path-contract",
+      "kind": "synthetic",
+      "description": "A demonstrated argument mismatch changes the argument, not the permission conclusion.",
+      "parameters": {
+        "pathShape": "string"
+      }
+    },
+    {
+      "id": "string-dispatch-contract",
+      "kind": "synthetic",
+      "description": "The source contract selects a string-form request without spraying a writing endpoint.",
+      "parameters": {
+        "dispatcherArgs": "string"
+      }
+    },
+    {
+      "id": "incomplete-source",
+      "kind": "synthetic",
+      "description": "Truncated source produces a precise source-collection dependency.",
+      "parameters": {
+        "sourceComplete": false
+      }
+    },
+    {
+      "id": "both-write-routes-closed",
+      "kind": "synthetic",
+      "description": "Both modeled write paths are explicitly denied. This is not a verdict about all real VIDAA routes.",
+      "parameters": {
+        "hiutilsWriteAllowed": false,
+        "fetcherWriteAllowed": false
+      }
+    },
+    {
+      "id": "slow-unlink",
+      "kind": "synthetic",
+      "description": "An asynchronous deletion completes after several virtual ticks and needs repeated readback.",
+      "parameters": {
+        "cleanupDelay": 5
+      }
+    },
+    {
+      "id": "unlink-not-completed",
+      "kind": "synthetic",
+      "description": "A return value arrives but deletion never completes; later privilege tests remain unexecuted.",
+      "parameters": {
+        "cleanupAllowed": false
+      }
+    },
+    {
+      "id": "http-error-accepted",
+      "kind": "synthetic",
+      "description": "A custom HTTP status validator accepts 404, so the intended cleanup instead writes a body to the owned virtual marker.",
+      "parameters": {
+        "httpReject404": false
+      }
+    },
+    {
+      "id": "corrupt-readback",
+      "kind": "synthetic",
+      "description": "Write success is rejected when readback differs; the owned marker is still cleaned up.",
+      "parameters": {
+        "corruptWrite": true
+      }
+    },
+    {
+      "id": "network-condition",
+      "kind": "synthetic",
+      "description": "A runtime network prerequisite differs from a permission failure.",
+      "parameters": {
+        "netReady": false
+      }
+    },
+    {
+      "id": "wakeup-condition",
+      "kind": "synthetic",
+      "description": "A wakeup prerequisite prevents the modeled Fetcher operation.",
+      "parameters": {
+        "wakeReady": false
+      }
+    },
+    {
+      "id": "non-root-postinst",
+      "kind": "synthetic",
+      "description": "A package runs, but its runtime proof reports a nonzero UID.",
+      "parameters": {
+        "postinstUid": 314
+      }
+    },
+    {
+      "id": "success-without-proof",
+      "kind": "synthetic",
+      "description": "A successful package return without independent runtime proof is not root.",
+      "parameters": {
+        "postinstUid": null,
+        "installerError": false
+      }
+    },
+    {
+      "id": "stale-proof",
+      "kind": "synthetic",
+      "description": "An old-session proof is rejected even when it contains UID zero.",
+      "parameters": {
+        "proofVariant": "stale-nonce"
+      }
+    },
+    {
+      "id": "foreign-package-proof",
+      "kind": "synthetic",
+      "description": "UID evidence must belong to the specific diagnostic package.",
+      "parameters": {
+        "proofVariant": "wrong-package"
+      }
+    },
+    {
+      "id": "string-uid-proof",
+      "kind": "synthetic",
+      "description": "A truthy/coerced UID string is not accepted as structured proof.",
+      "parameters": {
+        "proofVariant": "string-uid"
+      }
+    },
+    {
+      "id": "package-cleanup-failure",
+      "kind": "synthetic",
+      "description": "Root execution and cleanup are tracked separately; leftover metadata is reported.",
+      "parameters": {
+        "proofCleanupAllowed": false
+      }
+    }
+  ]
+}

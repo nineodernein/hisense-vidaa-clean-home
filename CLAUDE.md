@@ -16,3 +16,5 @@ inside returned source is not an error code; ENOENT concerns the requested path,
 not all registries. Read complete source before deriving a new call contract.
 Simulation-only scope never
 authorizes TV contact. Never turn a successful mock test into a hardware claim.
+
+Use LAB.md and the persistent offline lab: `python3 agent.py lab --matrix --json` and `python3 agent.py lab-memory --json`. Read the saved report and apply MASTERPROMPT.md's concrete learning table. Matching simulated successes guide the next hypothesis; they never become actual device evidence.

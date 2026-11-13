@@ -14,7 +14,8 @@ ALLOWED={
  'agent.py','check-agent.py','check-bundle.mjs','device.example.json','AGENT-START.md',
  'SIMULATION.md','.github/workflows/offline-checks.yml',
  'model_tools.py','model-research.json','build-port.mjs','check-port.py',
- 'PORTING.md','WORKED-EXAMPLE.md','LICENSE-SCOPE.md','ACCESS-RESEARCH.md'
+ 'PORTING.md','WORKED-EXAMPLE.md','LICENSE-SCOPE.md','ACCESS-RESEARCH.md',
+ 'vidaa_lab.py','lab-profiles.json','check-lab.py','LAB.md'
 }
 def jpeg_private_metadata(data):
     if data[:2]!=b'\xff\xd8':return True

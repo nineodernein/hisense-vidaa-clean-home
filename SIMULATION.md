@@ -59,3 +59,7 @@ public package has only been tested offline. No reference TV was contacted or
 modified while adding this simulation. A fresh hardware trial, other models,
 standby/cold boot, actual recovery and paused-app screensavers remain separate
 unverified claims. Passing this suite is **not a zero-brick-risk certificate**.
+
+## Persistent access experiments
+
+See [LAB.md](LAB.md). `check-lab.py` is included in the offline suite and exercises response classification, route pivots, asynchronous cleanup, independent UID proof, the systematic matrix and persistent learning. `agent.py lab --matrix --json` saves modeled outcomes for later runs.

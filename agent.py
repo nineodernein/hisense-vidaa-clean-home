@@ -113,6 +113,7 @@ def offline_checks():
                     [sys.executable, 'check.py'],
                     [sys.executable, 'check-agent.py'],
                     [sys.executable, 'check-port.py'],
+                    [sys.executable, 'check-lab.py'],
                     [sys.executable, 'privacy-check.py']):
         try:
             result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True,
@@ -148,12 +149,17 @@ def start():
             raise Stop('Source changed since the last session. Preserve old session.json under a new private name, then start again.')
     else:
         write_private(session, state)
+    import vidaa_lab
+    lab = vidaa_lab.campaign(sys.modules[__name__])
+    result['simulationMemory'] = {key: lab[key] for key in
+                                 ('report', 'memory', 'worlds', 'memoryHits', 'newMemories')}
     result.update(status='needs_device_evidence', next=[
         'Read MASTERPROMPT.md, COMPATIBILITY.md, NATIVE-ACCESS.md and RECOVERY.md.',
         'Use existing owner-supplied facts first. Ask once only for missing TV identity/address and access authorization.',
         'With authorized read-only access, fill .private/device.json from actual observations and copy original modules to .private/stock/.',
         'Never fill evidence with example/profile values. A mismatch stops reference writes, not further authorized source research.',
         'Run python3 agent.py research --json. Follow ACCESS-RESEARCH.md for concrete access hypotheses and WORKED-EXAMPLE.md for original successes and failures.',
+        'Read python3 agent.py lab-memory --json and the saved lab report. Reuse matching simulated routes as test-design hypotheses, never as real device evidence.',
         'Exact reference: agent.py prepare. Other devices: PORTING.md, agent.py port, then reviewed agent.py prepare-port.',
         'Read AGENT-START.md for the separate model-specific TV trial. No TV writes are performed by this tool.'
     ])
@@ -301,7 +307,7 @@ def verify_plan(filename):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command')
-    for name in ('doctor', 'start', 'simulate', 'compatibility', 'research', 'port', 'prepare-port', 'prepare', 'verify-plan'):
+    for name in ('doctor', 'start', 'simulate', 'lab', 'lab-memory', 'compatibility', 'research', 'port', 'prepare-port', 'prepare', 'verify-plan'):
         child = commands.add_parser(name)
         child.add_argument('--json', action='store_true', help='Machine-readable output (also the default)')
         if name in ('prepare', 'compatibility', 'research', 'port', 'prepare-port'):
@@ -310,6 +316,9 @@ def main():
             child.add_argument('--port', required=True)
         if name == 'verify-plan':
             child.add_argument('--plan', required=True)
+        if name == 'lab':
+            child.add_argument('--profile', default='all', help='Named lab profile, or all')
+            child.add_argument('--matrix', action='store_true', help='Add the exhaustive synthetic parameter matrix')
     args = parser.parse_args()
     try:
         command = args.command or 'start'
@@ -320,6 +329,12 @@ def main():
             result = start()
         elif command == 'simulate':
             result = offline_checks()
+        elif command in ('lab', 'lab-memory'):
+            import vidaa_lab
+            if command == 'lab':
+                result = vidaa_lab.campaign(sys.modules[__name__], args.profile, args.matrix)
+            else:
+                result = vidaa_lab.memory_summary(sys.modules[__name__])
         elif command == 'prepare':
             result = prepare(args.device)
         elif command == 'compatibility':

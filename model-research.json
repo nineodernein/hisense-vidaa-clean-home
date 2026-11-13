@@ -232,11 +232,11 @@
       ],
       "soc": "MTK9603",
       "region": "EU_A",
-      "evidenceLevel": "owner_reported_file_reads",
-      "access": "file_reads_reported_write_and_root_unverified",
+      "evidenceLevel": "owner_reported_write_readback_cleanup",
+      "access": "fetcher_write_and_cleanup_reported_root_unverified",
       "nativeHome": "not_verified",
       "source": "ACCESS-RESEARCH.md#community-case-50e6nt",
-      "finding": "Owner reported successful identity getters and two Fetcher package/function file reads through vowOS/HiUtils. An initial permission denial label was a probe parser error caused by the word permission in returned source. Two other paths returned ENOENT. Full raw captures were not supplied to this project; Fetcher source output was incomplete. No service start, write, package installation, root or native Home success is established.",
+      "finding": "Owner reports two successful bounded marker write/readback/removal runs on this exact unit and firmware, without an explicit service start. Direct source transfer was reported verified. This project has not independently inspected the raw device evidence. Execution, root, recovery and native Home remain unverified.",
       "interfaces": {
         "vowOS.service.syncExecute": "present_reported",
         "HiUtils_createRequest": "present_reported",
@@ -264,31 +264,50 @@
           "path": "pkgs/tv.vidaa.jsservice.basic/CHA/functions/fetch/fetchfile.js",
           "ret": true,
           "outcome": "read_reported",
-          "captureCompleteness": "incomplete_reported"
+          "captureCompleteness": "complete_direct_transfer_reported"
         }
       ],
       "argumentShape": {
-        "hypothesis": "object_at_function_boundary",
-        "basis": "Reported partial source uses args?.url with JSON.parse(args) commented out. Dispatcher conversion is unresolved.",
-        "tested": false
+        "hypothesis": "dispatcher_normalizes_string_or_object_to_object",
+        "basis": "Owner reports complete dispatcher source accepts either form; bounded write test used an object.",
+        "tested": true,
+        "testedForm": "object",
+        "stringForm": "source_reported_not_live_tested"
       },
       "notEstablished": [
-        "complete_source_capture",
-        "fetcher_start",
-        "fetcher_write",
         "execution",
         "process_identity",
         "root",
         "opkg_architecture",
-        "marker_deletion",
+        "independent_recovery",
         "native_home",
-        "persistence"
+        "persistence",
+        "duplicate_request_cause"
       ],
-      "nextReadPlan": [
-        "On the reporting unit, reuse its existing read scope and working vowOS/HiUtils contract; do not restart identity discovery or repeat unchanged missing paths.",
-        "Capture the complete readable Fetcher function and manifest privately. Record length/hash and check for truncation; no service starts or writing calls.",
-        "Trace imports/exports to the actual dispatcher, argument conversion and cleanup. Derive additional service-list/opkg configuration paths from source; prepare a bounded list before asking only for genuinely new scope."
-      ]
+      "nextInvestigationPlan": [
+        "Reuse same-unit write/readback/removal evidence; do not restart identity, source transfer or explicit service-start experiments without changed conditions.",
+        "Investigate duplicate requests locally before further mutating tests; retain raw event/request correlation privately.",
+        "Prepare a source-backed plan for remaining execution, privilege, original backup and independent recovery questions. No installation or root is approved by this report."
+      ],
+      "writeCleanupReport": {
+        "reportedAt": "2026-11-13",
+        "runs": 2,
+        "scope": "new inert marker files under /APPS only",
+        "precondition": "ENOENT observed before each run",
+        "write": "ret true; download finished",
+        "readback": "expected inert marker content matched",
+        "cleanup": "HTTP 404 error branch followed by confirmed ENOENT",
+        "lastReportedRemovalMs": 52,
+        "explicitServiceStart": false,
+        "serverStopped": true,
+        "duplicateRequests": "two requests per step reported; cause unresolved",
+        "independentlyVerifiedByThisProject": false
+      },
+      "sourceFindings": {
+        "serviceLifecycle": "Owner reports nonpersistent registration/dispatch; no explicit start needed in either successful run.",
+        "httpErrors": "Owner reports Axios 1.6.2 defaults reject non-2xx and no relevant override; cleanup is asynchronous and must be confirmed by readback.",
+        "transfer501": "Earlier local receiver rejected POST; separate from TV read permission and later successful marker tests."
+      }
     }
   ]
 }
