@@ -57,7 +57,7 @@ not proof that their apparently identical TV has already passed a test.
 | --- | --- | --- |
 | Reference Home watcher bounced through VIDAA | Preserve the OEM engine and investigate its native launcher module | Faster browser polling as a fix for native Home return |
 | Reference reads were blocked by the diagnostic page's CSP | Diagnose the actual page/transport error | Calling the firmware patched from a page failure |
-| 50E6NT getters and two package-file reads were owner-reported successful | Continue through the available vowOS/HiUtils read contract and the actual readable files | Requiring root for those reads, or retrying the absent WebSDK interface |
+| 50E6NT progressed from reported reads to marker cleanup and a UID 0 postinst proof | On that unit, reconcile its private evidence/cleanup and continue native port preparation | Repeating historical access tests or treating the public report as another unit's proof |
 | A read response contained `ret: true` and source with a `permission` property | Treat the returned source as data and inspect structured result fields | Searching all response text for permission/error words to decide success |
 | A particular file returned `ENOENT` | Record that exact path/context and derive another path from readable source | Repeating the same path or declaring all registries/file access absent |
 | Reference native video played behind opaque UI layers | Check owned player events, advancing time and transparent ancestors | Repeated codec changes based only on a still/black screen |
@@ -207,7 +207,7 @@ record. Offer a browser/DNS alternative only as a separate owner choice.
 
 ## Community case: 50E6NT
 
-Owner-reported findings updated 2026-11-13: Hisense 50E6NT (Germany),
+Owner-reported findings updated 2026-11-14: Hisense 50E6NT (Germany),
 `V0002.09.60A.Q0707`, internal `50A60LEVS_0002`, `MTK9603`, type `50A5LE`,
 region `EU_A`. These are model/type identifiers, not a device serial.
 This project has not independently inspected the raw device evidence. Keep this
@@ -245,6 +245,30 @@ It does not establish TV read denial or contradict the later marker tests.
 Never label a failed upload as a verified transfer; use the independently
 matched local copies and subsequent evidence.
 
+### Later diagnostic postinst reported UID 0
+
+A follow-up received on 2026-11-14 reports a matching helper readback, successful
+service reachability, an accepted package operation and a subsequently read
+proof containing UID 0, GID 0 and effective capabilities. This is an
+**owner-reported one-shot privileged postinst result**. The project has not
+received or independently checked the underlying artifact/session binding.
+An accepted operation alone would not establish root; the reported proof is a
+separate observation. It does not establish a persistent shell or current SSH.
+
+The final screenshots show cleanup instructions, not cleanup results. Package
+removal and removal of the diagnostic helper/package/proof remain unconfirmed.
+Do not inherit the earlier marker tests' successful cleanup for these new
+artifacts. Consult the latest private ledger once, preserve the evidence and
+complete only outstanding authorized cleanup using its explicit manifest.
+
+The owner also reports repeated staging after reloading the diagnostic page.
+The source of that repeat and the earlier double requests remain unresolved.
+Diagnostic pages must be passive on load/reload: no staging, install or cleanup
+in initialization handlers. Use explicit actions, a receiver-side action ledger
+that rejects duplicate identifiers, and an in-flight UI lock. These are design
+requirements, not a claim that the existing page already implements them.
+Never silently retry an ambiguous mutation; reconcile state first.
+
 ### Resume here, without repeating resolved steps
 
 On the same unit with unchanged firmware and valid private evidence, retain the
@@ -256,11 +280,14 @@ is a lead, not permission or automatic acceptance for that device.
 The report shows two requests per test step despite one visible click. The cause
 is unresolved. Investigate event handlers, request correlation and retry layers
 locally before further mutating tests; do not assume duplicate actions harmless.
-Keep unknowns explicit: execution, process identity/root, package architecture,
-original-file backups, independent recovery, native Home and persistence.
-Prepare the next source-backed investigation as a batch within existing scope.
-A reported marker write is not evidence of root or a native installation route.
-No real-device package generation or execution is authorized by this record.
+On the reporting unit, use its existing private proof/session logs to retain the
+one-shot privilege result. Do not re-run the exploit or demand an exact published
+root guide merely because the public catalog previously lagged behind that unit.
+Keep unknowns explicit: cleanup completion, current authorized maintenance access,
+package architecture, original-file backups, independent recovery, native Home
+and persistence. Follow PORTING.md for this device's own Home/SDK and a static
+candidate first. Continue local port preparation while live dependencies remain
+open. No native installation or new access scope is authorized by this record.
 
 Keep exact test paths, LAN addresses, handles, screenshots, full logs and OEM
 source private. The machine-readable anonymized report is in

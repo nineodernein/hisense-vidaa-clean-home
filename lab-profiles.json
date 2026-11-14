@@ -27,7 +27,7 @@
     {
       "id": "community-50e6nt",
       "kind": "unverified-hypothesis-worlds",
-      "description": "Historical pre-marker hypothetical branches, retained as regression cases. A later owner report establishes bounded write/readback/removal on that unit; these synthetic worlds are not new hardware evidence and must not reopen resolved same-unit tests. Execution and root remain unverified.",
+      "description": "Historical pre-marker hypothetical branches retained as regressions. Later owner reports describe marker write/readback/removal and a one-shot UID 0 postinst. These worlds are not device evidence and must not reopen established same-unit tests; cleanup of the later package, current access and native Home remain unconfirmed in the shared report.",
       "basis": "ACCESS-RESEARCH.md#community-case-50e6nt",
       "parameters": {
         "hiutils": true,

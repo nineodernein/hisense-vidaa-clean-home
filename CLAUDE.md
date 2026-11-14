@@ -17,4 +17,4 @@ not all registries. Read complete source before deriving a new call contract.
 Simulation-only scope never
 authorizes TV contact. Never turn a successful mock test into a hardware claim.
 
-Use LAB.md and the persistent offline lab: `python3 agent.py lab --matrix --json` and `python3 agent.py lab-memory --json`. Read the saved report and apply MASTERPROMPT.md's concrete learning table. Matching simulated successes guide the next hypothesis; they never become actual device evidence.
+Resume existing projects from `.private/handoff.md` and the latest evidence/cleanup ledger before starting another session. Read MASTERPROMPT.md's efficient-resumption section. Use LAB.md and retained lab reports; run a new matrix only for missing/stale evidence or changed modeled conditions. Matching simulated successes guide hypotheses, never device acceptance. A same-unit private postinst UID proof leads to cleanup/access/recovery and PORTING.md, not repeated root demonstrations.

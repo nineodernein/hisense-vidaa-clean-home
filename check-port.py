@@ -61,15 +61,15 @@ class ResearchTests(unittest.TestCase):
         self.assertGreater(len(result['accessResearch']['nextCapabilities']), 0)
         self.assertFalse(result['installationApproved'])
 
-    def test_community_write_cleanup_is_never_promoted_to_root_or_native_support(self):
+    def test_community_uid_report_never_approves_native_or_current_access(self):
         result = ports.research({'marketingModel': '50E6NT', 'soc': 'MTK9603',
                                 'reportedNativeVersion': 'V0002.09.60A.Q0707'}, self.catalog)
         self.assertEqual(result['status'], 'research_leads')
         self.assertFalse(result['exactModelReports'])
         observation = result['communityObservations'][0]
         self.assertEqual(observation['match'], 'model_and_reported_firmware')
-        self.assertEqual(observation['evidenceLevel'], 'owner_reported_write_readback_cleanup')
-        self.assertEqual(observation['access'], 'fetcher_write_and_cleanup_reported_root_unverified')
+        self.assertEqual(observation['evidenceLevel'], 'owner_reported_uid0_postinst')
+        self.assertEqual(observation['access'], 'one_shot_privileged_execution_reported_maintenance_unverified')
         reads = {r['path']: r for r in observation['readResults']}
         self.assertEqual(sum(r['ret'] is True for r in reads.values()), 2)
         self.assertEqual(reads['websdk/Appinfo.json']['outcome'], 'path_missing_reported')
@@ -82,7 +82,16 @@ class ResearchTests(unittest.TestCase):
         self.assertNotIn('fetcher_write', observation['notEstablished'])
         self.assertEqual(observation['writeCleanupReport']['runs'], 2)
         self.assertFalse(observation['writeCleanupReport']['independentlyVerifiedByThisProject'])
-        self.assertIn('root', observation['notEstablished'])
+        proof = observation['privilegeReport']
+        self.assertEqual(proof['postinstProof']['uid'], 0)
+        self.assertEqual(proof['scope'], 'one_shot_diagnostic_postinst')
+        self.assertFalse(proof['independentlyVerifiedByThisProject'])
+        self.assertFalse(proof['postinstProof']['sessionBindingIndependentlyChecked'])
+        self.assertEqual(proof['activeMaintenanceAccess'], 'not_established')
+        self.assertEqual(proof['cleanup']['status'], 'prepared_outcome_not_reported')
+        self.assertTrue(proof['cleanup']['separateFromEarlierMarkerCleanup'])
+        self.assertIn('diagnostic_package_cleanup', observation['notEstablished'])
+        self.assertIn('active_maintenance_channel', observation['notEstablished'])
         self.assertNotIn('marker_deletion', observation['notEstablished'])
         self.assertIn('duplicate_request_cause', observation['notEstablished'])
         self.assertEqual(observation['nativeHome'], 'not_verified')

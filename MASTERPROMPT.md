@@ -32,7 +32,7 @@ accepts that fallback after native compatibility cannot be established.
 
 ## Act on retained learning
 
-Read LAB.md. Run `python3 agent.py lab --matrix --json` and `python3 agent.py lab-memory --json`, then inspect the returned private report. Reuse matching successful simulated routes and scoped failures. Changed conditions require a new evaluation. Keep simulation results separate from actual device observations and production compatibility fields.
+Read LAB.md and any existing private handoff first. Reuse the retained report and successful check receipt when source hashes, runtime and modeled conditions still match. Run `python3 agent.py lab --matrix --json` only when that report is missing/stale or a new modeled question requires it; inspect retained memory with `python3 agent.py lab-memory --json`. Reuse matching successful simulated routes and scoped failures. Keep simulation results separate from actual device observations and production compatibility fields.
 
 Apply these lessons directly:
 
@@ -50,11 +50,36 @@ Apply these lessons directly:
 | PC receiver returns HTTP 501 for POST | Fix the receiver contract and verify transferred copies | Treating a receiver error as TV permission denial |
 | Async cleanup returns | Bounded readback until confirmed absence | Treating return status or fixed delay as deletion proof |
 | Axios version known | Actual validateStatus defaults and overrides | Treating package.json alone as runtime behavior |
+| Same-unit postinst UID proof already established in private logs | Reconcile cleanup/current authorized access and proceed to original backup, recovery and native port | New root packages merely to reconfirm historical success |
+| Page reload appears to repeat staging | Passive initialization, explicit actions and duplicate-action rejection | On-load mutations or automatic retries of ambiguous changes |
 | Installer returns an error | Independent session-bound UID evidence and artifacts | Blindly repeating installation |
 | Native Home return required | Preserve vendor engine and adapt its launcher | Faster browser polling as a native replacement |
 | PLAYING with still/black display | Owned session, advancing time and transparent ancestors | Blind format changes without checking the video plane |
 
 Bundle related source questions. Give each test variant one changed assumption, record its result and reuse existing scope. Prepare genuinely new live scope as a concrete batch. For simulation-only requests run and retain modeled variants locally without TV contact.
+
+## Continue efficiently from a private handoff
+
+For an existing project, resume before starting another onboarding session.
+Keep `.private/handoff.md` short: source revision/check receipt, exact device and
+firmware, established results with private evidence paths, current access scope
+and expiry, owned artifacts/cleanup status, unresolved dependencies and one next
+action. Do not paste full OEM files or logs into chat. Update the handoff after
+meaningful progress; a new chat reads it instead of rediscovering the device.
+
+Prefer verified direct transfer and a compact machine-readable result batch over
+photographs of source or one screenshot per diagnostic click. Use screenshots
+for visible Home/app acceptance when needed. Batch independent permitted reads;
+keep dependent or mutating actions sequential. Reuse existing authorization,
+ask once for genuinely new scope, and never treat budget pressure as permission.
+Run relevant checks after changes; reuse valid unchanged receipts rather than
+rerunning all tests and simulations on every message. Still recheck current
+state needed for a real modification: old evidence does not prove current state.
+
+A one-shot root proof shifts the next question to cleanup, current access,
+backups, recovery and device-specific native contracts. It is not a running
+maintenance service, an installed dock or permission to change Home. Prepare
+one concrete next step, not an endless sequence of privilege demonstrations.
 
 ## Research contract: persist and discriminate
 
@@ -98,8 +123,9 @@ Download a tagged/source ZIP, or clone it. Pin the revision you actually use and
 record it locally. Read files before running them; do not pipe a remote script
 into a shell. Download only from the named project/upstream sources.
 
-For an owner request to set up this repository, begin the executable local
-workflow after inspecting its source. Do not stop at advice or ask the owner to
+For a new owner setup, begin the executable local workflow after inspecting its
+source. For an existing project, use the private handoff and valid check receipt
+first; do not restart onboarding merely because another message arrived. Do not stop at advice or ask the owner to
 run every command. Run from the extracted folder:
 
 ```sh

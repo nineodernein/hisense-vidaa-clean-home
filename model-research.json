@@ -221,7 +221,7 @@
   },
   "communityObservations": [
     {
-      "id": "50e6nt-q0707-read-only",
+      "id": "50e6nt-q0707-community",
       "models": [
         "50E6NT",
         "50A60LEVS_0002",
@@ -232,11 +232,11 @@
       ],
       "soc": "MTK9603",
       "region": "EU_A",
-      "evidenceLevel": "owner_reported_write_readback_cleanup",
-      "access": "fetcher_write_and_cleanup_reported_root_unverified",
+      "evidenceLevel": "owner_reported_uid0_postinst",
+      "access": "one_shot_privileged_execution_reported_maintenance_unverified",
       "nativeHome": "not_verified",
       "source": "ACCESS-RESEARCH.md#community-case-50e6nt",
-      "finding": "Owner reports two successful bounded marker write/readback/removal runs on this exact unit and firmware, without an explicit service start. Direct source transfer was reported verified. This project has not independently inspected the raw device evidence. Execution, root, recovery and native Home remain unverified.",
+      "finding": "Owner reports two bounded marker write/readback/removal runs followed by a diagnostic package whose postinst produced a UID 0/GID 0 proof. The package/service call was accepted and the helper had been read back against the local original. This project has only the shared report, not the underlying proof and session logs. Diagnostic cleanup was prepared but its completion was not reported. Active maintenance access, independent recovery and native Home remain unverified.",
       "interfaces": {
         "vowOS.service.syncExecute": "present_reported",
         "HiUtils_createRequest": "present_reported",
@@ -275,19 +275,21 @@
         "stringForm": "source_reported_not_live_tested"
       },
       "notEstablished": [
-        "execution",
-        "process_identity",
-        "root",
+        "active_maintenance_channel",
+        "diagnostic_package_cleanup",
+        "diagnostic_artifact_cleanup",
         "opkg_architecture",
         "independent_recovery",
+        "original_home_backup",
         "native_home",
         "persistence",
         "duplicate_request_cause"
       ],
       "nextInvestigationPlan": [
-        "Reuse same-unit write/readback/removal evidence; do not restart identity, source transfer or explicit service-start experiments without changed conditions.",
-        "Investigate duplicate requests locally before further mutating tests; retain raw event/request correlation privately.",
-        "Prepare a source-backed plan for remaining execution, privilege, original backup and independent recovery questions. No installation or root is approved by this report."
+        "On the reporting unit, consult the existing private proof/session logs and cleanup ledger once. Do not repeat a successful privilege test solely because the public catalog previously lacked it.",
+        "Resolve duplicate/reload-triggered mutation locally. Keep diagnostic pages passive on load, reject duplicate action identifiers and reconcile ambiguous results before any retry.",
+        "Determine cleanup and current authorized access separately from historical postinst success. Retain private evidence before removing owned artifacts within existing scope.",
+        "Continue PORTING.md with this device's original Home/SDK, verified backups and independent recovery; prepare a static native candidate first. A privilege report never approves native installation or another TV."
       ],
       "writeCleanupReport": {
         "reportedAt": "2026-11-13",
@@ -307,6 +309,30 @@
         "serviceLifecycle": "Owner reports nonpersistent registration/dispatch; no explicit start needed in either successful run.",
         "httpErrors": "Owner reports Axios 1.6.2 defaults reject non-2xx and no relevant override; cleanup is asynchronous and must be confirmed by readback.",
         "transfer501": "Earlier local receiver rejected POST; separate from TV read permission and later successful marker tests."
+      },
+      "privilegeReport": {
+        "receivedAt": "2026-11-14",
+        "evidenceKind": "owner_shared_agent_transcript",
+        "helperReadback": "matched_local_original_reported",
+        "serviceReachability": "successful_response_reported",
+        "packageOperation": "accepted_reported",
+        "postinstProof": {
+          "uid": 0,
+          "gid": 0,
+          "capabilities": "present_reported",
+          "provenance": "owner_reports_reading_proof_after_installation",
+          "sessionBindingIndependentlyChecked": false
+        },
+        "scope": "one_shot_diagnostic_postinst",
+        "activeMaintenanceAccess": "not_established",
+        "cleanup": {
+          "status": "prepared_outcome_not_reported",
+          "packageRemoval": "not_confirmed",
+          "artifactRemoval": "not_confirmed",
+          "separateFromEarlierMarkerCleanup": true
+        },
+        "repeatedStaging": "owner reports files staged again after page reload; cause not independently established",
+        "independentlyVerifiedByThisProject": false
       }
     }
   ]

@@ -28,10 +28,12 @@ It includes two explicit SDK adapters. This removes the single-profile dead end
 from the agent workflow; it does **not** add hardware support claims. The
 [research catalog](model-research.json) separates exact-model and chip-only leads.
 It also returns a concrete [access research playbook](ACCESS-RESEARCH.md) even
-when no model matches. Community observations, including the 50E6NT Q0707 getter
-and Fetcher-source read reports, are listed separately and never promoted to
-write, root or native support. That case also records two missing paths, a
-corrected diagnostic parser error and incomplete source capture.
+when no model matches. Community observations are listed separately from project
+hardware acceptance. The 50E6NT Q0707 owner now reports verified source transfer,
+two marker write/readback/removal runs and a later diagnostic postinst UID 0
+proof. Diagnostic-package cleanup completion, active maintenance access, recovery
+and native Home remain unconfirmed in the shared report. This does not approve
+installation on that unit or establish another unit's compatibility.
 
 ## Reference evidence
 

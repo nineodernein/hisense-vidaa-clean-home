@@ -23,6 +23,13 @@ If an agent only summarizes the link, this is the short, explicit request:
 
 > Set up https://github.com/nineodernein/hisense-vidaa-clean-home for my own TV. Follow AGENT-START.md and MASTERPROMPT.md and begin the offline checks now. Use ACCESS-RESEARCH.md to investigate missing access, distinguish failed interfaces and pursue source-backed alternatives. Reuse known facts and permissions. Keep researching and preparing locally when a live step is blocked; verify compatibility and recovery before native installation.
 
+## Resuming an existing project
+
+Read the private handoff, evidence and cleanup ledger first. Reuse matching
+source/runtime check receipts and existing authorization. Do not repeat startup,
+full matrix runs or completed TV probes on every turn. Follow MASTERPROMPT.md's
+resumption section; recheck current state only where the next action requires it.
+
 ## Coding-agent procedure
 
 1. Read this file and the root AGENTS.md / CLAUDE.md. Obtain a clean checkout or
@@ -121,4 +128,4 @@ two explicit SDK adapters, review criteria and the trial sequence.
 and failed approaches. Keep the reference build stopped; continue the port.
 Simulation cannot create hardware evidence or open a firmware with no known path.
 
-Use LAB.md and the persistent offline lab: `python3 agent.py lab --matrix --json` and `python3 agent.py lab-memory --json`. Read the saved report and apply MASTERPROMPT.md's concrete learning table. Matching simulated successes guide the next hypothesis; they never become actual device evidence.
+Resume existing projects from `.private/handoff.md` and the latest evidence/cleanup ledger before starting another session. Read MASTERPROMPT.md's efficient-resumption section. Use LAB.md and retained lab reports; run a new matrix only for missing/stale evidence or changed modeled conditions. Matching simulated successes guide hypotheses, never device acceptance. A same-unit private postinst UID proof leads to cleanup/access/recovery and PORTING.md, not repeated root demonstrations.
