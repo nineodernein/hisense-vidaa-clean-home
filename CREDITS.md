@@ -59,3 +59,16 @@ The `app-list-v1` adapter follows alvidaa's
 reviewed at revision `7f9c9e9f91b5e9982f0af3d515f052b7499b29b4`.
 The model research catalog cites that same revision. These are upstream results,
 not additional hardware validations of this repository's dock.
+
+## App and preview research
+
+The [provider research handoff](CONTINUE-WATCHING.md) links the reviewed primary
+implementations: Jellyfin server/controller and VIDAA installer, Google's Cobalt
+storage schema and YouTube Data API history, YouTube.js, Universal Trakt Scrobbler
+and amazon-vod-fireos. These links document research and client differences; they
+do not claim VIDAA compatibility or bundle those projects' code. Preserve their
+respective licenses if a future implementation actually incorporates code.
+
+[ibelick/ui-skills](https://github.com/ibelick/ui-skills) and
+[affaan-m/ECC](https://github.com/affaan-m/ECC) supplied additional design guidance.
+Their browser/iOS design concepts still require adaptation to the native renderer.

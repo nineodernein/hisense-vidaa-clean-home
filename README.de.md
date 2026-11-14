@@ -79,6 +79,20 @@ Für Home-Banner und bestimmte Empfehlungskacheln gibt es einen separaten
 Das ist keine Garantie gegen jede Werbung oder jede Datenübertragung.
 Werbung innerhalb von Streamingvideos wird dadurch nicht zuverlässig entfernt.
 
+## Gesamte Recherche und Projekt-Übergabe
+
+Der [vollständige deutsche Abstrakt](PROJECT-ABSTRACT.de.md) bündelt den nativen
+Zugangsweg, Video-Lösungen, Community-Erkenntnisse, Fehlschläge und die Anleitung
+für den nächsten Agenten. [English](PROJECT-ABSTRACT.md).
+Die [Anbieter-Recherche](CONTINUE-WATCHING.md) dokumentiert Jellyfin und die
+„Weiterschauen“-Vorschauen mit ihrem jeweiligen echten Stand. Die privaten
+Vorschau-Anbindungen sind **nicht im öffentlichen Build enthalten**.
+
+Der Masterprompt verlangt zielstrebige Recherche: bestätigte Ergebnisse nutzen,
+den nächsten offenen Punkt klären und nach einem eingegrenzten Fehler andere
+quellenbasierte Wege verfolgen. Simulationen oder ähnliche Firmwareversionen
+werden dabei nicht zu Gerätebeweisen erklärt.
+
 ## Passt das auf jeden Hisense?
 
 Nein. Hisense verkauft unterschiedliche Betriebssysteme und Firmwarefamilien.

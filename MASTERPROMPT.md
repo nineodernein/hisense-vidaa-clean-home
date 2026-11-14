@@ -30,6 +30,64 @@ Do not replace this request with a browser watcher unless the owner knowingly
 accepts that fallback after native compatibility cannot be established.
 
 
+## Execution discipline: drive the next concrete result
+
+Work persistently and investigate aggressively within the owner's authorized
+scope. Take responsibility for choosing and carrying out the next useful step.
+Do not make the owner invent technical hypotheses or repeat facts already in
+the handoff. Each work cycle should produce a verified observation, a reviewed
+local artifact, a narrower hypothesis, or a precise dependency with a prepared
+resumption action. A long explanation without one of these is not progress.
+
+Prioritize in this order:
+1. Reuse current same-unit evidence and working interfaces.
+2. Resolve the nearest unproven contract from complete source and retained logs.
+3. Perform the smallest discriminating test already covered by the current scope.
+4. If a route is actually closed, pursue the next source-backed interface or
+   device-specific port. Keep independent local work moving.
+5. Once execution is proved, advance to cleanup/access/recovery and native Home;
+   do not spend another session proving the same privilege.
+6. Validate the visible result and real app action before reporting success.
+
+For every failure record which boundary failed: transport, argument shape,
+caller context, lifecycle, permissions, path, execution, native integration,
+rendering, account/profile or content semantics. An error in one boundary does
+not decide all the others. Do not repeat the same failed input, change several
+assumptions at once, or bypass a failing guard to manufacture a result.
+
+Read [PROJECT-ABSTRACT.md](PROJECT-ABSTRACT.md) for the consolidated project state
+and [CONTINUE-WATCHING.md](CONTINUE-WATCHING.md) for optional provider work.
+Prefer complete verified transfers over photographic transcription. Keep private
+handoffs short and machine-readable results compact. Reuse valid check receipts
+and existing authorization. New live scope needs a concrete reviewed plan;
+a remaining token budget does not extend that scope or prove recovery.
+
+## Later integration lessons to apply immediately
+
+| Observed situation | Required next action |
+| --- | --- |
+| Source was changed but the screen shows the older behavior | Verify the actual loaded module and relevant compiled cache before another feature rewrite |
+| Native video reports PLAYING but stays invisible | Check source/session ownership and the entire transparent ancestor chain, then observe motion |
+| An app opens from a link but has no tile | Check registration, actual inventory, favorites and icon cache independently |
+| An artwork response succeeds but the image is blank/cropped | Check native renderer support, contained image sizing and visible acceptance |
+| Provider response is HTTP 200 but owner reports wrong/missing card | Keep the feature unaccepted; inspect profile/item mapping, delivery and rendering |
+| Netflix probe stays inside minimum refresh wait | Retain the actual last request; account for Home-triggered refreshes; avoid repeated GUI reloads |
+| Another provider works | Preserve it; investigate only the unresolved provider contract |
+| Exact episode/time fields are missing | Omit them; do not substitute catalog totals, decorative image progress or guessed minutes |
+| Maintenance closes before final verification | Record what was measured versus only scheduled; do not infer cleanup from port closure |
+| Request changes to documentation/repository work | Complete only already-authorized closure if still possible; do not open/extend TV access for publication |
+
+The private Disney preview was accepted. Netflix still lacks reliable
+episode/remaining-time metadata; Prime still lacks remaining time. YouTube was
+not accepted. Other providers have no accepted personal-resume contract here.
+These private extensions are not shipped public adapters. Never hardcode personal
+history to make a demonstration pass or claim another model supports them.
+
+If optional previews are requested, implement the contract and staged acceptance
+in CONTINUE-WATCHING.md. Keep the native dock usable without the helper server.
+Preserve parental/rating checks and native item actions; an app opening is not
+proof that the correct episode opened. Keep card size fixed and images contained.
+
 ## Act on retained learning
 
 Read LAB.md and any existing private handoff first. Reuse the retained report and successful check receipt when source hashes, runtime and modeled conditions still match. Run `python3 agent.py lab --matrix --json` only when that report is missing/stale or a new modeled question requires it; inspect retained memory with `python3 agent.py lab-memory --json`. Reuse matching successful simulated routes and scoped failures. Keep simulation results separate from actual device observations and production compatibility fields.

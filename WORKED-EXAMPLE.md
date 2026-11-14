@@ -206,3 +206,22 @@ Do not block broad content/authentication/update domains to force a cosmetic win
 Reuse the proven mechanisms, then verify the differences. Do not copy the
 original owner's private values or describe a model-specific research result
 as universal compatibility.
+
+## 9. Later app and preview work
+
+The original unit later gained a working Jellyfin app tile connected to a local
+server. Registration, favorite membership and icon-cache refresh were separate
+from opening the web client. No Android APK or general Home reset was needed.
+
+Compact native Continue Watching cards were then accepted for Netflix, Prime
+Video and Disney+, with different metadata coverage. Disney's episode, remaining
+time and action were confirmed; Netflix's episode/time and Prime's remaining
+time were not resolved. YouTube returned private history data but its visible
+card was not accepted. These private provider adapters are not part of the
+public build. See [CONTINUE-WATCHING.md](CONTINUE-WATCHING.md) for the complete
+contracts, source references, failures and acceptance status.
+
+The consolidated [project abstract](PROJECT-ABSTRACT.md)
+([Deutsch](PROJECT-ABSTRACT.de.md)) includes the second-device report, maintenance
+lessons, privacy boundary and the next-agent workflow. It contains no personal
+viewing history or private configuration.

@@ -3,7 +3,7 @@
 This project targets a native VIDAA/Cobalt Home component. It does not target
 Android TV/Google TV, Roku TV, Fire TV or a generic Linux desktop.
 
-Last reviewed: 2026-11-12. **One reference unit has confirmed native integration;
+Last reviewed: 2026-11-14. **One reference unit has confirmed native integration;
 no other model is claimed as tested with this project's dock.** A TV using VIDAA
 is a research candidate, not an installation approval.
 
@@ -94,3 +94,18 @@ An ad-blocking success is not evidence of native Home compatibility.
 To add confirmed support, submit the redacted feature results described in
 [CONTRIBUTING.md](CONTRIBUTING.md). Preserve the exact firmware and original-file
 hash checks; do not add an entire retail series from one successful test.
+
+## Later optional integrations on the original unit
+
+The original unit's separate Jellyfin app integration was owner-confirmed.
+Private Continue Watching cards were accepted for Netflix (title/artwork/action),
+Prime (also season/episode), and Disney+ (also remaining time/progress and correct
+episode action). Netflix episode/remaining-time and Prime remaining-time remain
+open. The YouTube trial was not accepted; other provider cards remain unverified.
+These adapters are not included in the public source build. See the full
+[provider matrix](CONTINUE-WATCHING.md) and [project abstract](PROJECT-ABSTRACT.md).
+
+A new anonymous 55U7Q enquiry reports V0000.09.60A.Q0602 and extended version
+X0003.W01.Y01.J01. This is identification-only evidence. It adds no supported
+profile, access result or native integration. The earlier V01.09.60G.Q0612 enquiry
+was identified by its owner as a 32-inch E5ST; it also remains unverified.

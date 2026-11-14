@@ -51,3 +51,9 @@ source as incomplete. Use the successful read contract before trying alternative
   upstream and earlier MIT grants remain intact. Do not relicense third-party work.
 
 Resume existing projects from `.private/handoff.md` and the latest evidence/cleanup ledger before starting another session. Read MASTERPROMPT.md's efficient-resumption section. Use LAB.md and retained lab reports; run a new matrix only for missing/stale evidence or changed modeled conditions. Matching simulated successes guide hypotheses, never device acceptance. A same-unit private postinst UID proof leads to cleanup/access/recovery and PORTING.md, not repeated root demonstrations.
+
+Read [PROJECT-ABSTRACT.md](PROJECT-ABSTRACT.md) for the consolidated technical handoff
+([Deutsch](PROJECT-ABSTRACT.de.md)) and [CONTINUE-WATCHING.md](CONTINUE-WATCHING.md)
+for optional provider research. Follow MASTERPROMPT.md's execution discipline:
+resolve the next unproven boundary, reuse proven routes, preserve accepted features
+and require visible acceptance. Provider prototypes are not shipped adapters.

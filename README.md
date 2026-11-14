@@ -82,6 +82,20 @@ firmware follows a successful static-Home trial and its own native-player review
 | Add animated backgrounds | [Animated wallpapers](ANIMATED-WALLPAPERS.md) | A working native installation; your own clips |
 | Understand a browser alternative | [Compatibility](COMPATIBILITY.md) | Broader availability, but Home may bounce through stock VIDAA |
 
+### Consolidated project research
+
+The [complete project abstract](PROJECT-ABSTRACT.md)
+([Deutsch](PROJECT-ABSTRACT.de.md)) records the native route, video fixes, community
+findings, failed assumptions and next-agent instructions. The
+[Continue Watching research](CONTINUE-WATCHING.md) separately records Jellyfin
+and provider-specific previews. Those private preview adapters are **not shipped
+in this public build**; their acceptance status is explicit.
+
+The masterprompt now directs agents to resolve the next unproven boundary,
+reuse confirmed results and pursue source-backed alternatives without repeating
+onboarding or ambiguous writes. It does not turn a simulated success or an
+unknown firmware into installation approval.
+
 ### Tested honestly
 
 **Does this work on every VIDAA TV? No.** VIDAA is also used on selected Toshiba,

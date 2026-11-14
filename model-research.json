@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewed": "2026-11-13",
+  "reviewed": "2026-11-14",
   "upstreamRevision": "7f9c9e9f91b5e9982f0af3d515f052b7499b29b4",
   "inventory": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/research/inventory.json",
   "meaning": "Research leads only. No entry approves installation of this dock. Similar chips, firmware suffixes and retail names are not device matches.",
@@ -170,9 +170,18 @@
       "firmware": null
     },
     {
-      "model": null,
+      "model": "32E5ST",
       "reportedSoc": null,
-      "firmware": "V01.09.60G.Q0612"
+      "firmware": "V01.09.60G.Q0612",
+      "evidenceLevel": "owner_reported_identity_only"
+    },
+    {
+      "model": "55U7Q",
+      "reportedSoc": null,
+      "firmware": "V0000.09.60A.Q0602",
+      "extendedVersion": "X0003.W01.Y01.J01",
+      "evidenceLevel": "owner_reported_identity_only",
+      "nativeHome": "not_verified"
     }
   ],
   "accessResearch": {
