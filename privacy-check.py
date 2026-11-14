@@ -16,7 +16,8 @@ ALLOWED={
  'model_tools.py','model-research.json','build-port.mjs','check-port.py',
  'PORTING.md','WORKED-EXAMPLE.md','LICENSE-SCOPE.md','ACCESS-RESEARCH.md',
  'vidaa_lab.py','lab-profiles.json','check-lab.py','LAB.md',
- 'PROJECT-ABSTRACT.md','PROJECT-ABSTRACT.de.md','CONTINUE-WATCHING.md'
+ 'PROJECT-ABSTRACT.md','PROJECT-ABSTRACT.de.md','CONTINUE-WATCHING.md',
+ 'REMOTE-AND-BROWSER.md','AGENT-TROUBLESHOOTING.md'
 }
 def jpeg_private_metadata(data):
     if data[:2]!=b'\xff\xd8':return True

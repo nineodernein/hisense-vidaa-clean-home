@@ -14,3 +14,7 @@ backups/
 __pycache__/
 .DS_Store
 ._*
+
+# Owner-specific coding-agent settings can contain private paths and permissions.
+.claude/settings.local.json
+CLAUDE.local.md

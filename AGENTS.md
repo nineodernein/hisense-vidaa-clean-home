@@ -57,3 +57,10 @@ Read [PROJECT-ABSTRACT.md](PROJECT-ABSTRACT.md) for the consolidated technical h
 for optional provider research. Follow MASTERPROMPT.md's execution discipline:
 resolve the next unproven boundary, reuse proven routes, preserve accepted features
 and require visible acceptance. Provider prototypes are not shipped adapters.
+
+For authorized live setup, read REMOTE-AND-BROWSER.md and reuse paired remote
+control to navigate apps and the TV browser where supported. Prefer direct
+private result transfer over source photographs. Pairing, browser diagnostics
+and privileged maintenance are separate capabilities and scopes. Read
+AGENT-TROUBLESHOOTING.md when stalled: identify the actual blocker, continue
+independent permitted work and never disguise or reroute a refused action.

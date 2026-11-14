@@ -31,6 +31,17 @@ Implementation: `native-entry.js` + `native-platform.js` + `native-core.js` +
 required registry/SDK interface is missing. This is a defensive fallback, not
 a substitute for preflight and recovery.
 
+### Keep the useful setup controls
+
+The remote/browser stage remains useful for pairing, opening installed apps,
+entering a local diagnostic URL and driving its controls. Its limitation was
+using a browser watcher as the permanent Home replacement. Keep the successful
+setup techniques and replace the unsuitable final architecture.
+[REMOTE-AND-BROWSER.md](REMOTE-AND-BROWSER.md) gives the reusable procedure,
+including direct result transfer instead of repeated source photographs. Remote
+control is neither a root shell nor automatic visual feedback. The original
+pairing files, device identifiers and credentials remain private.
+
 ## 2. How temporary maintenance access was established
 
 The native module was not initially readable through the browser context.

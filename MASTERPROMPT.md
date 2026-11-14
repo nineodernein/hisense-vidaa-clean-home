@@ -232,6 +232,31 @@ Do not weaken the fixed hash check or paste another model's memory offsets,
 ownership IDs or boot hooks. Offer DNS or an agreed browser fallback if no native
 route can be established; do not silently substitute that for the native goal.
 
+## 2a. Operate the remote and browser when useful
+
+Read REMOTE-AND-BROWSER.md before a live setup. Reuse a valid paired local remote
+or prepare the exact model's normal pairing flow. Within the owner's active
+scope, navigate apps, enter a local diagnostic URL and operate the prepared page
+yourself when the available client supports it. Request the current pairing code
+or a missing visible observation; do not make the owner press every routine key
+or photograph pages of source. Use a verified direct result receiver instead.
+
+Treat remote control, TV-browser bridges and privileged maintenance as separate
+capabilities. Reuse successful pairing if another stage fails. Opening a page in
+the computer browser is not equivalent to running it in the TV browser. MQTT
+acknowledgment is not a screen capture. Verify state before each dependent UI
+action and prevent duplicate clicks after reload or reconnect.
+
+The browser can assist diagnosis and setup without becoming the permanent Home.
+Keep pages passive on load, isolate the temporary server and preserve current
+scope/deadlines. Close the controller and receiver at the end of the session.
+Repo-only or simulation-only work still forbids TV contact.
+
+When an agent stops, follow AGENT-TROUBLESHOOTING.md: identify the actual blocked
+operation and its evidence, resolve mistaken assumptions and carry out the next
+independent permitted task. Do not use deception, fabricated authorization or
+alternate tools to get around a tool denial or model-policy refusal.
+
 ## 3. Establish a bounded, authorized maintenance path
 
 Read NATIVE-ACCESS.md and ACCESS-RESEARCH.md. Prefer an existing authorized root

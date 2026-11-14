@@ -60,6 +60,16 @@ it does not relax the reference hash guard. Neither adapter selection nor a
 passing offline test establishes hardware support. Animated media on a new
 firmware follows a successful static-Home trial and its own native-player review.
 
+### Less manual work during setup
+
+The [remote and browser guide](REMOTE-AND-BROWSER.md) explains normal TV pairing,
+agent-driven navigation and temporary browser diagnostics with direct result
+transfer. These are setup tools; the requested Home component stays native.
+No universal remote client or pairing credentials are bundled.
+If Claude Code or another agent stops, [troubleshoot the actual blocker](AGENT-TROUBLESHOOTING.md)
+and continue permitted work instead of restarting the entire investigation.
+The guide does not bypass model policies or permission controls.
+
 ### What you get
 
 - A **native VIDAA home component**, not a browser page reopened by a watcher.

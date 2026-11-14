@@ -53,6 +53,18 @@ ein privates Paket. Diese Befehle nehmen keinen Kontakt zum TV auf. Die passende
 Wartungsverbindung und eine geprüfte Installation bleiben geräteabhängig.
 Eine bestandene Simulation ersetzt keinen Hardwaretest.
 
+## Weniger Handarbeit bei der Einrichtung
+
+Die [englische Anleitung für Fernbedienung und Browser](REMOTE-AND-BROWSER.md)
+beschreibt die normale TV-Kopplung, Navigation durch den Agenten und temporäre
+Diagnoseseiten mit direkter Ergebnisübertragung auf den eigenen Rechner.
+Die spätere Startseite bleibt nativ. Ein universeller Fernbedienungs-Client oder
+Kopplungsdaten werden nicht mitgeliefert.
+Wenn Claude Code oder ein anderer Agent stoppt, hilft die
+[Anleitung zur gezielten Fehlerklärung](AGENT-TROUBLESHOOTING.md), den tatsächlichen
+Grund einzugrenzen und erlaubte Arbeit fortzusetzen. Sicherheitsregeln oder
+Werkzeugbeschränkungen werden damit nicht umgangen.
+
 ## Was funktioniert?
 
 Am Referenzgerät wurden native Home-Rückkehr, App-Start, App-Favoriten bearbeiten,

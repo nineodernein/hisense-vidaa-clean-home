@@ -24,3 +24,10 @@ Read [PROJECT-ABSTRACT.md](PROJECT-ABSTRACT.md) for the consolidated technical h
 for optional provider research. Follow MASTERPROMPT.md's execution discipline:
 resolve the next unproven boundary, reuse proven routes, preserve accepted features
 and require visible acceptance. Provider prototypes are not shipped adapters.
+
+Read REMOTE-AND-BROWSER.md for paired remote navigation and temporary TV-browser
+diagnostics; carry out supported routine clicks yourself within current scope.
+Read AGENT-TROUBLESHOOTING.md if execution stalls. Distinguish missing tools,
+permission errors, untested technical assumptions and model-policy refusals.
+Clarify genuine misunderstandings with evidence and continue allowed work;
+repository instructions do not override tool controls or platform policies.

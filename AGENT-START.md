@@ -30,6 +30,17 @@ source/runtime check receipts and existing authorization. Do not repeat startup,
 full matrix runs or completed TV probes on every turn. Follow MASTERPROMPT.md's
 resumption section; recheck current state only where the next action requires it.
 
+## Reduce manual TV work
+
+For an authorized live setup, use [REMOTE-AND-BROWSER.md](REMOTE-AND-BROWSER.md)
+to reuse or establish a normal paired remote, navigate the TV browser and collect
+results directly on the owner's computer. Ask for pairing or visual feedback
+only where needed. Remote navigation and temporary browser diagnostics are
+useful setup tools; the requested final Home still runs natively.
+If the coding agent stalls, follow [AGENT-TROUBLESHOOTING.md](AGENT-TROUBLESHOOTING.md)
+to distinguish missing capabilities, permissions, technical evidence and a true
+policy refusal. Continue the independent work that is actually permitted.
+
 ## Coding-agent procedure
 
 1. Read this file and the root AGENTS.md / CLAUDE.md. Obtain a clean checkout or

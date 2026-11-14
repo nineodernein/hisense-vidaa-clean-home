@@ -72,3 +72,14 @@ respective licenses if a future implementation actually incorporates code.
 [ibelick/ui-skills](https://github.com/ibelick/ui-skills) and
 [affaan-m/ECC](https://github.com/affaan-m/ECC) supplied additional design guidance.
 Their browser/iOS design concepts still require adaptation to the native renderer.
+
+## Remote control and coding-agent operation
+
+[REMOTE-AND-BROWSER.md](REMOTE-AND-BROWSER.md) cites the Hisense e-manual and
+pinned upstream remote-client research from Krazy998/mqtt-hisensetv and
+adamazad/vidaa-remote. No client source, certificates or pairing credentials from
+those projects are bundled. Review their licenses and defaults before reuse.
+[AGENT-TROUBLESHOOTING.md](AGENT-TROUBLESHOOTING.md) links Anthropic's official
+Claude Code permissions and project-instruction documentation. These references
+do not imply endorsement, universal TV support or an ability to override an
+agent's policies.
