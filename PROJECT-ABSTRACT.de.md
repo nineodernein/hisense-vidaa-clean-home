@@ -2,7 +2,7 @@
 
 [English](PROJECT-ABSTRACT.md) · [Masterprompt](MASTERPROMPT.md) · [Kompatibilität](COMPATIBILITY.md)
 
-**Stand: 14. November 2026.** Diese Übergabe bündelt die technischen Erkenntnisse,
+**Stand: 15. November 2026.** Diese Übergabe bündelt die technischen Erkenntnisse,
 Recherche, erfolgreichen Wege und Fehlschläge des Projekts. Persönliche Daten,
 Zugangsdaten, private Geräteinhalte und der Wiedergabeverlauf sind ausgelassen.
 Die technischen VIDAA-Schnittstellen und Modell-/Firmwareangaben bleiben als
@@ -135,10 +135,27 @@ Das sind **Besitzerberichte**, hier nicht unabhängig reproduziert. Das spätere
 Aufräumen des Diagnosepakets wurde vorbereitet, aber nicht als abgeschlossen
 gemeldet. Ein nativer Home-Umbau auf diesem Gerät ist damit noch nicht bestätigt.
 
-Eine neue Anfrage nennt 55U7Q, `V0000.09.60A.Q0602` und erweiterte Version
-`X0003.W01.Y01.J01`. Das sind bislang Identitätsangaben, keine erfolgreichen
-Zugriffstests. Ähnliche Versionsnummern sind ein Rechercheansatz, kein Nachweis
-gleicher Berechtigungen. Weitere angefragte Modelle bleiben ebenfalls offen.
+### Weitere Erfolgsmeldung: 55U7Q
+
+Der Besitzer des 55U7Q mit `V0000.09.60A.Q0602` und erweiterter Version
+`X0003.W01.Y01.J01` meldet inzwischen eine erfolgreiche Einrichtung und hat ein
+Foto mit sichtbarem Dock geschickt. Damit ist der frühere Stand „nur
+Identitätsangaben“ überholt. Die positive Rückmeldung wird als Community-Ergebnis
+mit sichtbarer Oberfläche festgehalten.
+
+Projekt-Revision, interne Modellkennung, Chip, Original-Hashes und Zugangsweg
+wurden nicht mitgeteilt. Native Home-Rückkehr, Neustart-/Standby-Verhalten,
+Wiederherstellung und Zusatzfunktionen sind nicht einzeln bestätigt. Ein neues
+Referenzprofil oder allgemeine Kompatibilität ergibt sich daraus nicht.
+Die [55U7Q-Nachweise](COMPATIBILITY.md#community-case-55u7q) trennen diese Punkte.
+Die private Nachricht, das Foto und der Accountname werden nicht veröffentlicht.
+
+Auf dem bereits funktionierenden Gerät bleiben Einrichtung und private Nachweise
+erhalten; nur fehlende Funktionsbestätigungen werden ergänzt. Kein erneuter
+Root-Test oder Neuaufbau allein für die Dokumentation. Auf einem anderen Gerät
+dient die Meldung als gezielter Recherchehinweis, dessen eigene Schnittstellen
+weiter zu prüfen sind. Die Anfrage zum 32-Zoll-E5ST bleibt ohne Erfolgsmeldung.
+Ähnliche Versionsnummern beweisen keine gleichen Berechtigungen.
 
 ## 4. Gestaltung und Bedienung des Docks
 

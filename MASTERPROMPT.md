@@ -111,6 +111,7 @@ Apply these lessons directly:
 | Same-unit postinst UID proof already established in private logs | Reconcile cleanup/current authorized access and proceed to original backup, recovery and native port | New root packages merely to reconfirm historical success |
 | Page reload appears to repeat staging | Passive initialization, explicit actions and duplicate-action rejection | On-load mutations or automatic retries of ambiguous changes |
 | Installer returns an error | Independent session-bound UID evidence and artifacts | Blindly repeating installation |
+| Owner reports successful setup and supplies a dock photo | Preserve the positive community result; on that unit reuse the private handoff and collect only missing feature acceptance | Leaving the report at identity-only, treating a photo as native Home/reboot proof, or reinstalling just for documentation |
 | Native Home return required | Preserve vendor engine and adapt its launcher | Faster browser polling as a native replacement |
 | PLAYING with still/black display | Owned session, advancing time and transparent ancestors | Blind format changes without checking the video plane |
 

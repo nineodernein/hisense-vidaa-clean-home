@@ -115,8 +115,14 @@ VIDAA U9 und P0930. Die Verkaufsbezeichnung allein reicht nicht.
 VIDAA wird auch bei ausgewählten Fernsehern von Toshiba, Loewe/We. by Loewe,
 MEDION und weiteren Marken verwendet. Das bestätigt nur das Betriebssystem,
 nicht unseren nativen Umbau. Die [Modell- und Markenübersicht mit Herstellerquellen](VIDAA-MODELS.md)
-trennt diese Geräte von der tatsächlich getesteten Referenz. Für andere Modelle
-ist die Funktion dieses Docks bislang nicht bestätigt.
+trennt diese Geräte von der tatsächlich getesteten Referenz.
+
+**Erfolgsmeldung aus der Community:** Ein Besitzer des 55U7Q mit
+V0000.09.60A.Q0602 (erweitert X0003.W01.Y01.J01) meldet eine erfolgreiche
+Einrichtung und zeigt das Dock auf einem Foto. Native Home-Rückkehr, Verhalten
+nach Neustart und Zusatzfunktionen sind nicht einzeln bestätigt.
+Der [55U7Q-Eintrag](COMPATIBILITY.md#community-case-55u7q) hält die Nachweise
+getrennt fest; Referenzprofil und Installationsprüfungen bleiben unverändert.
 
 ## Herunterladen und aktivieren
 

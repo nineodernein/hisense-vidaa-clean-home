@@ -3,9 +3,10 @@
 This project targets a native VIDAA/Cobalt Home component. It does not target
 Android TV/Google TV, Roku TV, Fire TV or a generic Linux desktop.
 
-Last reviewed: 2026-11-14. **One reference unit has confirmed native integration;
-no other model is claimed as tested with this project's dock.** A TV using VIDAA
-is a research candidate, not an installation approval.
+Last reviewed: 2026-11-15. **One reference unit has confirmed native integration.
+A separate 55U7Q owner reports a successful setup and supplied a photo of the
+custom dock; feature-by-feature acceptance remains open.** A TV using VIDAA is
+a research candidate, not an installation approval.
 
 ## Support levels
 
@@ -17,6 +18,7 @@ is a research candidate, not an installation approval.
 | Manufacturer confirms VIDAA | Official product data identifies the operating system | No: access, native APIs, module layout and video support remain unknown |
 | Community reports information getters | Owner reports model/chip/region queries working | No: file access, root and native Home are separate, unverified stages |
 | Community reports file reads | Owner reports structured read success at specific paths | No: source visibility, writes, cleanup, privilege and native Home are separate stages |
+| Community reports setup success with a dock photo | Owner reports success; the supplied photo shows the custom dock | No: native Home return, tested revision, persistence and recovery still need separate evidence |
 
 [VIDAA-MODELS.md](VIDAA-MODELS.md) lists sourced Hisense examples and other VIDAA
 brands. It is an OS directory, not a supported-install list. The sole native build
@@ -68,7 +70,8 @@ passing them does not add another supported TV or prove physical recovery.
 - Automatic Home saver after a real ten-minute idle test.
 - A custom saver over a paused Netflix movie and session-preserving return.
 - Cold boot/standby persistence across all firmware or future updates.
-- Other model/firmware families.
+- Full feature acceptance on other model/firmware families, including the
+  separately reported 55U7Q dock success below.
 
 A same-family TV still needs original hashes, app/service contracts and recovery
 checks. Unknown hash means stop the reference write path, not “update the
@@ -105,7 +108,37 @@ open. The YouTube trial was not accepted; other provider cards remain unverified
 These adapters are not included in the public source build. See the full
 [provider matrix](CONTINUE-WATCHING.md) and [project abstract](PROJECT-ABSTRACT.md).
 
-A new anonymous 55U7Q enquiry reports V0000.09.60A.Q0602 and extended version
-X0003.W01.Y01.J01. This is identification-only evidence. It adds no supported
-profile, access result or native integration. The earlier V01.09.60G.Q0612 enquiry
-was identified by its owner as a 32-inch E5ST; it also remains unverified.
+## Community case: 55U7Q
+
+An anonymous owner followed up on the earlier enquiry with a successful setup
+report and a photograph showing the custom dock. The model and firmware below
+come from the owner's original identity message; the success report refers back
+to that message.
+
+| Item | Reported evidence |
+| --- | --- |
+| Retail model | 55U7Q |
+| Full software version | V0000.09.60A.Q0602 |
+| Extended version | X0003.W01.Y01.J01 |
+| Setup outcome | Owner reports that it worked |
+| Visible result | Custom dock shown in the supplied TV photo |
+| Tested project revision, internal model, SoC and original hashes | Not supplied |
+| Native launcher integration and physical Home return | Not established by the photo/message |
+| Reboot/standby persistence and independent recovery | Not reported |
+| Video, screensaver, editing, inputs and provider previews | Not separately reported |
+
+This **replaces the previous identity-only status** with a positive community
+result. It is not an independently reproduced port or a new reference profile.
+The private message, photograph and account identifier are not redistributed.
+The [machine-readable observation](model-research.json) preserves this distinction.
+
+On that working unit, resume from the retained private setup evidence and collect
+only missing acceptance results. A concise follow-up can report the tested
+revision, app → physical Home return, and an owner-scheduled restart. Do not
+repeat installation or privilege tests merely to complete the public catalog.
+For another 55U7Q, the report is a useful lead; use that unit's own originals,
+contracts and recovery checks. Similar firmware strings do not prove equal
+permissions or an identical build.
+
+The separate V01.09.60G.Q0612 enquiry was identified by its owner as a 32-inch
+E5ST and still has no reported setup result.

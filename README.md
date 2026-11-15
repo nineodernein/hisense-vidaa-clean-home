@@ -119,6 +119,12 @@ Native Home → app → Home, favorite editing, input navigation, a looping loca
 video and the manual Rainy-style saver/return from Home were confirmed.
 The precise [profile and original-file hashes](compatibility.json) are included.
 
+**Community success report:** a 55U7Q owner using V0000.09.60A.Q0602
+(extended X0003.W01.Y01.J01) reports that the setup worked and supplied a photo
+showing the custom dock. Physical Home return, persistence and optional features
+were not separately reported. See the [55U7Q evidence record](COMPATIBILITY.md#community-case-55u7q);
+this report does not change the reference profile or installation checks.
+
 This public package has been generalized and tested offline. It has **not** been
 installed as a new build on the reference TV. Shared on-screen media selection
 was prepared and tested offline; it is not a confirmed deployed feature.

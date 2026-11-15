@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewed": "2026-11-14",
+  "reviewed": "2026-11-15",
   "upstreamRevision": "7f9c9e9f91b5e9982f0af3d515f052b7499b29b4",
   "inventory": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/research/inventory.json",
   "meaning": "Research leads only. No entry approves installation of this dock. Similar chips, firmware suffixes and retail names are not device matches.",
@@ -174,14 +174,6 @@
       "reportedSoc": null,
       "firmware": "V01.09.60G.Q0612",
       "evidenceLevel": "owner_reported_identity_only"
-    },
-    {
-      "model": "55U7Q",
-      "reportedSoc": null,
-      "firmware": "V0000.09.60A.Q0602",
-      "extendedVersion": "X0003.W01.Y01.J01",
-      "evidenceLevel": "owner_reported_identity_only",
-      "nativeHome": "not_verified"
     }
   ],
   "accessResearch": {
@@ -343,6 +335,55 @@
         "repeatedStaging": "owner reports files staged again after page reload; cause not independently established",
         "independentlyVerifiedByThisProject": false
       }
+    },
+    {
+      "id": "55u7q-q0602-community",
+      "models": [
+        "55U7Q"
+      ],
+      "firmwares": [
+        "V0000.09.60A.Q0602"
+      ],
+      "extendedVersion": "X0003.W01.Y01.J01",
+      "soc": null,
+      "region": null,
+      "evidenceLevel": "owner_reported_setup_success_with_dock_photo",
+      "access": "not_documented_in_shared_report",
+      "nativeHome": "not_verified",
+      "source": "COMPATIBILITY.md#community-case-55u7q",
+      "finding": "The owner followed up on the earlier identity enquiry to report that the project worked and supplied a photograph showing the custom dock. This supersedes the identity-only entry. The photograph supports visible dock output, but does not establish the execution context, physical Home return, reboot persistence, root route or recovery. The tested project revision and original module hashes were not supplied. No private message, photograph or account identifier is redistributed.",
+      "setupReport": {
+        "receivedAt": "2026-11-15",
+        "evidenceKind": "owner_message_and_tv_photo",
+        "setupOutcome": "success_reported",
+        "dockAppearance": "visible_in_owner_supplied_photo",
+        "testedProjectRevision": null,
+        "independentlyReproducedByThisProject": false
+      },
+      "notEstablished": [
+        "internal_model",
+        "soc",
+        "region",
+        "original_module_hashes",
+        "tested_project_revision",
+        "access_route",
+        "current_maintenance_access",
+        "native_launcher_integration",
+        "physical_home_return",
+        "reboot_persistence",
+        "standby_persistence",
+        "independent_recovery",
+        "favorite_editing",
+        "input_navigation",
+        "video_wallpaper",
+        "screensaver",
+        "continue_watching"
+      ],
+      "nextInvestigationPlan": [
+        "On the reporting unit, retain the existing working installation and private agent handoff. Resume at missing feature acceptance rather than reinstalling or repeating privilege tests solely for a public report.",
+        "Collect one concise sanitized follow-up: tested project revision, app launch followed by physical Home return, and behavior after an owner-scheduled restart. Record untested checks as untested; do not interrupt viewing.",
+        "For another unit, reuse this as an exact-model/firmware research lead. Inspect its own contracts, originals and recovery before a native trial; leave the reference profile and write guards unchanged."
+      ]
     }
   ]
 }

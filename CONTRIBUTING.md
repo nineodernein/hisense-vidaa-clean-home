@@ -21,6 +21,14 @@ manufacturer's VIDAA specification, an upstream access report and this project's
 native dock running on hardware. Only the last can establish a new dock test
 result. Report firmware changes as new observations, not a whole-series promise.
 
+A short success message with a dock photo is useful evidence of a visible result.
+Update an earlier identity-only enquiry to owner-reported setup success; do not
+discard the progress or infer unreported feature results. Keep the original
+private message/photo out of the repository. A concise text follow-up can name
+the tested revision, app → physical Home return, and behavior after an
+owner-scheduled restart. Record anything not tried as not tested. Preserve the
+working installation rather than repeating setup or privilege tests for a report.
+
 Never submit keys, tokens, email, IP/MAC addresses, serials, Wi-Fi details, OEM
 bundles, diagnostics, screenshots of accounts or personal media.
 Do not widen a compatibility profile merely to bypass a build error.

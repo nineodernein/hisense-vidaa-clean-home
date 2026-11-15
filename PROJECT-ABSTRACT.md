@@ -2,7 +2,7 @@
 
 [Deutsch](PROJECT-ABSTRACT.de.md) · [Masterprompt](MASTERPROMPT.md) · [Evidence and compatibility](COMPATIBILITY.md)
 
-Status recorded: **2026-11-14**. This is a sanitized synthesis of the original
+Status recorded: **2026-11-15**. This is a sanitized synthesis of the original
 project and community reports. It contains reusable mechanisms, research sources,
 failed assumptions and acceptance criteria. Private device files, accounts,
 network details and viewing history are deliberately excluded.
@@ -33,6 +33,7 @@ A retail series, chipset or VIDAA version alone does not establish compatibility
 | Automatic saver after ten Home-idle minutes | Real timeout test not completed |
 | Custom saver over paused Netflix with reliable return | Not solved |
 | Generalized public build | Tested offline; not separately accepted as a new physical-TV build |
+| 55U7Q / V0000.09.60A.Q0602 | Owner reports setup success and supplied a photo showing the dock; native Home return and persistence not separately reported |
 | Every VIDAA model or firmware update | Not established |
 
 The public native source kit does **not** include the private Continue Watching
@@ -98,10 +99,24 @@ The report is **owner-reported, not independently reproduced here**. Diagnostic
 cleanup was described but its outcome was not supplied. Earlier marker cleanup
 does not establish later package cleanup. Keep those stages separate.
 
-The latest 55U7Q enquiry reports `V0000.09.60A.Q0602` and extended version
-`X0003.W01.Y01.J01`. It supplies identity only: no access, root or Home result.
-Other retail-model enquiries likewise remain research leads. Never infer that
-a shared 09.60 substring proves the same build or permission boundary.
+### Additional community success: 55U7Q
+
+The owner of a 55U7Q with `V0000.09.60A.Q0602` and extended version
+`X0003.W01.Y01.J01` has now reported a successful setup and supplied a TV
+photograph showing the custom dock. This supersedes the earlier identity-only
+enquiry. Retain the positive result as owner-reported visual evidence.
+
+The shared report does not identify the tested project revision, internal model,
+SoC, original hashes or access route. It does not separately establish native
+Home return, reboot/standby persistence, recovery or optional features. No new
+reference profile or universal compatibility follows from it. See the
+[55U7Q evidence record](COMPATIBILITY.md#community-case-55u7q).
+
+For the reporting unit, preserve the working setup and collect missing acceptance
+once; do not restart onboarding or repeat privilege tests just to document it.
+For another unit, use the report to prioritize research and verify its own
+contracts. The 32-inch E5ST enquiry remains without a setup result. A shared 09.60
+substring never proves the same build or permission boundary.
 
 ## 4. Dock and interaction design
 
