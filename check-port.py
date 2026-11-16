@@ -61,14 +61,23 @@ class ResearchTests(unittest.TestCase):
         self.assertGreater(len(result['accessResearch']['nextCapabilities']), 0)
         self.assertFalse(result['installationApproved'])
 
-    def test_community_uid_report_never_approves_native_or_current_access(self):
+    def test_community_uid_and_dock_reports_never_approve_native_or_current_access(self):
         result = ports.research({'marketingModel': '50E6NT', 'soc': 'MTK9603',
                                 'reportedNativeVersion': 'V0002.09.60A.Q0707'}, self.catalog)
         self.assertEqual(result['status'], 'research_leads')
         self.assertFalse(result['exactModelReports'])
         observation = result['communityObservations'][0]
         self.assertEqual(observation['match'], 'model_and_reported_firmware')
-        self.assertEqual(observation['evidenceLevel'], 'owner_reported_uid0_postinst')
+        self.assertEqual(observation['evidenceLevel'], 'owner_reported_setup_success_with_dock_photo')
+        setup = observation['setupReport']
+        self.assertEqual(setup['setupOutcome'], 'success_reported')
+        self.assertEqual(setup['dockAppearance'], 'visible_in_owner_supplied_photo')
+        self.assertEqual(setup['codingAgent'], 'Codex')
+        self.assertFalse(setup['independentlyReproducedByThisProject'])
+        self.assertIsNone(setup['testedProjectRevision'])
+        for missing in ('native_launcher_integration', 'physical_home_return',
+                        'reboot_persistence', 'independent_recovery'):
+            self.assertIn(missing, observation['notEstablished'])
         self.assertEqual(observation['access'], 'one_shot_privileged_execution_reported_maintenance_unverified')
         reads = {r['path']: r for r in observation['readResults']}
         self.assertEqual(sum(r['ret'] is True for r in reads.values()), 2)

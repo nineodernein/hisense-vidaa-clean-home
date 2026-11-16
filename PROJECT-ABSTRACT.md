@@ -33,6 +33,7 @@ A retail series, chipset or VIDAA version alone does not establish compatibility
 | Automatic saver after ten Home-idle minutes | Real timeout test not completed |
 | Custom saver over paused Netflix with reliable return | Not solved |
 | Generalized public build | Tested offline; not separately accepted as a new physical-TV build |
+| 50E6NT / V0002.09.60A.Q0707 | Owner reports setup success and supplied a dock photo after a maintainer-reported switch to Codex; feature-by-feature acceptance remains open |
 | 55U7Q / V0000.09.60A.Q0602 | Owner reports setup success and supplied a photo showing the dock; native Home return and persistence not separately reported |
 | Every VIDAA model or firmware update | Not established |
 
@@ -72,7 +73,8 @@ See [the detailed worked example](WORKED-EXAMPLE.md),
 An owner of a 50E6NT reported firmware `V0002.09.60A.Q0707`, internal model
 `50A60LEVS_0002` and MTK9603. These are model/build facts, not serial numbers.
 The progression was information getters → file reads → verified source transfer
-→ two inert write/readback/removal trials → reported one-shot UID 0 execution.
+→ two inert write/readback/removal trials → reported one-shot UID 0 execution
+→ successful setup report and a photo showing the custom dock.
 
 Important corrections:
 
@@ -98,6 +100,19 @@ Important corrections:
 The report is **owner-reported, not independently reproduced here**. Diagnostic
 cleanup was described but its outcome was not supplied. Earlier marker cleanup
 does not establish later package cleanup. Keep those stages separate.
+
+A follow-up received on 2026-11-16 reports successful setup and shows the custom
+dock. The maintainer identifies this as the same owner and reports that the
+owner switched to Codex before succeeding. Preserve this positive result; do
+not restart solved access tests or reinstall on the reporting unit.
+[The updated case record](COMPATIBILITY.md#community-case-50e6nt) separates visible
+dock success from unreported physical Home return, persistence and recovery.
+
+The maintainer now recommends local Codex for this workflow and reports repeated
+community feedback about Claude/Claude Code refusals. These are experiences
+from individual setups, not a controlled tool comparison or universal success
+guarantee. See [agent choice](AGENT-TROUBLESHOOTING.md#recommended-coding-agent-codex).
+Private messages, photos and account identifiers are not included.
 
 ### Additional community success: 55U7Q
 

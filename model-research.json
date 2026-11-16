@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewed": "2026-11-15",
+  "reviewed": "2026-11-16",
   "upstreamRevision": "7f9c9e9f91b5e9982f0af3d515f052b7499b29b4",
   "inventory": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/research/inventory.json",
   "meaning": "Research leads only. No entry approves installation of this dock. Similar chips, firmware suffixes and retail names are not device matches.",
@@ -233,11 +233,11 @@
       ],
       "soc": "MTK9603",
       "region": "EU_A",
-      "evidenceLevel": "owner_reported_uid0_postinst",
+      "evidenceLevel": "owner_reported_setup_success_with_dock_photo",
       "access": "one_shot_privileged_execution_reported_maintenance_unverified",
       "nativeHome": "not_verified",
-      "source": "ACCESS-RESEARCH.md#community-case-50e6nt",
-      "finding": "Owner reports two bounded marker write/readback/removal runs followed by a diagnostic package whose postinst produced a UID 0/GID 0 proof. The package/service call was accepted and the helper had been read back against the local original. This project has only the shared report, not the underlying proof and session logs. Diagnostic cleanup was prepared but its completion was not reported. Active maintenance access, independent recovery and native Home remain unverified.",
+      "source": "COMPATIBILITY.md#community-case-50e6nt",
+      "finding": "The previously documented owner now reports successful setup and supplied a TV photograph showing the custom dock. The maintainer identifies this as the same 50E6NT case and reports that the owner succeeded after switching to Codex. Earlier source-transfer, marker write/readback/removal and diagnostic postinst UID 0 findings remain separate owner-reported observations. This project has not independently reproduced the port or checked its private proof/session logs. Physical Home return, persistence, independent recovery, tested revision and earlier diagnostic cleanup completion were not supplied in the follow-up. No private message, photograph, handle or personal device/account details are redistributed.",
       "interfaces": {
         "vowOS.service.syncExecute": "present_reported",
         "HiUtils_createRequest": "present_reported",
@@ -282,15 +282,25 @@
         "opkg_architecture",
         "independent_recovery",
         "original_home_backup",
-        "native_home",
-        "persistence",
+        "original_module_hashes",
+        "tested_project_revision",
+        "native_launcher_integration",
+        "physical_home_return",
+        "reboot_persistence",
+        "standby_persistence",
+        "favorite_editing",
+        "input_navigation",
+        "video_wallpaper",
+        "screensaver",
+        "continue_watching",
         "duplicate_request_cause"
       ],
       "nextInvestigationPlan": [
-        "On the reporting unit, consult the existing private proof/session logs and cleanup ledger once. Do not repeat a successful privilege test solely because the public catalog previously lacked it.",
-        "Resolve duplicate/reload-triggered mutation locally. Keep diagnostic pages passive on load, reject duplicate action identifiers and reconcile ambiguous results before any retry.",
-        "Determine cleanup and current authorized access separately from historical postinst success. Retain private evidence before removing owned artifacts within existing scope.",
-        "Continue PORTING.md with this device's original Home/SDK, verified backups and independent recovery; prepare a static native candidate first. A privilege report never approves native installation or another TV."
+        "On the reporting unit, retain the working setup and consult its existing private handoff, proof/session logs and cleanup ledger. Resume at missing feature acceptance; do not repeat successful privilege tests or reinstall solely because the public catalog lacks private implementation details.",
+        "Collect one concise sanitized follow-up: tested project revision, app launch followed by physical Home return, and behavior after an owner-scheduled restart. Keep untested checks explicit and do not interrupt viewing.",
+        "Reconcile earlier diagnostic cleanup and current authorized access separately from historical postinst success and the later dock photo. Preserve private evidence and remove only outstanding owned artifacts within existing scope.",
+        "If any further mutation is needed, resolve the previously reported duplicate/reload-triggered behavior first: passive diagnostic page initialization, action correlation, duplicate rejection and state reconciliation before retry.",
+        "For another unit, follow PORTING.md using its own Home/SDK, verified originals, backups and independent recovery. This owner report is a research lead, not installation approval or a new reference profile."
       ],
       "writeCleanupReport": {
         "reportedAt": "2026-11-13",
@@ -334,6 +344,18 @@
         },
         "repeatedStaging": "owner reports files staged again after page reload; cause not independently established",
         "independentlyVerifiedByThisProject": false
+      },
+      "accessResearchSource": "ACCESS-RESEARCH.md#community-case-50e6nt",
+      "setupReport": {
+        "receivedAt": "2026-11-16",
+        "evidenceKind": "owner_message_and_tv_photo",
+        "setupOutcome": "success_reported",
+        "dockAppearance": "visible_in_owner_supplied_photo",
+        "caseIdentityBasis": "maintainer_links_followup_to_prior_50e6nt_case",
+        "codingAgent": "Codex",
+        "agentSwitchBasis": "maintainer_reports_owner_switched_to_codex",
+        "testedProjectRevision": null,
+        "independentlyReproducedByThisProject": false
       }
     },
     {

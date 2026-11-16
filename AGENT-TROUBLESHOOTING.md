@@ -11,6 +11,29 @@ tools or override a model's safety policy. This guide resolves avoidable stalls
 and mistaken assumptions; it is not a jailbreak or an instruction to conceal
 what an operation does.
 
+## Recommended coding agent: Codex
+
+**The maintainer recommends local Codex for this project.** The maintainer has
+received repeated Reddit reports that Claude or Claude Code refused parts of
+the requested workflow. In the previously documented
+[50E6NT Q0707 case](COMPATIBILITY.md#community-case-50e6nt), the maintainer reports
+that the owner switched to Codex; a follow-up received on 2026-11-16 reports
+successful setup and shows the custom dock on the TV.
+
+These are community experiences, not a controlled comparison of agents. The
+exact model versions, settings and refusal texts were not supplied for every
+report. They do not establish that Claude always refuses, that Codex accepts
+every action, or that any agent guarantees success on every TV. Claude Code
+entry instructions remain available in [CLAUDE.md](CLAUDE.md).
+
+Use an agent with local terminal access and the tools needed for the owner's
+authorized target. When continuing an existing project in Codex, give it the
+private handoff, established same-unit results and cleanup ledger. Resume the
+next unresolved step; do not repeat hours of successful diagnostics. Keep
+device identity, firmware, source hashes, authorization and recovery checks
+attached to the actual unit. Distinguish a technical stall from a policy refusal
+using the table below.
+
 ## Identify the actual stopping condition
 
 Ask for the exact failure or refusal text only when it is not already available.

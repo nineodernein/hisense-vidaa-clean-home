@@ -14,6 +14,13 @@ Read ACCESS-RESEARCH.md before declaring an access route blocked. It contains
 the source-backed investigation loop, bridge call contracts and corrected false
 negatives from other devices.
 
+Codex is the maintainer's recommended local agent; see the community basis in
+AGENT-TROUBLESHOOTING.md. The 50E6NT case now includes a successful setup report
+and dock photo after the reported switch to Codex. On that same working unit,
+resume from its private handoff and missing feature acceptance, not another
+access demonstration or reinstallation. On another unit, use the report as a
+research lead and establish that unit's own evidence.
+
 ## The requested result
 
 A native replacement for the stock /Launcher component, with the floating

@@ -10,7 +10,12 @@ the previously presumed `43A6CG` name into a supported-model claim.
 See [the exact evidence and feature limits](COMPATIBILITY.md). The generalized
 public build has offline tests; it has not been freshly deployed to that TV.
 
-**No other model is currently confirmed with this repository's dock.**
+**Community status updated 2026-11-16:** separate
+[50E6NT](COMPATIBILITY.md#community-case-50e6nt) and
+[55U7Q](COMPATIBILITY.md#community-case-55u7q) owners report successful setups and
+supplied photos showing the dock. These positive reports are separate from the
+reference unit's verified native integration; physical Home return, persistence
+and other feature acceptance remain unreported for those follow-ups.
 
 ## Hisense models officially listed with VIDAA
 

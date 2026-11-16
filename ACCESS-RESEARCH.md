@@ -57,7 +57,7 @@ not proof that their apparently identical TV has already passed a test.
 | --- | --- | --- |
 | Reference Home watcher bounced through VIDAA | Preserve the OEM engine and investigate its native launcher module | Faster browser polling as a fix for native Home return |
 | Reference reads were blocked by the diagnostic page's CSP | Diagnose the actual page/transport error | Calling the firmware patched from a page failure |
-| 50E6NT progressed from reported reads to marker cleanup and a UID 0 postinst proof | On that unit, reconcile its private evidence/cleanup and continue native port preparation | Repeating historical access tests or treating the public report as another unit's proof |
+| 50E6NT progressed from reads and marker cleanup to a UID 0 report and later visible dock success | Preserve that unit's working setup; reconcile its private handoff and collect missing acceptance | Repeating successful access tests, reinstalling for documentation, or treating its report as another unit's proof |
 | A read response contained `ret: true` and source with a `permission` property | Treat the returned source as data and inspect structured result fields | Searching all response text for permission/error words to decide success |
 | A particular file returned `ENOENT` | Record that exact path/context and derive another path from readable source | Repeating the same path or declaring all registries/file access absent |
 | Reference native video played behind opaque UI layers | Check owned player events, advancing time and transparent ancestors | Repeated codec changes based only on a still/black screen |
@@ -207,7 +207,7 @@ record. Offer a browser/DNS alternative only as a separate owner choice.
 
 ## Community case: 50E6NT
 
-Owner-reported findings updated 2026-11-14: Hisense 50E6NT (Germany),
+Owner-reported findings updated 2026-11-16: Hisense 50E6NT (Germany),
 `V0002.09.60A.Q0707`, internal `50A60LEVS_0002`, `MTK9603`, type `50A5LE`,
 region `EU_A`. These are model/type identifiers, not a device serial.
 This project has not independently inspected the raw device evidence. Keep this
@@ -255,8 +255,9 @@ received or independently checked the underlying artifact/session binding.
 An accepted operation alone would not establish root; the reported proof is a
 separate observation. It does not establish a persistent shell or current SSH.
 
-The final screenshots show cleanup instructions, not cleanup results. Package
-removal and removal of the diagnostic helper/package/proof remain unconfirmed.
+The earlier diagnostic screenshots show cleanup instructions, not cleanup
+results. Package removal and removal of the diagnostic helper/package/proof
+remain unconfirmed.
 Do not inherit the earlier marker tests' successful cleanup for these new
 artifacts. Consult the latest private ledger once, preserve the evidence and
 complete only outstanding authorized cleanup using its explicit manifest.
@@ -268,6 +269,16 @@ in initialization handlers. Use explicit actions, a receiver-side action ledger
 that rejects duplicate identifiers, and an in-flight UI lock. These are design
 requirements, not a claim that the existing page already implements them.
 Never silently retry an ambiguous mutation; reconcile state first.
+
+### Successful setup reported after switching to Codex
+
+A follow-up received on 2026-11-16 reports success and shows the custom dock on
+the TV. The maintainer identifies it as this same case and reports that the owner
+switched to Codex before succeeding. The latest outcome supersedes the earlier
+access-only status; it does not supply the missing diagnostic cleanup or
+feature-by-feature acceptance results. See the
+[compatibility record](COMPATIBILITY.md#community-case-50e6nt) and
+[agent recommendation](AGENT-TROUBLESHOOTING.md#recommended-coding-agent-codex).
 
 ### Resume here, without repeating resolved steps
 
@@ -283,11 +294,14 @@ locally before further mutating tests; do not assume duplicate actions harmless.
 On the reporting unit, use its existing private proof/session logs to retain the
 one-shot privilege result. Do not re-run the exploit or demand an exact published
 root guide merely because the public catalog previously lagged behind that unit.
-Keep unknowns explicit: cleanup completion, current authorized maintenance access,
-package architecture, original-file backups, independent recovery, native Home
-and persistence. Follow PORTING.md for this device's own Home/SDK and a static
-candidate first. Continue local port preparation while live dependencies remain
-open. No native installation or new access scope is authorized by this record.
+Preserve the newly reported working setup. Use the private handoff to identify
+which acceptance checks are actually missing; do not start another static port
+or reinstall merely because the public report lacks its private implementation.
+Keep unknowns explicit: diagnostic cleanup completion, current authorized
+maintenance access, package architecture, original-file backups, independent
+recovery, native launcher integration, physical Home return and persistence.
+For another unit, follow PORTING.md using that unit's own Home/SDK. No new native
+installation or access scope is authorized by this public record.
 
 Keep exact test paths, LAN addresses, handles, screenshots, full logs and OEM
 source private. The machine-readable anonymized report is in

@@ -3,10 +3,10 @@
 This project targets a native VIDAA/Cobalt Home component. It does not target
 Android TV/Google TV, Roku TV, Fire TV or a generic Linux desktop.
 
-Last reviewed: 2026-11-15. **One reference unit has confirmed native integration.
-A separate 55U7Q owner reports a successful setup and supplied a photo of the
-custom dock; feature-by-feature acceptance remains open.** A TV using VIDAA is
-a research candidate, not an installation approval.
+Last reviewed: 2026-11-16. **One reference unit has confirmed native integration.
+Separate 50E6NT and 55U7Q owners report successful setups and supplied photos of
+the custom dock; feature-by-feature acceptance remains open.** A TV using VIDAA
+is a research candidate, not an installation approval.
 
 ## Support levels
 
@@ -31,11 +31,12 @@ from the agent workflow; it does **not** add hardware support claims. The
 [research catalog](model-research.json) separates exact-model and chip-only leads.
 It also returns a concrete [access research playbook](ACCESS-RESEARCH.md) even
 when no model matches. Community observations are listed separately from project
-hardware acceptance. The 50E6NT Q0707 owner now reports verified source transfer,
-two marker write/readback/removal runs and a later diagnostic postinst UID 0
-proof. Diagnostic-package cleanup completion, active maintenance access, recovery
-and native Home remain unconfirmed in the shared report. This does not approve
-installation on that unit or establish another unit's compatibility.
+hardware acceptance. The 50E6NT Q0707 case progressed from verified source
+transfer, marker write/readback/removal and a diagnostic postinst UID 0 report to
+a successful setup report with a visible dock. The latest
+[50E6NT evidence record](#community-case-50e6nt) separates that positive result
+from the still-unreported acceptance checks. It does not establish another
+unit's compatibility or approve further changes to the working unit.
 
 ## Reference evidence
 
@@ -71,7 +72,7 @@ passing them does not add another supported TV or prove physical recovery.
 - A custom saver over a paused Netflix movie and session-preserving return.
 - Cold boot/standby persistence across all firmware or future updates.
 - Full feature acceptance on other model/firmware families, including the
-  separately reported 55U7Q dock success below.
+  separately reported 50E6NT and 55U7Q dock successes below.
 
 A same-family TV still needs original hashes, app/service contracts and recovery
 checks. Unknown hash means stop the reference write path, not “update the
@@ -107,6 +108,42 @@ episode action). Netflix episode/remaining-time and Prime remaining-time remain
 open. The YouTube trial was not accepted; other provider cards remain unverified.
 These adapters are not included in the public source build. See the full
 [provider matrix](CONTINUE-WATCHING.md) and [project abstract](PROJECT-ABSTRACT.md).
+
+## Community case: 50E6NT
+
+A follow-up received on 2026-11-16 reports successful setup and includes a TV
+photo showing the custom dock. The maintainer identifies this as the same owner
+whose earlier read/write and diagnostic postinst results are documented in
+[ACCESS-RESEARCH.md](ACCESS-RESEARCH.md#community-case-50e6nt), and reports that
+the owner succeeded after switching to Codex. Model/build identity comes from
+that earlier case record, not from inferring a model from the new photo.
+
+| Item | Reported evidence |
+| --- | --- |
+| Retail model | 50E6NT |
+| Full software version | V0002.09.60A.Q0707 |
+| Internal model / type / SoC | 50A60LEVS_0002 / 50A5LE / MTK9603 |
+| Earlier progress | Verified source transfer, two inert marker write/readback/removal runs and one-shot diagnostic postinst UID 0 |
+| Latest setup outcome | Owner reports success; custom dock visible in the supplied TV photo |
+| Coding agent | Codex; switch reported by the maintainer |
+| Tested project revision and original module hashes | Not supplied in the public report |
+| Native launcher integration and physical Home return | Not separately established by the photo/message |
+| Reboot/standby persistence, independent recovery and optional features | Not separately reported |
+| Earlier diagnostic-package/artifact cleanup | Prepared in the earlier transcript; completion not supplied |
+
+This advances the case beyond access-only progress. Keep the earlier diagnostic
+evidence and the later visible setup result as distinct observations. The new
+photo is not a full acceptance test or independent reproduction of the port.
+Private messages, photographs, handles, location and device/account details are
+not redistributed; only the sanitized model/build and capability summary is
+recorded in [model-research.json](model-research.json).
+
+On that working unit, preserve the setup and private handoff. Collect only
+missing acceptance results, such as the tested revision, app → physical Home
+return and an owner-scheduled restart. Reconcile any outstanding diagnostic
+cleanup with the current private ledger. Do not reinstall or repeat successful
+privilege tests merely to update the public catalog. For another 50E6NT, verify
+its own originals, contracts and recovery; keep the reference profile unchanged.
 
 ## Community case: 55U7Q
 

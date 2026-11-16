@@ -14,7 +14,7 @@ wallpapers and video screensavers.
 live screen capture. Its custom icon pack and wallpaper video are not bundled.
 The default build uses the TV's cached icons or text tiles.*
 
-### Give this to Claude Code or Codex
+### Start with Codex (recommended)
 
 ```text
 Use this: https://github.com/nineodernein/hisense-vidaa-clean-home
@@ -30,9 +30,16 @@ contracts, separate HiUtils/Fetcher routes and corrected false negatives. Agents
 must keep an evidence ledger and pursue the next source-backed hypothesis when
 one interface fails. Community observations remain separate from verified ports.
 
-Give the repository link to Codex or Claude Code with a request to set it up for
-your own TV. The agent should begin the local checks automatically. If it only
-summarizes the link, paste this explicit instruction:
+**Codex is the maintainer's recommended local coding agent for this project.**
+Repeated community reports describe Claude/Claude Code refusals; the previously
+documented 50E6NT owner now reports success after switching to Codex. This is
+community experience, not a comparative benchmark or a guarantee for every TV.
+See [agent choice and troubleshooting](AGENT-TROUBLESHOOTING.md#recommended-coding-agent-codex).
+
+Give the repository link to local Codex with a request to set it up for your own
+TV. Other capable local coding agents can follow the same workflow. The agent
+should begin the local checks automatically. If it only summarizes the link,
+paste this explicit instruction:
 
 > Set up https://github.com/nineodernein/hisense-vidaa-clean-home for my own TV. Follow AGENT-START.md and MASTERPROMPT.md and run the offline checks now. Use ACCESS-RESEARCH.md to investigate missing access and pursue source-backed alternatives after a failed route. Reuse existing facts and permissions; keep backups private and verify recovery before native changes. Do not touch other devices.
 
@@ -119,11 +126,18 @@ Native Home → app → Home, favorite editing, input navigation, a looping loca
 video and the manual Rainy-style saver/return from Home were confirmed.
 The precise [profile and original-file hashes](compatibility.json) are included.
 
-**Community success report:** a 55U7Q owner using V0000.09.60A.Q0602
-(extended X0003.W01.Y01.J01) reports that the setup worked and supplied a photo
-showing the custom dock. Physical Home return, persistence and optional features
-were not separately reported. See the [55U7Q evidence record](COMPATIBILITY.md#community-case-55u7q);
-this report does not change the reference profile or installation checks.
+**Community success reports:**
+
+- **50E6NT / V0002.09.60A.Q0707:** the previously documented owner reports
+  successful setup and supplied a dock photo after switching to Codex, according
+  to the maintainer. See the [50E6NT evidence record](COMPATIBILITY.md#community-case-50e6nt).
+- **55U7Q / V0000.09.60A.Q0602** (extended X0003.W01.Y01.J01): another owner
+  reports successful setup and supplied a dock photo.
+  See the [55U7Q evidence record](COMPATIBILITY.md#community-case-55u7q).
+
+Physical Home return, persistence and optional features were not separately
+reported for these follow-ups. These positive owner reports do not change the
+reference profile or installation checks.
 
 This public package has been generalized and tested offline. It has **not** been
 installed as a new build on the reference TV. Shared on-screen media selection

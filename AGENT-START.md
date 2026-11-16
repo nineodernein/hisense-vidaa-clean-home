@@ -1,6 +1,11 @@
-# Start from one link: Codex or Claude Code
+# Start from one link: Codex recommended
 
-Paste this into your local Codex or Claude Code:
+The maintainer recommends local Codex based on
+[community experience](AGENT-TROUBLESHOOTING.md#recommended-coding-agent-codex),
+including the successful 50E6NT follow-up. Other capable local coding agents can
+follow the same procedure; the recommendation is not a compatibility guarantee.
+
+Paste this into local Codex:
 
 > Use this: https://github.com/nineodernein/hisense-vidaa-clean-home
 

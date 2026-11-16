@@ -102,7 +102,8 @@ Für einen 50E6NT wurde `V0002.09.60A.Q0707`, intern `50A60LEVS_0002`, mit
 MTK9603 gemeldet. Die dokumentierte Entwicklung ging von Informationsabfragen
 über funktionierende Dateilesungen und verifizierten Quelltexttransfer zu zwei
 Schreib-/Rücklese-/Aufräumtests mit harmlosen Markern. Später wurde ein einmaliger
-UID-0-Nachweis aus einem Diagnosepaket berichtet.
+UID-0-Nachweis aus einem Diagnosepaket berichtet. Inzwischen liegt außerdem
+eine Erfolgsmeldung mit Foto des sichtbaren Docks vor.
 
 Dabei wurden mehrere falsche Sackgassen korrigiert:
 
@@ -133,7 +134,23 @@ Dabei wurden mehrere falsche Sackgassen korrigiert:
 
 Das sind **Besitzerberichte**, hier nicht unabhängig reproduziert. Das spätere
 Aufräumen des Diagnosepakets wurde vorbereitet, aber nicht als abgeschlossen
-gemeldet. Ein nativer Home-Umbau auf diesem Gerät ist damit noch nicht bestätigt.
+gemeldet. Die spätere Erfolgsmeldung ersetzt keine Prüfung dieser Aufräumschritte.
+
+In der am 2026-11-16 erhaltenen Rückmeldung meldet derselbe Besitzer eine
+erfolgreiche Einrichtung und zeigt das Dock auf einem Foto. Laut Maintainer
+gelang dies nach dem Wechsel zu Codex. Auf diesem Gerät bleibt der funktionierende
+Stand erhalten; bereits erfolgreiche Zugangstests und die Installation werden
+nicht allein für die öffentliche Dokumentation wiederholt.
+Der [aktualisierte Fallbericht](COMPATIBILITY.md#community-case-50e6nt) trennt das
+sichtbare Ergebnis von noch nicht einzeln bestätigter Home-Rückkehr, Persistenz
+und Wiederherstellung.
+
+Für diesen Ablauf empfiehlt der Maintainer nun Codex auf dem eigenen Computer.
+Er berichtet außerdem von wiederholten Community-Rückmeldungen über Ablehnungen
+durch Claude/Claude Code. Das sind Erfahrungen aus einzelnen Einrichtungen,
+kein kontrollierter Vergleich und keine allgemeine Erfolgsgarantie. Siehe
+[Agent-Empfehlung](AGENT-TROUBLESHOOTING.md#recommended-coding-agent-codex).
+Private Nachrichten, Fotos und Accountnamen werden nicht veröffentlicht.
 
 ### Weitere Erfolgsmeldung: 55U7Q
 

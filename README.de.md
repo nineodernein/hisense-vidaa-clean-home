@@ -13,7 +13,7 @@ Die Vorschau zeigt das Referenzdesign. Die abgebildeten privaten Icons und das
 Hintergrundvideo werden nicht als Dateien mitgeliefert. Standardmäßig werden
 lokale TV-App-Icons oder Textkacheln genutzt.
 
-## Einfach dem Coding Agent geben
+## Einfach Codex geben (empfohlen)
 
 ```text
 Use this: https://github.com/nineodernein/hisense-vidaa-clean-home
@@ -31,9 +31,18 @@ Der Agent hält Ergebnisse fest und verfolgt bei einer gesperrten Schnittstelle
 den nächsten durch Quellen begründeten Ansatz. Community-Meldungen werden
 getrennt von bestätigten Installationen geführt.
 
-Gib Claude Code oder Codex den Repo-Link mit dem Auftrag, es auf deinem eigenen
-TV einzurichten. Der Agent soll zuerst selbst die lokalen Prüfungen starten.
-Falls er den Link nur zusammenfasst, kopiere diesen kurzen Auftrag:
+**Für dieses Projekt empfiehlt der Maintainer Codex auf dem eigenen Computer.**
+Aus der Community wurden wiederholt Ablehnungen durch Claude/Claude Code
+gemeldet. Der bereits dokumentierte 50E6NT-Besitzer meldet nun eine erfolgreiche
+Einrichtung nach dem Wechsel zu Codex. Das sind Erfahrungsberichte, kein
+kontrollierter Vergleich und keine Erfolgsgarantie für jedes Gerät.
+Die [Agent-Empfehlung](AGENT-TROUBLESHOOTING.md#recommended-coding-agent-codex)
+erläutert die Grundlage.
+
+Gib Codex den Repo-Link mit dem Auftrag, es auf deinem eigenen TV einzurichten.
+Andere geeignete lokale Coding Agents können denselben Ablauf verwenden.
+Der Agent soll zuerst selbst die lokalen Prüfungen starten. Falls er den Link
+nur zusammenfasst, kopiere diesen kurzen Auftrag:
 
 > Richte https://github.com/nineodernein/hisense-vidaa-clean-home für meinen eigenen TV ein. Folge AGENT-START.md und MASTERPROMPT.md und starte jetzt die Offline-Prüfungen. Untersuche fehlende Zugänge nach ACCESS-RESEARCH.md und verfolge nach einem fehlgeschlagenen Weg die nächsten durch Quellen begründeten Ansätze. Nutze vorhandene Angaben und Freigaben weiter. Sichere Originale privat und prüfe den Rückweg vor nativen Änderungen. Ändere keine anderen Geräte.
 
@@ -117,12 +126,19 @@ MEDION und weiteren Marken verwendet. Das bestätigt nur das Betriebssystem,
 nicht unseren nativen Umbau. Die [Modell- und Markenübersicht mit Herstellerquellen](VIDAA-MODELS.md)
 trennt diese Geräte von der tatsächlich getesteten Referenz.
 
-**Erfolgsmeldung aus der Community:** Ein Besitzer des 55U7Q mit
-V0000.09.60A.Q0602 (erweitert X0003.W01.Y01.J01) meldet eine erfolgreiche
-Einrichtung und zeigt das Dock auf einem Foto. Native Home-Rückkehr, Verhalten
-nach Neustart und Zusatzfunktionen sind nicht einzeln bestätigt.
-Der [55U7Q-Eintrag](COMPATIBILITY.md#community-case-55u7q) hält die Nachweise
-getrennt fest; Referenzprofil und Installationsprüfungen bleiben unverändert.
+**Erfolgsmeldungen aus der Community:**
+
+- **50E6NT / V0002.09.60A.Q0707:** Der bereits dokumentierte Besitzer meldet
+  eine erfolgreiche Einrichtung und zeigt das Dock auf einem Foto. Laut
+  Maintainer gelang dies nach dem Wechsel zu Codex.
+  Siehe [50E6NT-Nachweise](COMPATIBILITY.md#community-case-50e6nt).
+- **55U7Q / V0000.09.60A.Q0602** (erweitert X0003.W01.Y01.J01): Ein weiterer
+  Besitzer meldet eine erfolgreiche Einrichtung und zeigt das Dock auf einem
+  Foto. Siehe [55U7Q-Nachweise](COMPATIBILITY.md#community-case-55u7q).
+
+Native Home-Rückkehr, Verhalten nach Neustart und Zusatzfunktionen sind in diesen
+Rückmeldungen nicht einzeln bestätigt. Referenzprofil und Installationsprüfungen
+bleiben unverändert.
 
 ## Herunterladen und aktivieren
 
