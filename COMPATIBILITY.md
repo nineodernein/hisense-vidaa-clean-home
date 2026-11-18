@@ -3,7 +3,7 @@
 This project targets a native VIDAA/Cobalt Home component. It does not target
 Android TV/Google TV, Roku TV, Fire TV or a generic Linux desktop.
 
-Last reviewed: 2026-11-16. **One reference unit has confirmed native integration.
+Last reviewed: 2026-11-18. **One reference unit has confirmed native integration.
 Separate 50E6NT and 55U7Q owners report successful setups and supplied photos of
 the custom dock; feature-by-feature acceptance remains open.** A TV using VIDAA
 is a research candidate, not an installation approval.
@@ -108,6 +108,33 @@ episode action). Netflix episode/remaining-time and Prime remaining-time remain
 open. The YouTube trial was not accepted; other provider cards remain unverified.
 These adapters are not included in the public source build. See the full
 [provider matrix](CONTINUE-WATCHING.md) and [project abstract](PROJECT-ABSTRACT.md).
+
+## Community case: 55U7NQ
+
+The [public owner report](https://github.com/nineodernein/hisense-vidaa-clean-home/issues/1)
+dated 2026-11-17 identifies **55U7NQ / 55U75LEVS, MTK9618,
+V0000.09.60D.Q0516** at project revision
+`7d79be5533d0c9ba1cc12b0d15e0d7622e2f7c52`. The VIDAA U09.60 family is inferred
+from the firmware string. This project has not independently checked the private
+responses or reproduced the device reads.
+
+| Item | Owner-reported evidence |
+| --- | --- |
+| Interfaces | HiUtils and vowOS available; WebSDK file wrapper absent |
+| `websdk/Appinfo.json` | ENOENT, not a permission denial |
+| HiUtils `fileOperation.js` | Read successfully under `pkgs/tv.vidaa.jsservice.basic/CHA/services/hiutils/` |
+| Read-handler source | Mode 6 maps to `/APPS/`; parent traversal rejected |
+| TV writes / installation | None attempted |
+| Active Home/saver paths, original hashes and file metadata | Not established |
+| Native SDK, engine restart and independent recovery | Not established |
+
+Continue with [operationui package discovery](ACCESS-RESEARCH.md#discover-native-home-when-appinfojson-is-missing)
+using the working read contract. The `current` launcher path is a related-build
+candidate, not a successful read on this TV. The basic service's CHA does not
+prove operationui's channel; another U09.60 report uses CHB. The related
+55S7NEVS / X.Q0609 board-family report is not D.Q0516 compatibility evidence.
+Keep this case in `communityObservations`, with native Home unverified and no
+installation approval. Original source, responses and network details stay private.
 
 ## Community case: 50E6NT
 

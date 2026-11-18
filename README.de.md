@@ -1,6 +1,8 @@
 # Hisense VIDAA: eigener Homescreen statt Werbung
 
-[English](README.md) · [Agent-Einstieg](AGENT-START.md) · [Masterprompt](MASTERPROMPT.md) · [Einfache Anleitung](START-HERE.md) · [Simulation](SIMULATION.md)
+**Sprache / Language: Deutsch · [English](README.md)**
+
+[Agent-Einstieg](AGENT-START.md) · [Masterprompt](MASTERPROMPT.md) · [Einfache Anleitung](START-HERE.md) · [Simulation](SIMULATION.md)
 
 Dieses Projekt erklärt Coding Agents, wie sie auf einem **kompatiblen Hisense
 VIDAA-Fernseher** eine eigene native Startseite mit einem App-Dock einrichten.
@@ -31,15 +33,25 @@ Der Agent hält Ergebnisse fest und verfolgt bei einer gesperrten Schnittstelle
 den nächsten durch Quellen begründeten Ansatz. Community-Meldungen werden
 getrennt von bestätigten Installationen geführt.
 
+**`websdk/Appinfo.json` fehlt?** Die
+[Anleitung zur Suche nach dem nativen Home](ACCESS-RESEARCH.md#discover-native-home-when-appinfojson-is-missing)
+beschreibt das operationui-Paket und seine `current`-/CHA-/CHB-Pfade. Beim
+[55U7NQ mit D.Q0516](COMPATIBILITY.md#community-case-55u7nq) wurden erfolgreiche
+Dateilesungen gemeldet; Home-Pfad und native Kompatibilität sind noch unbestätigt.
+
 **Für dieses Projekt empfiehlt der Maintainer Codex auf dem eigenen Computer.**
-Aus der Community wurden wiederholt Ablehnungen durch Claude/Claude Code
-gemeldet. Der bereits dokumentierte 50E6NT-Besitzer meldet nun eine erfolgreiche
-Einrichtung nach dem Wechsel zu Codex. Das sind Erfahrungsberichte, kein
-kontrollierter Vergleich und keine Erfolgsgarantie für jedes Gerät.
+Der Maintainer hat die ursprüngliche Einrichtung mit mehreren Modellen
+entwickelt, darunter GPT-6.0 (Astra), und berichtet von erfolgreicher
+Unterstützung bei diesem Ablauf. Auch der bereits dokumentierte 50E6NT-Besitzer
+meldet eine erfolgreiche Einrichtung nach dem Wechsel zu Codex. Die Empfehlung
+beruht auf eigener Erfahrung und Community-Berichten; sie ist kein kontrollierter
+Vergleich und keine Erfolgsgarantie für jede Modellversion oder jeden Fernseher.
 Die [Agent-Empfehlung](AGENT-TROUBLESHOOTING.md#recommended-coding-agent-codex)
 erläutert die Grundlage.
 
 Gib Codex den Repo-Link mit dem Auftrag, es auf deinem eigenen TV einzurichten.
+Du kannst **Deutsch oder Englisch** wählen; der Agent soll in deiner gewählten
+Sprache weiterarbeiten.
 Andere geeignete lokale Coding Agents können denselben Ablauf verwenden.
 Der Agent soll zuerst selbst die lokalen Prüfungen starten. Falls er den Link
 nur zusammenfasst, kopiere diesen kurzen Auftrag:
@@ -61,6 +73,43 @@ die tatsächlichen Geräteangaben und Originaldateien, sichert sie erneut und ba
 ein privates Paket. Diese Befehle nehmen keinen Kontakt zum TV auf. Die passende
 Wartungsverbindung und eine geprüfte Installation bleiben geräteabhängig.
 Eine bestandene Simulation ersetzt keinen Hardwaretest.
+
+## Neue Erkenntnisse: erfolgreicher Lesezugriff und mögliche Home-Pfade
+
+Der [Bericht zum 55U7NQ / 55U75LEVS](COMPATIBILITY.md#community-case-55u7nq)
+mit MTK9618 / `V0000.09.60D.Q0516` liefert einen hilfreichen bestätigten Schritt
+aus der Untersuchung des Besitzers: HiUtils konnte
+`pkgs/tv.vidaa.jsservice.basic/CHA/services/hiutils/fileOperation.js` lesen.
+Laut dessen Quelltextprüfung ordnet der Handler Modus 6 dem Verzeichnis `/APPS/`
+zu. Dieser funktionierende Lesezugriff ist ein Ausgangspunkt für die weitere
+Paketsuche, obwohl `websdk/Appinfo.json` mit ENOENT antwortete. ENOENT bezeichnet
+diesen fehlenden Pfad und belegt keine allgemeine Lesesperre.
+
+Verwandte Upstream-Berichte nennen das operationui-Paket als Ansatz für die
+Home-Suche. Wenn die eigene `/APPS/`-Zuordnung bestätigt ist, lautet der erste
+Pfadkandidat:
+
+```text
+/APPS/pkgs/tv.vidaa.app.operationui/current/apps/launcher/js/app.js
+```
+
+`current` muss für jedes Paket getrennt aufgelöst werden: Dokumentierte Geräte
+nutzen CHA oder CHB. CHA beim Basisdienst bestätigt nicht den aktiven Home-Kanal.
+Die [englische Anleitung zur Pfadsuche](ACCESS-RESEARCH.md#discover-native-home-when-appinfojson-is-missing)
+verlinkt die festgehaltenen Upstream-Quellen und erklärt Paketmetadaten,
+Engine-Anbindung und die noch nötigen Originaldatei- und Wiederherstellungsprüfungen.
+Dieser Launcher-Pfad ist auf D.Q0516 noch nicht bestätigt; der erfolgreiche
+Dienst-Dateizugriff ist ein Fortschritt auf dem Weg zur Portierung.
+
+## Warum die vorhandene native Home-Engine weiterverwenden?
+
+Bei der Referenzeinrichtung wurde temporärer, autorisierter Root-Wartungszugang
+für die Installation genutzt. Das Dock ersetzt die native `/Launcher`-Komponente
+und erhält die Hersteller-Engine, Modulregistrierung, Anbindung installierter
+Apps, Eingänge und Einstellungen. Am Referenzgerät kehrt die physische Home-Taste
+direkt über diese vorhandene Engine zurück. Ein eigenes separates Verzeichnis
+müsste ebenfalls in deren Startablauf und Home-Tasten-Verarbeitung eingebunden
+werden. Details stehen im [erfolgreichen Vorgehen](WORKED-EXAMPLE.md).
 
 ## Weniger Handarbeit bei der Einrichtung
 

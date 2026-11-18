@@ -47,6 +47,13 @@ and source-backed pivots. An absent exact guide does not prevent investigation.
 Document why each rejected route is rejected and the next discriminating step;
 do not recycle a generic incompatibility response after collecting new evidence.
 
+If `websdk/Appinfo.json` is absent but file reads work, follow
+[native Home discovery](ACCESS-RESEARCH.md#discover-native-home-when-appinfojson-is-missing).
+Inspect operationui through its `current` mapping and package metadata; CHA/CHB
+selection is per package. Related-build paths are read candidates, never default
+values for `device.json.modules`. Source discovery can precede maintenance access;
+actual originals, metadata and independent recovery are still required for a port.
+
 Prefer an already authorized maintenance channel. A newly needed privileged
 bootstrap requires a concrete, owner-approved scope, reviewed code and cleanup.
 Do not run a model recipe merely because the chipset matches. Keep access

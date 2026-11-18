@@ -13,18 +13,21 @@ what an operation does.
 
 ## Recommended coding agent: Codex
 
-**The maintainer recommends local Codex for this project.** The maintainer has
-received repeated Reddit reports that Claude or Claude Code refused parts of
-the requested workflow. In the previously documented
+**The maintainer recommends local Codex for this project.** In a follow-up on
+2026-11-19, the maintainer reports developing the original setup with several
+models, including GPT-6.0 (Astra), which successfully assisted with the workflow.
+This records the maintainer's reported model label and experience, not a
+requirement to use a particular historical model version. In the documented
 [50E6NT Q0707 case](COMPATIBILITY.md#community-case-50e6nt), the maintainer reports
 that the owner switched to Codex; a follow-up received on 2026-11-16 reports
 successful setup and shows the custom dock on the TV.
 
-These are community experiences, not a controlled comparison of agents. The
-exact model versions, settings and refusal texts were not supplied for every
-report. They do not establish that Claude always refuses, that Codex accepts
-every action, or that any agent guarantees success on every TV. Claude Code
-entry instructions remain available in [CLAUDE.md](CLAUDE.md).
+These are maintainer and community experiences, not a controlled comparison of
+agents or model versions. Exact versions and settings were not supplied for
+every community report. The recommendation does not guarantee a particular
+agent response or compatibility with another TV. Other capable local coding
+agents can follow the same procedure; Claude Code entry instructions remain
+available in [CLAUDE.md](CLAUDE.md).
 
 Use an agent with local terminal access and the tools needed for the owner's
 authorized target. When continuing an existing project in Codex, give it the
@@ -50,6 +53,7 @@ Do not ask the owner to repeat the TV identity or whole chat. Separate:
 | Agent lacks screen feedback | Reuse an authorized paired remote and result receiver; ask for one visible check where observation is still missing. Do not guess destructive confirmations. |
 | Model explicitly refuses an operation on safety-policy grounds | Respect that boundary. Briefly explain which action cannot proceed and continue independently permitted diagnostics, documentation or local tests. Do not disguise or reroute the refused action. |
 | A technical probe returns an error | Record raw private evidence; distinguish transport, arguments, permission, path, lifecycle and result interpretation. Change the tested premise before retrying. |
+| `websdk/Appinfo.json` returns ENOENT while other reads work | Follow [native Home discovery](ACCESS-RESEARCH.md#discover-native-home-when-appinfojson-is-missing): inspect operationui/package metadata, resolve `current` per package, and keep CHA/CHB candidates separate from verified active paths. |
 
 A missing recovery path stops the dependent native modification. It does not
 automatically stop reading public source, reviewing existing private evidence,

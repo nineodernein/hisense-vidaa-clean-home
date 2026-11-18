@@ -59,7 +59,35 @@ class ResearchTests(unittest.TestCase):
         self.assertFalse(result['communityObservations'])
         self.assertTrue((ROOT / result['accessResearch']['guide']).is_file())
         self.assertGreater(len(result['accessResearch']['nextCapabilities']), 0)
+        discovery = result['accessResearch']['nativeHomeDiscovery']
+        self.assertTrue(discovery['pathsAreCandidates'])
+        self.assertTrue(discovery['requiresDeviceBaseMapping'])
+        self.assertIn('pkgs/tv.vidaa.app.operationui/current/apps/launcher/js/app.js',
+                      [item['path'] for item in discovery['readCandidates']])
         self.assertFalse(result['installationApproved'])
+
+    def test_q0516_read_report_routes_to_discovery_without_filling_device_evidence(self):
+        for field, model in [('marketingModel', '55U7NQ'), ('internalModel', '55U75LEVS')]:
+            with self.subTest(field=field):
+                device = {field: model, 'soc': 'MTK9618',
+                          'reportedNativeVersion': 'V0000.09.60D.Q0516', 'modules': {}}
+                original = copy.deepcopy(device)
+                result = ports.research(device, self.catalog)
+                self.assertEqual(device, original, 'Research must not populate observed module paths')
+                self.assertEqual(result['status'], 'research_leads')
+                self.assertFalse(result['exactModelReports'])
+                observation, = result['communityObservations']
+                self.assertEqual(observation['match'], 'model_and_reported_firmware')
+                self.assertEqual(observation['access'], 'file_reads_reported')
+                self.assertEqual(observation['nativeHome'], 'not_verified')
+                self.assertIn('active_home_path', observation['notEstablished'])
+                self.assertIn('independent_recovery', observation['notEstablished'])
+                self.assertFalse(result['installationApproved'])
+                self.assertFalse(result['hardwareVerifiedByThisProject'])
+                device['reportedNativeVersion'] = 'V0000.09.60X.Q0609'
+                changed = ports.research(device, self.catalog)
+                self.assertEqual(changed['communityObservations'][0]['match'], 'model_only')
+                self.assertFalse(changed['installationApproved'])
 
     def test_community_uid_and_dock_reports_never_approve_native_or_current_access(self):
         result = ports.research({'marketingModel': '50E6NT', 'soc': 'MTK9603',

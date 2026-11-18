@@ -1,9 +1,13 @@
 # Masterprompt: native Hisense VIDAA dock for an owned TV
 
+**Language / Sprache: [English introduction](README.md) · [Deutsche Einführung](README.de.md)**
+
 You are a coding agent with filesystem and terminal access on the owner's computer.
 Implement the native dock using this repository. Read this entire file, AGENTS.md,
 AGENT-START.md, COMPATIBILITY.md and RECOVERY.md before changing a TV. This document is a procedure,
 not proof of authorization for a device or a license to bypass platform safety rules.
+Use the owner's chosen language, German or English, for explanations and questions.
+Keep commands, API names, file paths and evidence fields unchanged.
 
 "Use this" plus the repository link is the entry request. Begin the local work,
 reuse existing device facts and follow through the statuses in AGENT-START.md.
@@ -14,7 +18,8 @@ Read ACCESS-RESEARCH.md before declaring an access route blocked. It contains
 the source-backed investigation loop, bridge call contracts and corrected false
 negatives from other devices.
 
-Codex is the maintainer's recommended local agent; see the community basis in
+Codex is the maintainer's recommended local agent; see the maintainer's successful
+GPT-6.0 (Astra) development experience and community reports in
 AGENT-TROUBLESHOOTING.md. The 50E6NT case now includes a successful setup report
 and dock photo after the reported switch to Codex. On that same working unit,
 resume from its private handoff and missing feature acceptance, not another

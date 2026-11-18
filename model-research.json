@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewed": "2026-11-16",
+  "reviewed": "2026-11-18",
   "upstreamRevision": "7f9c9e9f91b5e9982f0af3d515f052b7499b29b4",
   "inventory": "https://github.com/carteakey/alvidaa/blob/7f9c9e9f91b5e9982f0af3d515f052b7499b29b4/docs/research/inventory.json",
   "meaning": "Research leads only. No entry approves installation of this dock. Similar chips, firmware suffixes and retail names are not device matches.",
@@ -200,6 +200,10 @@
         "next": "Reuse an already successful same-unit read if available. Otherwise prepare the documented bounded fileRead control; a missing control path does not invalidate the bridge. Classify the envelope separately from source text, and keep reads distinct from writes."
       },
       {
+        "id": "native_home_discovery",
+        "next": "When Appinfo.json is missing but reads work, follow accessResearch.nativeHomeDiscovery. Inspect operationui through current and package metadata; resolve CHA/CHB per package. These are read candidates, not observed module paths or installation approval."
+      },
+      {
         "id": "service_source",
         "next": "Inspect actually readable vendor manifests and Fetcher implementation. HiUtils fileWrite, basic/fetcher, FaaS execution and package privilege are separate boundaries."
       },
@@ -218,6 +222,53 @@
       "rule": "Separate structured response status from returned file text. A permission property in source is not a denial; ENOENT applies to the exact path and context, not every registry or file route.",
       "priority": "Resume from established evidence on this unit. Prefer its working interface and readable sources; repeat only after a relevant premise changes or a necessary current-state check.",
       "completeness": "Incomplete source does not establish a complete argument/dispatcher contract. Source availability is not runtime write or privilege evidence."
+    },
+    "nativeHomeDiscovery": {
+      "guide": "ACCESS-RESEARCH.md#discover-native-home-when-appinfojson-is-missing",
+      "upstreamRevision": "a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058",
+      "scope": "Read-only research candidates derived from related builds; no TV calls, path observations, metadata or installation approval are supplied by this catalog.",
+      "pathsAreCandidates": true,
+      "requiresDeviceBaseMapping": true,
+      "baseIfConfirmed": "/APPS/",
+      "interface": "Reuse the device's successful fileRead argument shape. Use mode 6 only when its own handler confirms the /APPS/ mapping.",
+      "readCandidates": [
+        {
+          "path": "pkgs/tv.vidaa.app.operationui/current/apps/launcher/js/app.js",
+          "basis": "derived_from_related_package_and_launcher_layouts",
+          "purpose": "First native launcher candidate; readability does not prove the active engine mapping."
+        },
+        {
+          "path": "pkgs/opkgmeta/status",
+          "basis": "related_mtk9618_runtime_report",
+          "purpose": "Package metadata; keep full inventory private and inspect relevant entries."
+        },
+        {
+          "path": "pkgs/tv.vidaa.jsservice.system/current/services/pkgmgr/package.json",
+          "basis": "upstream_probe_source",
+          "purpose": "Manifest candidate; derive the actual entry point and read API contracts from source."
+        },
+        {
+          "path": "pkgs/tv.vidaa.app.operationui/CHA/apps/launcher/js/app.js",
+          "basis": "observed_on_75u8qtuk_q0813",
+          "purpose": "Bounded fallback candidate after inspecting package metadata; not an assumed active channel."
+        },
+        {
+          "path": "pkgs/tv.vidaa.app.operationui/CHB/apps/launcher/js/app.js",
+          "basis": "observed_on_65a85qevs_q0602",
+          "purpose": "Bounded fallback candidate after inspecting package metadata; not an assumed active channel."
+        }
+      ],
+      "sources": {
+        "mtk9618PackageLayout": "https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/docs/models/55S7NEVS/V0000.09.60X.Q0609/findings/20-userspace-runtime.md",
+        "launcherBundle": "https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/docs/models/75U8QTUK/V0000.09.60I.Q0813/findings/09-native-home.md",
+        "chbWithoutCha": "https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/docs/models/65A85QEVS/V0000.09.60A.Q0602/FINDINGS.md#13--lane-3-works-but-the-active-channel-is-chb-and-there-is-no-ssh",
+        "enginePackageWiring": "https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/docs/models/65E86GEVS/V0000.09.09O.P0930/findings/03-operationui-launcher.md",
+        "pkgmgrManifest": "https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/launcher/probes/pkgmgr.html",
+        "packageReadApiLead": "https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/docs/models/55S7NEVS/V0000.09.60X.Q0609/findings/50-security-review.md"
+      },
+      "channelRule": "Resolve current per package. A readable basic/CHA source does not select operationui/CHA. If both banks are readable, establish the active engine mapping before choosing any write target.",
+      "completeness": "Retain complete private responses and label source-text hashes separately from verified on-device file-byte hashes. fileRead alone does not establish UID/GID/mode, symlink targets or recovery.",
+      "next": "Trace actual package metadata, manifests/imports and engine startup wiring. Keep missing active paths and native contracts unknown; preserve the OEM saver for the first static port."
     }
   },
   "communityObservations": [
@@ -405,6 +456,63 @@
         "On the reporting unit, retain the existing working installation and private agent handoff. Resume at missing feature acceptance rather than reinstalling or repeating privilege tests solely for a public report.",
         "Collect one concise sanitized follow-up: tested project revision, app launch followed by physical Home return, and behavior after an owner-scheduled restart. Record untested checks as untested; do not interrupt viewing.",
         "For another unit, reuse this as an exact-model/firmware research lead. Inspect its own contracts, originals and recovery before a native trial; leave the reference profile and write guards unchanged."
+      ]
+    },
+    {
+      "id": "55u7nq-q0516-community",
+      "models": [
+        "55U7NQ",
+        "55U75LEVS"
+      ],
+      "firmwares": [
+        "V0000.09.60D.Q0516"
+      ],
+      "soc": "MTK9618",
+      "region": null,
+      "evidenceLevel": "owner_reported_file_reads",
+      "access": "file_reads_reported",
+      "nativeHome": "not_verified",
+      "source": "COMPATIBILITY.md#community-case-55u7nq",
+      "publicReport": "https://github.com/nineodernein/hisense-vidaa-clean-home/issues/1",
+      "reportedAt": "2026-11-17",
+      "reportedProjectRevision": "7d79be5533d0c9ba1cc12b0d15e0d7622e2f7c52",
+      "finding": "Owner reports successful HiUtils source read after websdk/Appinfo.json returned ENOENT. Private source inspection reportedly confirms mode 6 maps to /APPS/ and rejects parent traversal. No TV writes or installation were attempted. The operationui current/CHA/CHB paths are untested candidates on this build; source responses have not been independently checked by this project.",
+      "interfaces": {
+        "HiUtils_createRequest": "present_reported",
+        "vowOS.service.syncExecute": "present_reported",
+        "WebSDK_createFileRequest": "absent_reported"
+      },
+      "readResults": [
+        {
+          "path": "websdk/Appinfo.json",
+          "ret": false,
+          "code": 0,
+          "errorCode": "ENOENT",
+          "outcome": "path_missing_reported"
+        },
+        {
+          "path": "pkgs/tv.vidaa.jsservice.basic/CHA/services/hiutils/fileOperation.js",
+          "ret": true,
+          "code": 0,
+          "outcome": "read_reported"
+        }
+      ],
+      "notEstablished": [
+        "active_home_path",
+        "active_saver_path",
+        "active_operationui_channel",
+        "original_module_hashes",
+        "module_ownership_and_modes",
+        "native_sdk_contracts",
+        "engine_restart",
+        "independent_recovery",
+        "native_launcher_integration",
+        "physical_home_return"
+      ],
+      "nextInvestigationPlan": [
+        "Reuse the retained same-unit read/source evidence; do not repeat the missing Appinfo.json read without a changed premise.",
+        "Follow ACCESS-RESEARCH.md#discover-native-home-when-appinfojson-is-missing and accessResearch.nativeHomeDiscovery. Resolve operationui independently of the basic service channel; all suggested module paths remain untested on D.Q0516.",
+        "Retain complete original content privately and establish active package wiring, file metadata, SDK contracts and independent recovery before preparing a native trial. Do not copy reference paths or hashes into device evidence."
       ]
     }
   ]

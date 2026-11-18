@@ -1,9 +1,14 @@
 # Start from one link: Codex recommended
 
+**Language / Sprache: [English introduction](README.md) · [Deutsche Einführung](README.de.md)**
+
 The maintainer recommends local Codex based on
-[community experience](AGENT-TROUBLESHOOTING.md#recommended-coding-agent-codex),
-including the successful 50E6NT follow-up. Other capable local coding agents can
+[hands-on and community experience](AGENT-TROUBLESHOOTING.md#recommended-coding-agent-codex),
+including development with GPT-6.0 (Astra) and the successful 50E6NT follow-up.
+Other capable local coding agents can
 follow the same procedure; the recommendation is not a compatibility guarantee.
+Owners can give the setup request in English or German. Continue explanations
+and questions in the owner's chosen language; keep code, API names and paths exact.
 
 Paste this into local Codex:
 

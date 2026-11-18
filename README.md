@@ -1,7 +1,10 @@
 # Hisense VIDAA Clean Home
+
+**Language / Sprache: English · [Deutsch](README.de.md)**
+
 ## Native app dock, custom home screen and animated wallpapers
 
-[Deutsch](README.de.md) · [Start with your coding agent](AGENT-START.md) · [Download & setup](START-HERE.md) · [Compatibility](COMPATIBILITY.md) · [Offline simulation](SIMULATION.md) · [VIDAA brands & models](VIDAA-MODELS.md)
+[Start with your coding agent](AGENT-START.md) · [Download & setup](START-HERE.md) · [Compatibility](COMPATIBILITY.md) · [Offline simulation](SIMULATION.md) · [VIDAA brands & models](VIDAA-MODELS.md)
 
 Replace the sponsored Hisense VIDAA home screen with a local, native app dock.
 Keep your real installed apps, HDMI inputs and TV settings. Long-press OK to
@@ -30,14 +33,23 @@ contracts, separate HiUtils/Fetcher routes and corrected false negatives. Agents
 must keep an evidence ledger and pursue the next source-backed hypothesis when
 one interface fails. Community observations remain separate from verified ports.
 
+**`websdk/Appinfo.json` missing?** Follow the
+[native Home path discovery](ACCESS-RESEARCH.md#discover-native-home-when-appinfojson-is-missing)
+for the operationui package and its `current`/CHA/CHB layout. The
+[55U7NQ / D.Q0516 report](COMPATIBILITY.md#community-case-55u7nq) has working file
+reads; its Home path and native compatibility remain unverified.
+
 **Codex is the maintainer's recommended local coding agent for this project.**
-Repeated community reports describe Claude/Claude Code refusals; the previously
-documented 50E6NT owner now reports success after switching to Codex. This is
-community experience, not a comparative benchmark or a guarantee for every TV.
+The maintainer developed the original setup with several models, including
+GPT-6.0 (Astra), and reports successful assistance with that workflow. The
+previously documented 50E6NT owner also reports success after switching to Codex.
+The recommendation reflects hands-on experience and community reports; it is
+not a comparative benchmark or a guarantee for every model version or TV.
 See [agent choice and troubleshooting](AGENT-TROUBLESHOOTING.md#recommended-coding-agent-codex).
 
 Give the repository link to local Codex with a request to set it up for your own
-TV. Other capable local coding agents can follow the same workflow. The agent
+TV. You can ask in **English or German**; the agent should continue in your chosen
+language. Other capable local coding agents can follow the same workflow. The agent
 should begin the local checks automatically. If it only summarizes the link,
 paste this explicit instruction:
 
@@ -66,6 +78,41 @@ the new device's own original Home and documented contract/recovery evidence;
 it does not relax the reference hash guard. Neither adapter selection nor a
 passing offline test establishes hardware support. Animated media on a new
 firmware follows a successful static-Home trial and its own native-player review.
+
+### Research update: another working read route and Home path candidates
+
+The [55U7NQ / 55U75LEVS report](COMPATIBILITY.md#community-case-55u7nq)
+on MTK9618 / `V0000.09.60D.Q0516` adds a useful confirmed step in the owner's
+investigation: HiUtils successfully read
+`pkgs/tv.vidaa.jsservice.basic/CHA/services/hiutils/fileOperation.js`.
+The owner reports that its handler maps mode 6 to `/APPS/`. That working read
+provides a starting point for further package discovery even though
+`websdk/Appinfo.json` returned ENOENT. ENOENT describes that missing path;
+it does not show a general file-read permission denial.
+
+Related upstream reports identify the operationui package as a Home research
+lead. With the device's own `/APPS/` mapping confirmed, the first candidate is:
+
+```text
+/APPS/pkgs/tv.vidaa.app.operationui/current/apps/launcher/js/app.js
+```
+
+Resolve `current` separately for each package: documented units use CHA or CHB.
+The basic service's CHA does not establish Home's active channel. The
+[discovery guide](ACCESS-RESEARCH.md#discover-native-home-when-appinfojson-is-missing)
+links the pinned upstream evidence and explains package metadata, engine wiring
+and the remaining original-file/recovery checks. This launcher path has not yet
+been verified on D.Q0516; the successful service read is progress toward a port.
+
+### Why keep the existing native Home engine?
+
+The reference setup used temporary, authorized root maintenance access to
+install the change. The resulting dock replaces the native `/Launcher`
+component while preserving the vendor engine, module registry, installed-app
+integration, inputs and settings. On the reference TV, the physical Home button
+returns directly through that existing engine. A separate custom directory
+would still need integration with the engine's startup and Home-key handling.
+See the [working implementation and maintenance approach](WORKED-EXAMPLE.md).
 
 ### Less manual work during setup
 

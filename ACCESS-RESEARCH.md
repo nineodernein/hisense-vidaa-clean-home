@@ -154,6 +154,91 @@ and imports. Do not recursively dump the filesystem or collect accounts, keys
 or unrelated personal files. A claimed `opkg` architecture must come from the
 device's own configuration, not its marketing model or a sibling's chip.
 
+## Discover native Home when Appinfo.json is missing
+
+`websdk/Appinfo.json` is not a prerequisite for locating the native Home
+component. If that path returns ENOENT but another file read works, reuse the
+working read contract and investigate the native package layout. Do not create
+an empty registry, repeat the unchanged failing read or require root merely to
+continue permitted file/source research.
+
+The strongest related-build lead is `tv.vidaa.app.operationui`. The
+[55S7NEVS / MTK9618 runtime report](https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/docs/models/55S7NEVS/V0000.09.60X.Q0609/findings/20-userspace-runtime.md)
+records that package and `pkgs/<name>/{current,CHA,CHB}`. The
+[75U8QTUK U09.60 native report](https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/docs/models/75U8QTUK/V0000.09.60I.Q0813/findings/09-native-home.md)
+locates its launcher at `apps/launcher/js/app.js` inside operationui.
+These sources justify candidates; they do not establish another TV's paths.
+
+If the device's own read handler confirms mode 6 maps to `/APPS/`, the first
+launcher candidate is:
+
+```text
+pkgs/tv.vidaa.app.operationui/current/apps/launcher/js/app.js
+```
+
+Use this relative path with the already working `fileRead` argument shape.
+It corresponds to
+`/APPS/pkgs/tv.vidaa.app.operationui/current/apps/launcher/js/app.js`.
+Do not guess a new mode, add traversal or copy a sibling's bridge arguments.
+Prepare one explicit read per action; keep page load/reload passive.
+
+**Resolve the channel per package.** Another documented U09.60 unit has
+[`current -> CHB` and no CHA directory](https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/docs/models/65A85QEVS/V0000.09.60A.Q0602/FINDINGS.md#13--lane-3-works-but-the-active-channel-is-chb-and-there-is-no-ssh).
+A successful read under the basic service's CHA does not select operationui's
+channel. If `current` is missing, inspect available package metadata before a
+bounded fallback to the documented CHA/CHB candidates. Record both readable
+copies as candidates until the active mapping is established; never choose a
+write target merely because one read succeeded.
+
+| Relative path under the confirmed `/APPS/` base | Research purpose |
+| --- | --- |
+| `pkgs/opkgmeta/status` | Package metadata candidate from the MTK9618 report; retain only relevant package details in public summaries |
+| `pkgs/tv.vidaa.jsservice.system/current/services/pkgmgr/package.json` | Service manifest candidate; derive its actual entry point and read APIs from source |
+| `pkgs/tv.vidaa.app.operationui/CHA/apps/launcher/js/app.js` | Explicit launcher location on the 75U8QTUK example |
+| `pkgs/tv.vidaa.app.operationui/CHB/apps/launcher/js/app.js` | Explicit launcher location on the 65A85QEVS example |
+
+The [upstream pkgmgr probe](https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/launcher/probes/pkgmgr.html)
+supplies the service-manifest layout, but is not a reusable complete-file
+diagnostic: it reads automatically, uses a traversal-prefixed string path and
+truncates returned text to 20,000 characters. Review the needed operation alone.
+The [related MTK9618 review](https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/docs/models/55S7NEVS/V0000.09.60X.Q0609/findings/50-security-review.md)
+also reports `getInstalledPkgs`; establish its service, arguments, permissions
+and invocation effects from this device's source before considering a call.
+An installed-package list does not prove which Home is running.
+
+To establish active Home, trace the device's package selection and engine
+wiring. [Static MTK9618 analysis](https://github.com/carteakey/alvidaa/blob/a8de6db4a35e8e303bbeb0bd1bc8d6514d2f0058/docs/models/65E86GEVS/V0000.09.09O.P0930/findings/03-operationui-launcher.md)
+connects `GET_PKG_DEST`, `HI_UI_OPERATIONUI` and `/opt/hisenseUI/startgui.sh`.
+That startup path is outside the mode-6 base: use an evidenced mapped read,
+existing authorized maintenance access or an exact-build offline archive.
+Readable `current` content alone proves neither its resolved destination nor
+that the engine loaded it. Preserve stock-only `/opt/pkgs` as a source-backed
+possibility rather than declaring Home absent after `/APPS` candidates fail.
+
+Keep full responses and original bundles private. Preserve the envelope,
+requested path, firmware, encoding, transfer completeness and artifact SHA-256.
+A hash of returned source text or the JSON envelope is not automatically an
+on-device file-byte hash. Inspect actual imports/registries for the SDK and
+saver; do not guess all chunk names or recursively dump files. `fileRead` does
+not establish UID/GID/mode, symlink metadata, engine restart or recovery.
+Collect those separately before a native trial through [PORTING.md](PORTING.md).
+The first static port preserves the OEM saver.
+
+### Community case: 55U7NQ / 55U75LEVS
+
+The [owner's public report](https://github.com/nineodernein/hisense-vidaa-clean-home/issues/1)
+identifies MTK9618 / `V0000.09.60D.Q0516`. It reports HiUtils and vowOS present,
+WebSDK's file wrapper absent, ENOENT for `websdk/Appinfo.json`, and a successful
+read of `pkgs/tv.vidaa.jsservice.basic/CHA/services/hiutils/fileOperation.js`.
+Private source inspection reportedly confirms mode 6 maps to `/APPS/` and
+rejects parent traversal. No TV file write or installation was reported.
+
+The operationui candidates above have **not** been tested on this device.
+Neither the board-family 55S7NEVS / X.Q0609 result nor another MTK9618 port
+establishes D.Q0516 compatibility. Resume at package/module discovery; retain
+missing original hashes, active channel, metadata, SDK and recovery as unknown.
+See [the compatibility record](COMPATIBILITY.md#community-case-55u7nq).
+
 ## Keep the separate service route separate
 
 The upstream 09.60 reports distinguish these mechanisms:
